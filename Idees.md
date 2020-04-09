@@ -7,3 +7,6 @@ Royaume :
 - Elements : peuple, météo, noblesse, ...
 - Textuel pur ?
 
+Biosphere : 
+- Elements : animaux, plantes, climat, ...
+- évènements aléatoires déterminant le déroulement du programme
