@@ -1,24 +1,23 @@
 package organ;
 
 import mediator.BodyMediator;
-import organ.ActionOrgan;
 
-public class Legs extends ActionOrgan {
+
+public class Legs extends Organ {
     public Legs(BodyMediator mediator) {
         super(mediator);
     }
 
-    public boolean run(){
+    public void run(){
+
+        int oxygenLevel = getRessources().getOxygenLevel();
         //check si le niveau d'oxygene est suffisant
-
-        //si pas assez, return false
-
-        //sinon
-
-        //dire qu'on cours au mediator
-
+        if( oxygenLevel < 20){
+            System.out.println("Jambes : Pas assez d'oxygène!");
+            getMediator().askOxygen(this, 20);
+        }
+        System.out.println("Je cours!");
         //demander au mediator réduire le niveau d'oxygène
-
-        return true;
+        getRessources().setOxygenLevel(oxygenLevel - 10);
     }
 }

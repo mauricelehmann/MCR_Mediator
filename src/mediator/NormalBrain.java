@@ -1,9 +1,11 @@
 package mediator;
-import organ.Organ;
+import event.Event;
 
 public class NormalBrain extends BodyMediator {
-    @Override
-    public void askOxygen(Organ asker) {
-
+    public void notifyEvent(Event event){
+        if(event.type.equals("DANGER")){
+            System.out.println("Cerveau : Demande aux jambes de courir");
+            legs.run();
+        }
     }
 }
