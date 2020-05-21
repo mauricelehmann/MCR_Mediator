@@ -4,7 +4,7 @@ import mediator.BodyMediator;
 
 public abstract class Organ {
 
-    private BodyMediator mediator;
+    protected BodyMediator mediator;
 
     public Organ(BodyMediator mediator){
         this.mediator = mediator;
@@ -14,4 +14,5 @@ public abstract class Organ {
         return mediator;
     }
 
+    
 }

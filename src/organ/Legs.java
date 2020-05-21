@@ -1,9 +1,8 @@
 package organ;
 
 import mediator.BodyMediator;
-import organ.ActionOrgan;
 
-public class Legs extends ActionOrgan {
+public class Legs extends Organ {
     public Legs(BodyMediator mediator) {
         super(mediator);
     }
