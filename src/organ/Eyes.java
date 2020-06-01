@@ -1,10 +1,10 @@
 package organ;
 
 import event.Event;
-import mediator.BodyMediator;
+import mediator.Brain;
 
 public class Eyes extends Organ {
-    public Eyes(BodyMediator mediator) {
+    public Eyes(Brain mediator) {
         super(mediator);
     }
 

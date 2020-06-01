@@ -1,12 +1,15 @@
 import event.Event;
 import event.action.FleeAction;
 import event.effect.RunEffect;
-import mediator.NormalBrain;
+import mediator.Brain;
 
 public class Main {
 
     public static void main(String[] args) {
-        NormalBrain brain = new NormalBrain();
+
+
+        Brain brain = new Brain();
+        brain.run();
 
         // Création d'un effet
         RunEffect runEffect = new RunEffect(1);
@@ -22,6 +25,5 @@ public class Main {
         // Choix de l'action
         bearEvent.getPossibleActions().getFirst().applyEffects(brain);
 
-        // brain.eyes.see(new Event());
     }
 }

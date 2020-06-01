@@ -1,7 +1,7 @@
 package event.action;
 
 import event.effect.Effect;
-import mediator.BodyMediator;
+import mediator.Brain;
 import java.util.LinkedList;
 
 public abstract class Action {
@@ -15,7 +15,7 @@ public abstract class Action {
         effects.add(effect);
     }
 
-    public void applyEffects(BodyMediator bodyMediator) {
+    public void applyEffects(Brain bodyMediator) {
         for(Effect effect : effects) {
             effect.apply(bodyMediator); // FIXME: ne tient pas compte de la probabilité
         }

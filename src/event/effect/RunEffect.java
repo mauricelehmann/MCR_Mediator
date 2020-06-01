@@ -1,6 +1,6 @@
 package event.effect;
 
-import mediator.BodyMediator;
+import mediator.Brain;
 
 public class RunEffect extends Effect {
     public RunEffect(double probability) {
@@ -8,7 +8,7 @@ public class RunEffect extends Effect {
     }
 
     @Override
-    public void apply(BodyMediator bodyMediator) {
+    public void apply(Brain bodyMediator) {
         bodyMediator.run();
     }
 }

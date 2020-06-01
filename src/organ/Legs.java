@@ -1,10 +1,10 @@
 package organ;
 
-import mediator.BodyMediator;
+import mediator.Brain;
 
 
 public class Legs extends Organ {
-    public Legs(BodyMediator mediator) {
+    public Legs(Brain mediator) {
         super(mediator);
     }
 

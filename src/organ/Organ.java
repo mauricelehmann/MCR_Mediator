@@ -1,15 +1,15 @@
 package organ;
 
 import bodyRessources.BodyRessources;
-import mediator.BodyMediator;
+import mediator.Brain;
 
 public abstract class Organ {
 
-    private BodyMediator mediator;
+    private Brain mediator;
     /* Ressources */
     private BodyRessources ressources;
 
-    public Organ(BodyMediator mediator){
+    public Organ(Brain mediator){
         this.mediator = mediator;
         ressources = new BodyRessources(10);
     }
@@ -17,7 +17,7 @@ public abstract class Organ {
     protected BodyRessources getRessources(){
         return ressources;
     }
-    public BodyMediator getMediator(){
+    public Brain getMediator(){
         return mediator;
     }
 
