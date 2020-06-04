@@ -2,18 +2,18 @@ package event.effect;
 
 import mediator.Brain;
 
-public class RunEffect extends Effect {
-    public RunEffect(double probability) {
+public class DieEffect extends Effect {
+    public DieEffect(double probability) {
         super(probability);
     }
 
     @Override
     public void apply(Brain bodyMediator) {
-        bodyMediator.run();
+        // TODO: implement this
     }
 
     @Override
     public String toString() {
-        return "[Effet]: RunEffect, probability: " + probability;
+        return "[Effet]: DieEffect, probability: " + probability;
     }
 }

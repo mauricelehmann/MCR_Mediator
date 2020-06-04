@@ -1,7 +1,7 @@
 package event.action;
 
 public class FleeAction extends Action {
-    public FleeAction() {
-        super("flee");
+    public FleeAction(String name) {
+        super(name);
     }
 }

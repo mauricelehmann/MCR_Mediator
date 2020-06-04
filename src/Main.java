@@ -1,14 +1,14 @@
 import event.Event;
-import event.action.FleeAction;
-import event.effect.RunEffect;
-import mediator.Brain;
+import event.EventGenerator;
+
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
 
 
-        Brain brain = new Brain();
+        /*Brain brain = new Brain();
         brain.run();
 
         // Création d'un effet
@@ -23,7 +23,8 @@ public class Main {
         bearEvent.addAction(flee);
 
         // Choix de l'action
-        bearEvent.getPossibleActions().getFirst().applyEffects(brain);
+        bearEvent.getPossibleActions().getFirst().applyEffects(brain);*/
 
+        EventGenerator eventGenerator = new EventGenerator("events.xml");
     }
 }
