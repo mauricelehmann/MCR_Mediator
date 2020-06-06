@@ -2,16 +2,17 @@ package mediator;
 
 import bodyRessources.BodyRessources;
 import event.Event;
+import gameManager.GameManager;
 import organ.Eyes;
 import organ.Legs;
 import organ.Lungs;
 import organ.Organ;
 
-
 /**
  * Le Brain est le cerveau principal, il change d'état interne selon ses propres niveaux de ressources
  */
 public class Brain implements BrainState {
+    GameManager gameManager;
 
     BrainState exitedBrain;
     BrainState normalBrain;
@@ -25,7 +26,8 @@ public class Brain implements BrainState {
     //TODO: move this to a bodyRessource ?
     BodyRessources ressources;
 
-    public Brain(){
+    public Brain(GameManager gameManager) {
+        this.gameManager = gameManager;
 
         /* States */
         exitedBrain = new ExcitedBrain(this);
