@@ -1,4 +1,4 @@
-<!ELEMENT events (actions,event)>
+<!ELEMENT events (actions,event+)>
 
 <!ELEMENT actions (action)+>
 
@@ -6,7 +6,7 @@
 <!ATTLIST event
         id ID #REQUIRED>
 
-<!ELEMENT action (effects)>
+<!ELEMENT action (effects)*>
 <!ATTLIST action
         id ID #REQUIRED
         type (flee|eat|flirt|fight|ignore|take) #REQUIRED>
@@ -23,5 +23,5 @@
 
 <!ELEMENT effect EMPTY>
 <!ATTLIST effect
-        probabiltiy CDATA #REQUIRED
-        type (run|die|stress|eat) #REQUIRED>
+        type (run|die|stress|eat) #REQUIRED
+        probabiltiy CDATA #REQUIRED>

@@ -3,6 +3,14 @@
 
 <events>
     <actions>
+        <action id="ignore" type="ignore" />
+
+        <action id="eat" type="eat">
+            <effects>
+                <effect type="eat" probabiltiy="1" />
+            </effects>
+        </action>
+
         <action id="dangerousIgnore" type="ignore">
             <effects>
                 <effect type="die" probabiltiy="0.7"/>
@@ -40,13 +48,21 @@
     </actions>
 
     <event id="bear">
-        <description>Un ours apparaît !</description>
+        <description>un ours !</description>
         <eventActions>
             <eventAction ref="dangerousIgnore" />
             <eventAction ref="dangerousFlee" />
             <eventAction ref="dangerousEat" />
             <eventAction ref="stupidFlirt" />
             <eventAction ref="dangerousFight" />
+        </eventActions>
+    </event>
+
+    <event id="coffee">
+        <description>une tasse de café.</description>
+        <eventActions>
+            <eventAction ref="ignore"/>
+            <eventAction ref="eat" />
         </eventActions>
     </event>
 </events>

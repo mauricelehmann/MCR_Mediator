@@ -29,15 +29,7 @@ public abstract class Action {
 
     @Override
     public String toString() {
-        String string = "[Action]: " + name + "\n";
-
-        if(effects == null) {
-            string += "<aucun>\n";
-        } else {
-            for (Effect effect : effects) {
-                string += effect.toString() + "\n";
-            }
-        }
+        String string = "[Action]: " + name;
 
         return string;
     }

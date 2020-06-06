@@ -1,22 +1,33 @@
 package event;
 
+import javax.management.RuntimeErrorException;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class EventGenerator {
     static private final String BASE_PATH = "events/";
+    static private Random random = new Random();
 
-    private ArrayList<Event> events = new ArrayList<>();
+    private ArrayList<Event> events;
 
     public EventGenerator(String eventsFile) {
         events = parse(eventsFile);
+    }
 
-        for (Event event : events) {
-            System.out.println(event);
+    public Event generate() {
+        Event event = null;
+
+        if(!events.isEmpty() && events != null) {
+            // Choose the next event randomly
+            int randomEventPos = random.nextInt(events.size());
+            event = events.get(randomEventPos);
         }
+
+        return event;
     }
 
     static private ArrayList<Event> parse(String filename) { // FIXME: change this to fileinputstream ?

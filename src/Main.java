@@ -1,8 +1,3 @@
-import event.Event;
-import event.EventGenerator;
-
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -25,6 +20,7 @@ public class Main {
         // Choix de l'action
         bearEvent.getPossibleActions().getFirst().applyEffects(brain);*/
 
-        EventGenerator eventGenerator = new EventGenerator("events.xml");
+        GameManager gameManager = new GameManager();
+        gameManager.startGame();
     }
 }

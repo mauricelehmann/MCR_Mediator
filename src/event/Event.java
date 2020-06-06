@@ -29,15 +29,7 @@ public class Event {
 
     @Override
     public String toString() {
-        String string = "[Evenement]: " + description + "\n\n";
-
-        if(possibleActions == null) {
-            string += "<aucun>\n";
-        } else {
-            for (Action action : possibleActions) {
-                string += (action != null ? action.toString() : "") + "\n";
-            }
-        }
+        String string = "[Evenement]: " + description;
 
         return string;
     }
