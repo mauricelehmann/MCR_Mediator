@@ -3,11 +3,11 @@ package mediator;
 import event.Event;
 import organ.Organ;
 
-public class ExcitedBrain implements BrainState {
+public class ExcitedBrainState implements BrainState {
 
     Brain _brain;
 
-    public ExcitedBrain(Brain brain) {
+    public ExcitedBrainState(Brain brain) {
         _brain = brain;
     }
 

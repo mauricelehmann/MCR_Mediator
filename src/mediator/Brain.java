@@ -12,26 +12,50 @@ import organ.Organ;
  * Le Brain est le cerveau principal, il change d'état interne selon ses propres niveaux de ressources
  */
 public class Brain implements BrainState {
+
+    private class BrainRessources {
+        int caffeinLevel;
+        int alcoolLevel;
+        int pschoticLevel;
+
+        public BrainRessources(){
+            caffeinLevel = 0;
+            alcoolLevel = 0;
+            pschoticLevel = 0;
+        }
+    }
+
+
     GameManager gameManager;
 
+    private BrainRessources brainRessources;
+
+    /**
+     * States
+     */
     BrainState exitedBrain;
+    BrainState drunkBrain;
+    BrainState weirdBrain;
     BrainState normalBrain;
     BrainState currentBrain;
 
+
+    /**
+     * Organs
+     */
     protected Lungs lungs;
     protected Legs legs;
     public Eyes eyes;
 
 
-    //TODO: move this to a bodyRessource ?
-    BodyRessources ressources;
-
     public Brain(GameManager gameManager) {
         this.gameManager = gameManager;
 
         /* States */
-        exitedBrain = new ExcitedBrain(this);
-        normalBrain = new NormalBrain(this);
+        drunkBrain = new DrunkBrainState(this);
+        weirdBrain = new WeirdBrainState(this);
+        exitedBrain = new ExcitedBrainState(this);
+        normalBrain = new NormalBrainState(this);
         currentBrain = normalBrain;
 
         /* Adding the organs */
@@ -39,7 +63,7 @@ public class Brain implements BrainState {
         this.legs = new Legs(this);
         this.eyes = new Eyes(this);
 
-        ressources = new BodyRessources(100);
+        brainRessources = new BrainRessources();
 
     }
 
@@ -64,8 +88,15 @@ public class Brain implements BrainState {
 
         //do something with the stomac
 
-        if(ressources.getCaffeinLevel() > 100){
+        if(brainRessources.caffeinLevel > 100){
             currentBrain = exitedBrain;
         }
+        if(brainRessources.alcoolLevel > 100){
+            currentBrain = drunkBrain;
+        }
+        if(brainRessources.pschoticLevel > 100){
+            currentBrain = weirdBrain;
+        }
     }
+
 }

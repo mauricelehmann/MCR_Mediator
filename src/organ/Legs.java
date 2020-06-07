@@ -8,6 +8,10 @@ public class Legs extends Organ {
         super(mediator);
     }
 
+    public void walk(){
+
+    }
+
     public void run(){
 
         int oxygenLevel = getRessources().getOxygenLevel();
