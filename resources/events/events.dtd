@@ -1,0 +1,27 @@
+<!ELEMENT events (actions,event+)>
+
+<!ELEMENT actions (action)+>
+
+<!ELEMENT event (description,eventActions)>
+<!ATTLIST event
+        id ID #REQUIRED>
+
+<!ELEMENT action (effects)*>
+<!ATTLIST action
+        id ID #REQUIRED
+        type (flee|eat|flirt|fight|ignore|take) #REQUIRED>
+
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT eventActions (eventAction)+>
+
+<!ELEMENT effects (effect)+>
+
+<!ELEMENT eventAction EMPTY>
+<!ATTLIST eventAction
+        ref IDREF #REQUIRED>
+
+<!ELEMENT effect EMPTY>
+<!ATTLIST effect
+        type (run|die|stress|eat) #REQUIRED
+        probabiltiy CDATA #REQUIRED>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE events SYSTEM "events.dtd">
+
+<events>
+    <actions>
+        <action id="ignore" type="ignore" />
+
+        <action id="eat" type="eat">
+            <effects>
+                <effect type="eat" probabiltiy="1" />
+            </effects>
+        </action>
+
+        <action id="dangerousIgnore" type="ignore">
+            <effects>
+                <effect type="die" probabiltiy="0.7"/>
+            </effects>
+        </action>
+
+        <action id="dangerousFlee" type="flee">
+            <effects>
+                <effect type="die" probabiltiy="0.3" />
+                <effect type="run" probabiltiy="1" />
+                <effect type="stress" probabiltiy="0.5" />
+            </effects>
+        </action>
+
+        <action id="dangerousEat" type="eat">
+            <effects>
+                <effect type="die" probabiltiy="0.7" />
+                <effect type="stress" probabiltiy="0.6" />
+                <effect type="eat" probabiltiy="1" />
+            </effects>
+        </action>
+
+        <action id="stupidFlirt" type="flirt">
+            <effects>
+                <effect type="die" probabiltiy="0.8" />
+            </effects>
+        </action>
+
+        <action id="dangerousFight" type="fight">
+            <effects>
+                <effect type="die" probabiltiy="0.4" />
+                <effect type="stress" probabiltiy="0.8" />
+            </effects>
+        </action>
+    </actions>
+
+    <event id="bear">
+        <description>un ours !</description>
+        <eventActions>
+            <eventAction ref="dangerousIgnore" />
+            <eventAction ref="dangerousFlee" />
+            <eventAction ref="dangerousEat" />
+            <eventAction ref="stupidFlirt" />
+            <eventAction ref="dangerousFight" />
+        </eventActions>
+    </event>
+
+    <event id="coffee">
+        <description>une tasse de café.</description>
+        <eventActions>
+            <eventAction ref="ignore"/>
+            <eventAction ref="eat" />
+        </eventActions>
+    </event>
+</events>
