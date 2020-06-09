@@ -1,34 +1,17 @@
 package mediator;
 
-import bodyRessources.BodyRessources;
+import bodyRessources.ChemicalRessources;
 import event.Event;
 import gameManager.GameManager;
-import organ.Eyes;
-import organ.Legs;
-import organ.Lungs;
-import organ.Organ;
+import organ.*;
 
 /**
  * Le Brain est le cerveau principal, il change d'état interne selon ses propres niveaux de ressources
  */
 public class Brain implements BrainState {
 
-    private class BrainRessources {
-        int caffeinLevel;
-        int alcoolLevel;
-        int pschoticLevel;
-
-        public BrainRessources(){
-            caffeinLevel = 0;
-            alcoolLevel = 0;
-            pschoticLevel = 0;
-        }
-    }
-
-
     GameManager gameManager;
-
-    private BrainRessources brainRessources;
+    ChemicalRessources brainChemical;
 
     /**
      * States
@@ -46,7 +29,7 @@ public class Brain implements BrainState {
     protected Lungs lungs;
     protected Legs legs;
     public Eyes eyes;
-
+    protected Stomach stomach;
 
     public Brain(GameManager gameManager) {
         this.gameManager = gameManager;
@@ -62,8 +45,9 @@ public class Brain implements BrainState {
         this.lungs = new Lungs(this);
         this.legs = new Legs(this);
         this.eyes = new Eyes(this);
+        this.stomach = new Stomach(this);
 
-        brainRessources = new BrainRessources();
+        brainChemical = new ChemicalRessources(0, 0, 0);
 
     }
 
@@ -82,19 +66,37 @@ public class Brain implements BrainState {
         currentBrain.notifyEvent(event);
     }
 
-    /* EXEMPLE DE CHANGEMENT DE STATE */
-    public void drink(){
-        //do something with the mouth
 
-        //do something with the stomac
+    public void consume(ChemicalRessources substance){
+        currentBrain.consume(substance);
+    }
 
-        if(brainRessources.caffeinLevel > 100){
+
+    /**
+     * Every next turn, we reduce all the chemical ressources
+     * and check if we have to change the state
+     */
+    public void updtateChemicalLevel(){
+        //Reduce all brains chemicals level
+        if(brainChemical.getAlcoolLevel() > 0)
+            brainChemical.setAlcoolLevel(brainChemical.getAlcoolLevel() - 1);
+        if(brainChemical.getCaffeinLevel() > 0)
+            brainChemical.setCaffeinLevel(brainChemical.getCaffeinLevel() - 1);
+        if(brainChemical.getPschoticLevel() > 0)
+            brainChemical.setPschoticLevel(brainChemical.getPschoticLevel() - 1);
+
+        /* EXEMPLE DE CHANGEMENT DE STATE */
+        if(brainChemical.getCaffeinLevel() > 100){
+
+            System.out.println("Changement d'état du cerveau : le cerveau est excité");
             currentBrain = exitedBrain;
         }
-        if(brainRessources.alcoolLevel > 100){
+        if(brainChemical.getAlcoolLevel() > 100){
+            System.out.println("Changement d'état du cerveau : le cerveau est bourré");
             currentBrain = drunkBrain;
         }
-        if(brainRessources.pschoticLevel > 100){
+        if(brainChemical.getPschoticLevel() > 100){
+            System.out.println("Changement d'état du cerveau : le cerveau est bizarre...");
             currentBrain = weirdBrain;
         }
     }

@@ -1,5 +1,6 @@
 package mediator;
 
+import bodyRessources.ChemicalRessources;
 import event.Event;
 import organ.Organ;
 
@@ -28,7 +29,9 @@ public class ExcitedBrainState implements BrainState {
     }
 
     @Override
-    public void drink() {
+    public void consume(ChemicalRessources substance) {
 
     }
+
+
 }

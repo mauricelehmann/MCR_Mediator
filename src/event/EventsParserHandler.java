@@ -2,6 +2,8 @@ package event;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import bodyRessources.ChemicalRessources;
 import event.action.*;
 import event.effect.*;
 import org.xml.sax.Attributes;
@@ -73,7 +75,8 @@ public class EventsParserHandler extends DefaultHandler {
                             currentEffect = new StressEffect(probability);
                             break;
                         case "eat":
-                            currentEffect = new EatEffect(probability);
+                            // Maurice : TODO: faire qu'un evenement ou on mange qqch , il y a um ChemicalRessources assosicé. Dans le XML j'imagine ?
+                            currentEffect = new EatEffect(probability, new ChemicalRessources(0, 0, 1));
                             break;
                     }
                 }

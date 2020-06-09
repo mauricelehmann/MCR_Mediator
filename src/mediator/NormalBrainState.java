@@ -1,4 +1,5 @@
 package mediator;
+import bodyRessources.ChemicalRessources;
 import event.Event;
 import organ.Organ;
 
@@ -26,7 +27,9 @@ public class NormalBrainState implements BrainState {
     }
 
     @Override
-    public void drink() {
-
+    public void consume(ChemicalRessources substance) {
+        System.out.println("Normal brain : J'envoi la substance à l'estomac ");
+        _brain.stomach.digest(substance, _brain.brainChemical);
     }
+
 }

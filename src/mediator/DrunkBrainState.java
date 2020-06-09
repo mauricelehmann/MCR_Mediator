@@ -1,5 +1,6 @@
 package mediator;
 
+import bodyRessources.ChemicalRessources;
 import event.Event;
 import organ.Organ;
 
@@ -28,7 +29,14 @@ public class DrunkBrainState implements BrainState {
     }
 
     @Override
-    public void drink() {
-
+    public void consume(ChemicalRessources substance) {
+        //Different behavior here ...
+        if(substance.getAlcoolLevel() > 10){
+            System.out.println("ON sE lA cOlle!!!!");
+            _brain.stomach.digest(substance, _brain.brainChemical);
+        }else{
+            System.out.println("PaS asSez d'aLcooooL la DeDaaans... hips...");
+        }
     }
+
 }
