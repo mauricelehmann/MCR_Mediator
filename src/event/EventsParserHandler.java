@@ -76,7 +76,7 @@ public class EventsParserHandler extends DefaultHandler {
                             break;
                         case "eat":
                             // Maurice : TODO: faire qu'un evenement ou on mange qqch , il y a um ChemicalRessources assosicé. Dans le XML j'imagine ?
-                            currentEffect = new EatEffect(probability, new ChemicalRessources(0, 0, 1));
+                            currentEffect = new EatEffect(probability, new ChemicalRessources(0, 100, 0));
                             break;
                     }
                 }

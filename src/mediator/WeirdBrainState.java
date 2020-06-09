@@ -25,7 +25,8 @@ public class WeirdBrainState implements BrainState {
 
     @Override
     public void notifyEvent(Event event) {
-
+        // FIXME: maybe pull this up into brain
+        _brain.gameManager.takeAction(event);
     }
 
     @Override

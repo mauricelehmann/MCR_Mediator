@@ -13,7 +13,6 @@ public class EatEffect extends Effect {
 
     @Override
     public void apply(Brain bodyMediator) {
-        // TODO: faire qu'un evenement ou on mange qqch , il y a um ChemicalRessources assosicé
         bodyMediator.consume(_substance);
     }
 

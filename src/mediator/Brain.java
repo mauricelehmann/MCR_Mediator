@@ -69,8 +69,26 @@ public class Brain implements BrainState {
 
     public void consume(ChemicalRessources substance){
         currentBrain.consume(substance);
+        updtateState();
     }
 
+    private void updtateState(){
+        /* EXEMPLE DE CHANGEMENT DE STATE */
+        if(brainChemical.getCaffeinLevel() > 100){
+            System.out.println("Changement d'état du cerveau : le cerveau est excité");
+            currentBrain = exitedBrain;
+        }
+        else if(brainChemical.getAlcoolLevel() > 100){
+            System.out.println("Changement d'état du cerveau : le cerveau est bourré");
+            currentBrain = drunkBrain;
+        }
+        else if(brainChemical.getPschoticLevel() > 100){
+            System.out.println("Changement d'état du cerveau : le cerveau est bizarre...");
+            currentBrain = weirdBrain;
+        }else{
+            currentBrain = normalBrain;
+        }
+    }
 
     /**
      * Every next turn, we reduce all the chemical ressources
@@ -85,20 +103,6 @@ public class Brain implements BrainState {
         if(brainChemical.getPschoticLevel() > 0)
             brainChemical.setPschoticLevel(brainChemical.getPschoticLevel() - 1);
 
-        /* EXEMPLE DE CHANGEMENT DE STATE */
-        if(brainChemical.getCaffeinLevel() > 100){
-
-            System.out.println("Changement d'état du cerveau : le cerveau est excité");
-            currentBrain = exitedBrain;
-        }
-        if(brainChemical.getAlcoolLevel() > 100){
-            System.out.println("Changement d'état du cerveau : le cerveau est bourré");
-            currentBrain = drunkBrain;
-        }
-        if(brainChemical.getPschoticLevel() > 100){
-            System.out.println("Changement d'état du cerveau : le cerveau est bizarre...");
-            currentBrain = weirdBrain;
-        }
     }
 
 }
