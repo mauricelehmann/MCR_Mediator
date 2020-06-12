@@ -1,6 +1,7 @@
 package mediator;
 
 import bodyRessources.ChemicalRessources;
+import display.StatePanel;
 import event.GEvent;
 import gameManager.GameManager;
 import organ.*;
@@ -88,6 +89,8 @@ public class Brain implements BrainState {
         }else{
             currentBrain = normalBrain;
         }
+
+        StatePanel.updateStateDisplay(getCurrentBrainState());
     }
 
     /**
@@ -103,6 +106,10 @@ public class Brain implements BrainState {
         if(brainChemical.getPschoticLevel() > 0)
             brainChemical.setPschoticLevel(brainChemical.getPschoticLevel() - 1);
 
+    }
+
+    public String getCurrentBrainState(){
+        return currentBrain.getClass().getName();
     }
 
 }

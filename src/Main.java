@@ -1,4 +1,5 @@
 import display.ControlPanel;
+import display.StatePanel;
 import gameManager.GameManager;
 
 public class Main {
@@ -7,6 +8,7 @@ public class Main {
 
         GameManager gameManager = new GameManager();
         new ControlPanel(gameManager);
+        new StatePanel(gameManager);
         gameManager.startGame();
     }
 }
