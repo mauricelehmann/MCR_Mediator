@@ -36,6 +36,7 @@ public class EventsParserHandler extends DefaultHandler {
             case "action":
                 parseActionAttributes(attributes);
                 break;
+            //FIXME: maybe there is too much code duplication between each effect parsing
             case "dieEffect":
                 parseDieEffectAttributes(attributes);
                 break;
@@ -66,14 +67,8 @@ public class EventsParserHandler extends DefaultHandler {
                 actions.put(currentAction.getName(), currentAction);
                 break;
             case "dieEffect":
-                currentAction.addEffect(currentEffect);
-                break;
             case "eatEffect":
-                currentAction.addEffect(currentEffect);
-                break;
             case "runEffect":
-                currentAction.addEffect(currentEffect);
-                break;
             case "stressEffect":
                 currentAction.addEffect(currentEffect);
                 break;
@@ -211,7 +206,7 @@ public class EventsParserHandler extends DefaultHandler {
             return;
         }
 
-        double probability = 1;
+        double probability = 1.;
 
         for(int att = 0;  att < attributes.getLength(); ++att) {
             switch (attributes.getQName(att)) {
