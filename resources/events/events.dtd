@@ -23,19 +23,19 @@
 
 <!ELEMENT dieEffect EMPTY>
 <!ATTLIST dieEffect
-        probabiltiy CDATA #REQUIRED>
+        probability CDATA #IMPLIED>
 
 <!ELEMENT eatEffect EMPTY>
 <!ATTLIST eatEffect
-        probabiltiy CDATA #REQUIRED
+        probability CDATA #IMPLIED
         caffein CDATA #IMPLIED
         alcohol CDATA #IMPLIED
         psychotic CDATA #IMPLIED>
 
 <!ELEMENT runEffect EMPTY>
 <!ATTLIST runEffect
-        probabiltiy CDATA #REQUIRED>
+        probability CDATA #IMPLIED>
 
 <!ELEMENT stressEffect EMPTY>
 <!ATTLIST stressEffect
-        probabiltiy CDATA #REQUIRED>
+        probability CDATA #IMPLIED>

@@ -1,9 +1,10 @@
-package event;
+package event.parser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import bodyRessources.ChemicalRessources;
+import event.Event;
 import event.action.*;
 import event.effect.*;
 import org.xml.sax.Attributes;

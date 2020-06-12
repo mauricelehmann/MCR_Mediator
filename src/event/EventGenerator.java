@@ -1,7 +1,8 @@
 package event;
 
-import javax.management.RuntimeErrorException;
 import javax.xml.parsers.*;
+
+import event.parser.EventsParserHandler;
 import org.xml.sax.*;
 import java.io.IOException;
 import java.net.URL;
