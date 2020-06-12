@@ -33,8 +33,10 @@ public class ControlPanel
         frame.revalidate();
         frame.repaint();
 
-        JButton button;
+        JLabel eventLabel = new JLabel(event.getDescription());
+        frame.add(eventLabel);
 
+        JButton button;
         LinkedList<Action> actions = event.getPossibleActions();
         for(int i = 0; i < actions.size(); ++i) {
             System.out.println(i + ") " + actions.get(i));
