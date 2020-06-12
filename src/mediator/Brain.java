@@ -106,6 +106,7 @@ public class Brain implements BrainState {
         if(brainChemical.getPschoticLevel() > 0)
             brainChemical.setPschoticLevel(brainChemical.getPschoticLevel() - 1);
 
+        StatePanel.updateChemicalsDisplay(brainChemical);
     }
 
     public String getCurrentBrainState(){
