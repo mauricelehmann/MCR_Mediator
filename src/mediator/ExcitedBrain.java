@@ -1,10 +1,11 @@
 package mediator;
 
-import organ.Organ;
+import event.Event;
 
-public class ExcitedBrain extends BodyMediator {
+public class ExcitedBrain extends Brain {
+
     @Override
-    public void askOxygen(Organ asker) {
+    public void notifyEvent(Event event) {
 
     }
 }

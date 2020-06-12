@@ -1,16 +1,18 @@
 package organ;
 
-import mediator.BodyMediator;
+import mediator.BloodSystem;
+import mediator.Brain;
 
-public class Lungs extends ActionOrgan {
+public class Lungs extends Organ {
+    private BloodSystem bloodSystem;
+    private final int lungCapacity = 10;
 
-    public Lungs(BodyMediator mediator){
+    public Lungs(Brain mediator){
         super(mediator);
     }
 
-    public void pump(int amount){
-        //Afficher : "je pompe"
-        //Notifier au mediator que c'est bon
+    public void breathe(){
+        bloodSystem.addOxygen(lungCapacity);
     }
 
 }
