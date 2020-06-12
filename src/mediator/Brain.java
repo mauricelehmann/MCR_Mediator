@@ -1,6 +1,7 @@
 package mediator;
 
 import bodyRessources.ChemicalRessources;
+import display.OrganPanel;
 import display.StatePanel;
 import event.GEvent;
 import gameManager.GameManager;
@@ -111,6 +112,10 @@ public class Brain implements BrainState {
 
     public String getCurrentBrainState(){
         return currentBrain.getClass().getName();
+    }
+
+    public void updateOrganDisplay(Organ organ, String toDisplay){
+        OrganPanel.updateOrganDisplay(organ.getClass().getName(), toDisplay);
     }
 
 }

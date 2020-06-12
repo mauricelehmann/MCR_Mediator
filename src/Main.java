@@ -1,4 +1,5 @@
 import display.ControlPanel;
+import display.OrganPanel;
 import display.StatePanel;
 import gameManager.GameManager;
 
@@ -9,6 +10,7 @@ public class Main {
         GameManager gameManager = new GameManager();
         new ControlPanel(gameManager);
         new StatePanel(gameManager);
+        new OrganPanel(gameManager);
         gameManager.startGame();
     }
 }

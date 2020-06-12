@@ -14,6 +14,8 @@ public class Stomach extends Organ {
         System.out.println("Psychédélique : " + substance.getPschoticLevel());
         System.out.println("Alcool : " + substance.getAlcoolLevel());
 
+        notifyDisplay("L'estomac digère du stuff");
+
         //Update chemicals
         brainChemical.setCaffeinLevel(brainChemical.getCaffeinLevel() + substance.getCaffeinLevel());
         brainChemical.setPschoticLevel(brainChemical.getPschoticLevel() + substance.getPschoticLevel());

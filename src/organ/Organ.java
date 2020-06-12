@@ -25,5 +25,9 @@ public abstract class Organ {
         ressources.setOxygenLevel(ressources.getOxygenLevel() + value);
     }
 
+    public void notifyDisplay(String toDisplay){
+        mediator.updateOrganDisplay(this, toDisplay);
+    }
+
 
 }
