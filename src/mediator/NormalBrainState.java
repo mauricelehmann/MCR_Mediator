@@ -1,6 +1,6 @@
 package mediator;
 import bodyRessources.ChemicalRessources;
-import event.Event;
+import event.GEvent;
 import organ.Organ;
 
 public class NormalBrainState implements BrainState {
@@ -21,7 +21,7 @@ public class NormalBrainState implements BrainState {
         _brain.legs.run();
     }
 
-    public void notifyEvent(Event event) {
+    public void notifyEvent(GEvent event) {
         // FIXME: maybe pull this up into brain
         _brain.gameManager.takeAction(event);
     }

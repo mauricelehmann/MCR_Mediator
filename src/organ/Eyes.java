@@ -1,6 +1,6 @@
 package organ;
 
-import event.Event;
+import event.GEvent;
 import mediator.Brain;
 
 public class Eyes extends Organ {
@@ -8,7 +8,7 @@ public class Eyes extends Organ {
         super(mediator);
     }
 
-    public void see(Event event){
+    public void see(GEvent event){
         System.out.println("Je vois : " + event.description);
         getMediator().notifyEvent(event);
     }

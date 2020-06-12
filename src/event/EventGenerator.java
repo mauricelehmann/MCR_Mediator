@@ -1,6 +1,5 @@
 package event;
 
-import javax.management.RuntimeErrorException;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import java.io.IOException;
@@ -12,14 +11,14 @@ public class EventGenerator {
     static private final String BASE_PATH = "events/";
     static private Random random = new Random();
 
-    private ArrayList<Event> events;
+    private ArrayList<GEvent> events;
 
     public EventGenerator(String eventsFile) {
         events = parse(eventsFile);
     }
 
-    public Event generate() {
-        Event event = null;
+    public GEvent generate() {
+        GEvent event = null;
 
         if(!events.isEmpty() && events != null) {
             // Choose the next event randomly
@@ -30,8 +29,8 @@ public class EventGenerator {
         return event;
     }
 
-    static private ArrayList<Event> parse(String filename) { // FIXME: change this to fileinputstream ?
-        ArrayList<Event> events = new ArrayList<>();
+    static private ArrayList<GEvent> parse(String filename) { // FIXME: change this to fileinputstream ?
+        ArrayList<GEvent> events = new ArrayList<>();
 
         try {
             SAXParserFactory spf = SAXParserFactory.newInstance();

@@ -11,12 +11,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class EventsParserHandler extends DefaultHandler {
-    private Event currentEvent = null;
+    private GEvent currentEvent = null;
     private Action currentAction = null;
     private Effect currentEffect = null;
 
     private String elementValue;
-    private ArrayList<Event> events = new ArrayList<>();
+    private ArrayList<GEvent> events = new ArrayList<>();
     private HashMap<String, Action> actions = new HashMap();
 
     public void startDocument() throws SAXException {
@@ -30,7 +30,7 @@ public class EventsParserHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException  {
         switch (qName) {
             case "event":
-                currentEvent = new Event();
+                currentEvent = new GEvent();
                 break;
             case "action":
                 if(attributes != null) {
@@ -111,7 +111,7 @@ public class EventsParserHandler extends DefaultHandler {
         elementValue = new String(ch, start, length);
     }
 
-    public ArrayList<Event> getEvents() {
+    public ArrayList<GEvent> getEvents() {
         return events;
     }
 }

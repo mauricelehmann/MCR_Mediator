@@ -1,6 +1,7 @@
 package gameManager;
 
-import event.Event;
+import display.ControlPanel;
+import event.GEvent;
 import event.EventGenerator;
 import event.action.Action;
 import mediator.Brain;
@@ -32,7 +33,9 @@ public class GameManager {
         brain.updtateChemicalLevel();
     }
 
-    public void takeAction(Event event) {
+    public void takeAction(GEvent event) {
+        ControlPanel.handleEvent(event);
+
         // Choose action response to event
         System.out.println("Que faire ?");
 

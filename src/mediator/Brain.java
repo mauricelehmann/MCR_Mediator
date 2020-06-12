@@ -1,7 +1,7 @@
 package mediator;
 
 import bodyRessources.ChemicalRessources;
-import event.Event;
+import event.GEvent;
 import gameManager.GameManager;
 import organ.*;
 
@@ -62,7 +62,7 @@ public class Brain implements BrainState {
     }
 
     @Override
-    public void notifyEvent(Event event) {
+    public void notifyEvent(GEvent event) {
         currentBrain.notifyEvent(event);
     }
 

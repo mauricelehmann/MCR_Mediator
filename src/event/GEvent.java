@@ -3,11 +3,11 @@ package event;
 import event.action.Action;
 import java.util.LinkedList;
 
-public class Event {
+public class GEvent {
     public String description;
     public LinkedList<Action> possibleActions = new LinkedList<>();
 
-    public Event() {
+    public GEvent() {
 
     }
 
