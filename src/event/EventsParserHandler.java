@@ -35,8 +35,17 @@ public class EventsParserHandler extends DefaultHandler {
             case "action":
                 parseActionAttributes(attributes);
                 break;
-            case "effect":
-                parseEffectAttributes(attributes);
+            case "dieEffect":
+                parseDieEffectAttributes(attributes);
+                break;
+            case "eatEffect":
+                parseEatEffectAttributes(attributes);
+                break;
+            case "runEffect":
+                parseRunEffectAttributes(attributes);
+                break;
+            case "stressEffect":
+                parseStressEffectAttributes(attributes);
                 break;
             case "eventAction":
                 parseEventActionAttributes(attributes);
@@ -55,7 +64,16 @@ public class EventsParserHandler extends DefaultHandler {
             case "action":
                 actions.put(currentAction.getName(), currentAction);
                 break;
-            case "effect":
+            case "dieEffect":
+                currentAction.addEffect(currentEffect);
+                break;
+            case "eatEffect":
+                currentAction.addEffect(currentEffect);
+                break;
+            case "runEffect":
+                currentAction.addEffect(currentEffect);
+                break;
+            case "stressEffect":
                 currentAction.addEffect(currentEffect);
                 break;
         }
@@ -121,12 +139,29 @@ public class EventsParserHandler extends DefaultHandler {
         }
     }
 
-    private void parseEffectAttributes(Attributes attributes) {
+    private void parseDieEffectAttributes(Attributes attributes) {
         if(attributes == null) {
             return;
         }
 
-        String effectType = "";
+        double probability = 1;
+
+        for(int att = 0;  att < attributes.getLength(); ++att) {
+            switch (attributes.getQName(att)) {
+                case "probability":
+                    probability = Double.parseDouble(attributes.getValue(att));
+                    break;
+            }
+        }
+
+        currentEffect = new DieEffect(probability);
+    }
+
+    private void parseEatEffectAttributes(Attributes attributes) {
+        if(attributes == null) {
+            return;
+        }
+
         double probability = 1;
         int caffein = 0;
         int alcohol = 0;
@@ -134,9 +169,6 @@ public class EventsParserHandler extends DefaultHandler {
 
         for(int att = 0;  att < attributes.getLength(); ++att) {
             switch (attributes.getQName(att)) {
-                case "type":
-                    effectType = attributes.getValue(att);
-                    break;
                 case "probability":
                     probability = Double.parseDouble(attributes.getValue(att));
                     break;
@@ -152,20 +184,42 @@ public class EventsParserHandler extends DefaultHandler {
             }
         }
 
-        switch(effectType) {
-            case "run":
-                currentEffect = new RunEffect(probability);
-                break;
-            case "die":
-                currentEffect = new DieEffect(probability);
-                break;
-            case "stress":
-                currentEffect = new StressEffect(probability);
-                break;
-            case "eat":
-                currentEffect = new EatEffect(probability, new ChemicalRessources(caffein, alcohol, psychotic));
-                break;
+        currentEffect = new EatEffect(probability, new ChemicalRessources(caffein, alcohol, psychotic));
+    }
+
+    private void parseStressEffectAttributes(Attributes attributes) {
+        if(attributes == null) {
+            return;
         }
 
+        double probability = 1;
+
+        for(int att = 0;  att < attributes.getLength(); ++att) {
+            switch (attributes.getQName(att)) {
+                case "probability":
+                    probability = Double.parseDouble(attributes.getValue(att));
+                    break;
+            }
+        }
+
+        currentEffect = new StressEffect(probability);
+    }
+
+    private void parseRunEffectAttributes(Attributes attributes) {
+        if(attributes == null) {
+            return;
+        }
+
+        double probability = 1;
+
+        for(int att = 0;  att < attributes.getLength(); ++att) {
+            switch (attributes.getQName(att)) {
+                case "probability":
+                    probability = Double.parseDouble(attributes.getValue(att));
+                    break;
+            }
+        }
+
+        currentEffect = new RunEffect(probability);
     }
 }

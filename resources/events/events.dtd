@@ -15,16 +15,27 @@
 
 <!ELEMENT eventActions (eventAction)+>
 
-<!ELEMENT effects (effect)+>
+<!ELEMENT effects (dieEffect|eatEffect|runEffect|stressEffect)+>
 
 <!ELEMENT eventAction EMPTY>
 <!ATTLIST eventAction
         ref IDREF #REQUIRED>
 
-<!ELEMENT effect EMPTY>
-<!ATTLIST effect
-        type (run|die|stress|eat) #REQUIRED
+<!ELEMENT dieEffect EMPTY>
+<!ATTLIST dieEffect
+        probabiltiy CDATA #REQUIRED>
+
+<!ELEMENT eatEffect EMPTY>
+<!ATTLIST eatEffect
         probabiltiy CDATA #REQUIRED
         caffein CDATA #IMPLIED
         alcohol CDATA #IMPLIED
         psychotic CDATA #IMPLIED>
+
+<!ELEMENT runEffect EMPTY>
+<!ATTLIST runEffect
+        probabiltiy CDATA #REQUIRED>
+
+<!ELEMENT stressEffect EMPTY>
+<!ATTLIST stressEffect
+        probabiltiy CDATA #REQUIRED>

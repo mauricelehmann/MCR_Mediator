@@ -7,42 +7,42 @@
 
         <action id="eatCoffee" type="eat">
             <effects>
-                <effect type="eat" probabiltiy="1" caffein="20" />
+                <eatEffect probabiltiy="1" caffein="20" />
             </effects>
         </action>
 
         <action id="dangerousIgnore" type="ignore">
             <effects>
-                <effect type="die" probabiltiy="0.7"/>
+                <dieEffect probabiltiy="0.7"/>
             </effects>
         </action>
 
         <action id="dangerousFlee" type="flee">
             <effects>
-                <effect type="die" probabiltiy="0.3" />
-                <effect type="run" probabiltiy="1" />
-                <effect type="stress" probabiltiy="0.5" />
+                <dieEffect probabiltiy="0.3" />
+                <runEffect probabiltiy="1" />
+                <stressEffect probabiltiy="0.5" />
             </effects>
         </action>
 
         <action id="dangerousEat" type="eat">
             <effects>
-                <effect type="die" probabiltiy="0.7" />
-                <effect type="stress" probabiltiy="0.6" />
-                <effect type="eat" probabiltiy="1" />
+                <dieEffect probabiltiy="0.7" />
+                <stressEffect probabiltiy="0.6" />
+                <eatEffect probabiltiy="1" />
             </effects>
         </action>
 
         <action id="stupidFlirt" type="flirt">
             <effects>
-                <effect type="die" probabiltiy="0.8" />
+                <dieEffect probabiltiy="0.8" />
             </effects>
         </action>
 
         <action id="dangerousFight" type="fight">
             <effects>
-                <effect type="die" probabiltiy="0.4" />
-                <effect type="stress" probabiltiy="0.8" />
+                <dieEffect probabiltiy="0.4" />
+                <stressEffect probabiltiy="0.8" />
             </effects>
         </action>
     </actions>
