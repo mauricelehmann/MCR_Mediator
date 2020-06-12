@@ -24,4 +24,7 @@
 <!ELEMENT effect EMPTY>
 <!ATTLIST effect
         type (run|die|stress|eat) #REQUIRED
-        probabiltiy CDATA #REQUIRED>
+        probabiltiy CDATA #REQUIRED
+        caffein CDATA #IMPLIED
+        alcohol CDATA #IMPLIED
+        psychotic CDATA #IMPLIED>

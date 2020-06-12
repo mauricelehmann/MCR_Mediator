@@ -5,9 +5,9 @@
     <actions>
         <action id="ignore" type="ignore" />
 
-        <action id="eat" type="eat">
+        <action id="eatCoffee" type="eat">
             <effects>
-                <effect type="eat" probabiltiy="1" />
+                <effect type="eat" probabiltiy="1" caffein="20" />
             </effects>
         </action>
 
@@ -62,7 +62,7 @@
         <description>une tasse de café.</description>
         <eventActions>
             <eventAction ref="ignore"/>
-            <eventAction ref="eat" />
+            <eventAction ref="eatCoffee" />
         </eventActions>
     </event>
 </events>

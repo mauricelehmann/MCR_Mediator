@@ -33,59 +33,13 @@ public class EventsParserHandler extends DefaultHandler {
                 currentEvent = new Event();
                 break;
             case "action":
-                if(attributes != null) {
-                    String actionId = attributes.getValue(0);
-                    String actionType = attributes.getValue(1);
-
-                    switch(actionType) {
-                        case "eat":
-                            currentAction = new EatAction(actionId);
-                            break;
-                        case "fight":
-                            currentAction = new FightAction(actionId);
-                            break;
-                        case "flee":
-                            currentAction = new FleeAction(actionId);
-                            break;
-                        case "flirt":
-                            currentAction = new FlirtAction(actionId);
-                            break;
-                        case "ignore":
-                            currentAction = new IgnoreAction(actionId);
-                            break;
-                        case "take":
-                            currentAction = new TakeAction(actionId);
-                            break;
-                    }
-                }
+                parseActionAttributes(attributes);
                 break;
             case "effect":
-                if(attributes != null) {
-                    String effectType = attributes.getValue(0);
-                    double probability = Double.parseDouble(attributes.getValue(1));
-
-                    switch(effectType) {
-                        case "run":
-                            currentEffect = new RunEffect(probability);
-                            break;
-                        case "die":
-                            currentEffect = new DieEffect(probability);
-                            break;
-                        case "stress":
-                            currentEffect = new StressEffect(probability);
-                            break;
-                        case "eat":
-                            // Maurice : TODO: faire qu'un evenement ou on mange qqch , il y a um ChemicalRessources assosicé. Dans le XML j'imagine ?
-                            currentEffect = new EatEffect(probability, new ChemicalRessources(0, 100, 0));
-                            break;
-                    }
-                }
+                parseEffectAttributes(attributes);
                 break;
             case "eventAction":
-                if(attributes != null) {
-                    String actionName = attributes.getValue(0);
-                    currentEvent.addAction(actions.get(actionName));
-                }
+                parseEventActionAttributes(attributes);
                 break;
         }
     }
@@ -113,5 +67,105 @@ public class EventsParserHandler extends DefaultHandler {
 
     public ArrayList<Event> getEvents() {
         return events;
+    }
+
+    private void parseActionAttributes(Attributes attributes) {
+        if(attributes == null) {
+            return;
+        }
+
+        String name = "";
+
+        for(int att = 0; att < attributes.getLength(); ++att) {
+            switch (attributes.getQName(att)) {
+                case "id":
+                    name = attributes.getValue(att);
+                    break;
+                case "type":
+                    switch(attributes.getValue(att)) {
+                        case "eat":
+                            currentAction = new EatAction(name);
+                            break;
+                        case "fight":
+                            currentAction = new FightAction(name);
+                            break;
+                        case "flee":
+                            currentAction = new FleeAction(name);
+                            break;
+                        case "flirt":
+                            currentAction = new FlirtAction(name);
+                            break;
+                        case "ignore":
+                            currentAction = new IgnoreAction(name);
+                            break;
+                        case "take":
+                            currentAction = new TakeAction(name);
+                            break;
+                    }
+            }
+        }
+    }
+
+    private void parseEventActionAttributes(Attributes attributes) {
+        if(attributes == null) {
+            return;
+        }
+
+        for(int att = 0; att < attributes.getLength(); ++att) {
+            switch (attributes.getQName(att)) {
+                case "ref":
+                    String actionName = attributes.getValue(att);
+                    currentEvent.addAction(actions.get(actionName));
+                    break;
+            }
+        }
+    }
+
+    private void parseEffectAttributes(Attributes attributes) {
+        if(attributes == null) {
+            return;
+        }
+
+        String effectType = "";
+        double probability = 1;
+        int caffein = 0;
+        int alcohol = 0;
+        int psychotic = 0;
+
+        for(int att = 0;  att < attributes.getLength(); ++att) {
+            switch (attributes.getQName(att)) {
+                case "type":
+                    effectType = attributes.getValue(att);
+                    break;
+                case "probability":
+                    probability = Double.parseDouble(attributes.getValue(att));
+                    break;
+                case "alcohol":
+                    alcohol = Integer.parseInt(attributes.getValue(att));
+                    break;
+                case "caffein":
+                    caffein = Integer.parseInt(attributes.getValue(att));
+                    break;
+                case "psychotic":
+                    psychotic = Integer.parseInt(attributes.getValue(att));
+                    break;
+            }
+        }
+
+        switch(effectType) {
+            case "run":
+                currentEffect = new RunEffect(probability);
+                break;
+            case "die":
+                currentEffect = new DieEffect(probability);
+                break;
+            case "stress":
+                currentEffect = new StressEffect(probability);
+                break;
+            case "eat":
+                currentEffect = new EatEffect(probability, new ChemicalRessources(caffein, alcohol, psychotic));
+                break;
+        }
+
     }
 }
