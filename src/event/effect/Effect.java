@@ -10,4 +10,8 @@ public abstract class Effect {
     public Effect(double probability) {
         this.probability = probability;
     }
+
+    public double getProbability() {
+        return probability;
+    }
 }

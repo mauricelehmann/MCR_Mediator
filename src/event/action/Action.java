@@ -3,8 +3,11 @@ package event.action;
 import event.effect.Effect;
 import mediator.Brain;
 import java.util.LinkedList;
+import java.util.Random;
 
 public abstract class Action {
+    static private Random random = new Random(); // TODO: maybe moves this into GameManager
+
     // TODO: each action subclass should have an image for the action button
     private String name;
     private LinkedList<Effect> effects = new LinkedList<>();
@@ -19,7 +22,9 @@ public abstract class Action {
 
     public void applyEffects(Brain bodyMediator) {
         for(Effect effect : effects) {
-            effect.apply(bodyMediator); // FIXME: ne tient pas compte de la probabilité
+            if(random.nextDouble() <= effect.getProbability()) {
+                effect.apply(bodyMediator);
+            }
         }
     }
 

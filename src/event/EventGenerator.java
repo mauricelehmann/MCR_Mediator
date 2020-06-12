@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class EventGenerator {
     static private final String BASE_PATH = "events/";
-    static private Random random = new Random();
+    static private Random random = new Random(); // TODO: maybe moves this into GameManager
 
     private ArrayList<Event> events;
 
