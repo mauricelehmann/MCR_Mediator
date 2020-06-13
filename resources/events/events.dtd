@@ -2,7 +2,7 @@
 
 <!ELEMENT actions (action)+>
 
-<!ELEMENT event (description,eventActions)>
+<!ELEMENT event (description,hallucination?,eventActions)>
 <!ATTLIST event
         id ID #REQUIRED>
 
@@ -12,6 +12,7 @@
         type (flee|eat|flirt|fight|ignore|take) #REQUIRED>
 
 <!ELEMENT description (#PCDATA)>
+<!ELEMENT hallucination (#PCDATA)>
 
 <!ELEMENT eventActions (eventAction)+>
 
@@ -30,7 +31,8 @@
         probability CDATA #IMPLIED
         caffein CDATA #IMPLIED
         alcohol CDATA #IMPLIED
-        psychotic CDATA #IMPLIED>
+        psychedelic CDATA #IMPLIED
+        protein CDATA #IMPLIED>
 
 <!ELEMENT runEffect EMPTY>
 <!ATTLIST runEffect

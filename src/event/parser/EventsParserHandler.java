@@ -63,6 +63,9 @@ public class EventsParserHandler extends DefaultHandler {
             case "description":
                 currentEvent.setDescription(elementValue);
                 break;
+            case "hallucination":
+                currentEvent.setHallucination(elementValue);
+                break;
             case "action":
                 actions.put(currentAction.getName(), currentAction);
                 break;
@@ -140,7 +143,7 @@ public class EventsParserHandler extends DefaultHandler {
             return;
         }
 
-        double probability = 1;
+        double probability = 1.;
 
         for(int att = 0;  att < attributes.getLength(); ++att) {
             switch (attributes.getQName(att)) {
@@ -158,10 +161,11 @@ public class EventsParserHandler extends DefaultHandler {
             return;
         }
 
-        double probability = 1;
+        double probability = 1.;
         int caffein = 0;
         int alcohol = 0;
-        int psychotic = 0;
+        int psychdedelic = 0;
+        int protein = 0;
 
         for(int att = 0;  att < attributes.getLength(); ++att) {
             switch (attributes.getQName(att)) {
@@ -174,13 +178,16 @@ public class EventsParserHandler extends DefaultHandler {
                 case "caffein":
                     caffein = Integer.parseInt(attributes.getValue(att));
                     break;
-                case "psychotic":
-                    psychotic = Integer.parseInt(attributes.getValue(att));
+                case "psychedelic":
+                    psychdedelic = Integer.parseInt(attributes.getValue(att));
+                    break;
+                case "protein":
+                    protein = Integer.parseInt(attributes.getValue(att));
                     break;
             }
         }
 
-        currentEffect = new EatEffect(probability, new ChemicalRessources(caffein, alcohol, psychotic));
+        currentEffect = new EatEffect(probability, new ChemicalRessources(caffein, alcohol, psychdedelic, protein));
     }
 
     private void parseStressEffectAttributes(Attributes attributes) {
@@ -188,7 +195,7 @@ public class EventsParserHandler extends DefaultHandler {
             return;
         }
 
-        double probability = 1;
+        double probability = 1.;
 
         for(int att = 0;  att < attributes.getLength(); ++att) {
             switch (attributes.getQName(att)) {

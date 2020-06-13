@@ -23,13 +23,22 @@ public class NormalBrainState implements BrainState {
 
     public void notifyEvent(Event event) {
         // FIXME: maybe pull this up into brain
-        _brain.gameManager.takeAction(event);
+        _brain.getGameManager().takeAction(event);
     }
 
     @Override
     public void consume(ChemicalRessources substance) {
         System.out.println("Normal brain : J'envoi la substance à l'estomac ");
-        _brain.stomach.digest(substance, _brain.brainChemical);
+        _brain.stomach.digest(substance, _brain.getBrainChemical());
     }
 
+    @Override
+    public void stress() {
+        // TODO: implémenter
+    }
+
+    @Override
+    public void processEyesVision(Event event) {
+        System.out.println("Je vois : " + event.getDescription());
+    }
 }

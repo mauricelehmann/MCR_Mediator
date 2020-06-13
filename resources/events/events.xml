@@ -5,9 +5,27 @@
     <actions>
         <action id="ignore" type="ignore" />
 
-        <action id="eatCoffee" type="eat">
+        <action id="drinkWater" type="eat">
             <effects>
-                <eatEffect caffein="20" />
+                <eatEffect caffein="-20" alcohol="-40" />
+            </effects>
+        </action>
+
+        <action id="drinkCoffee" type="eat">
+            <effects>
+                <eatEffect caffein="50" />
+            </effects>
+        </action>
+
+        <action id="drinkStrongAlcohol" type="eat">
+            <effects>
+                <eatEffect alcohol="70" />
+            </effects>
+        </action>
+
+        <action id="drinkLightAlcohol" type="eat">
+            <effects>
+                <eatEffect alcohol="30" />
             </effects>
         </action>
 
@@ -25,11 +43,19 @@
             </effects>
         </action>
 
+        <action id="easyFlee" type="flee">
+            <effects>
+                <dieEffect probability="0.05" />
+                <runEffect />
+                <stressEffect probability="0.3" />
+            </effects>
+        </action>
+
         <action id="dangerousEat" type="eat">
             <effects>
-                <dieEffect probability="0.7" />
+                <dieEffect probability="0.5" />
                 <stressEffect probability="0.6" />
-                <eatEffect />
+                <eatEffect protein="20" />
             </effects>
         </action>
 
@@ -39,30 +65,157 @@
             </effects>
         </action>
 
-        <action id="dangerousFight" type="fight">
+        <action id="dangerousFightAnimal" type="fight">
             <effects>
                 <dieEffect probability="0.4" />
                 <stressEffect probability="0.8" />
+                <eatEffect protein="40" probability="0.9" />
+                <runEffect probability="0.7" />
+            </effects>
+        </action>
+
+        <action id="easyFightAnimal" type="fight">
+            <effects>
+                <stressEffect probability="0.2" />
+                <eatEffect protein="40" />
+                <runEffect probability="0.6" />
+            </effects>
+        </action>
+
+        <action id="eatPsyMushroom" type="eat">
+            <effects>
+                <eatEffect protein="10" psychedelic="100" />
+            </effects>
+        </action>
+
+        <action id="normalEat" type="eat">
+            <effects>
+                <eatEffect protein="15" />
             </effects>
         </action>
     </actions>
 
     <event id="bear">
-        <description>un ours !</description>
+        <description>Un ours</description>
         <eventActions>
             <eventAction ref="dangerousIgnore" />
             <eventAction ref="dangerousFlee" />
-            <eventAction ref="dangerousEat" />
             <eventAction ref="stupidFlirt" />
-            <eventAction ref="dangerousFight" />
+            <eventAction ref="dangerousFightAnimal" />
+        </eventActions>
+    </event>
+
+    <event id="water">
+        <description>De l'eau</description>
+        <eventActions>
+            <eventAction ref="ignore" />
+            <eventAction ref="drinkWater" />
         </eventActions>
     </event>
 
     <event id="coffee">
-        <description>une tasse de café.</description>
+        <description>Une tasse de café.</description>
         <eventActions>
             <eventAction ref="ignore"/>
-            <eventAction ref="eatCoffee" />
+            <eventAction ref="drinkCoffee" />
+        </eventActions>
+    </event>
+    
+    <event id="vodka">
+        <description>De la vodka</description>
+        <eventActions>
+            <eventAction ref="ignore" />
+            <eventAction ref="drinkStrongAlcohol"/>
+        </eventActions>
+    </event>
+
+    <event id="beer">
+        <description>De la bière</description>
+        <eventActions>
+            <eventAction ref="ignore" />
+            <eventAction ref="drinkLightAlcohol"/>
+        </eventActions>
+    </event>
+
+    <event id="psyMushroom">
+        <description>Un champignon</description>
+        <eventActions>
+            <eventAction ref="ignore" />
+            <eventAction ref="eatPsyMushroom" />
+        </eventActions>
+    </event>
+
+    <event id="mushroom">
+        <description>Un champignon</description>
+        <eventActions>
+            <eventAction ref="ignore" />
+            <eventAction ref="normalEat" />
+        </eventActions>
+    </event>
+    
+    <event id="carrot">
+        <description>Une carrotte</description>
+        <eventActions>
+            <eventAction ref="ignore" />
+            <eventAction ref="normalEat" />
+        </eventActions>
+    </event>
+    
+    <event id="killerRabbit">
+        <description>Un lapin tueur</description>
+        <eventActions>
+            <eventAction ref="easyFlee" />
+            <eventAction ref="dangerousFightAnimal" />
+        </eventActions>
+    </event>
+
+    <event id="rabbit">
+        <description>Un lapin</description>
+        <hallucination>Un ours</hallucination>
+        <eventActions>
+            <eventAction ref="ignore" />
+            <eventAction ref="easyFlee" />
+            <eventAction ref="easyFightAnimal" />
+        </eventActions>
+    </event>
+
+    <event id="cactus">
+        <description>Un cactus</description>
+        <eventActions>
+            <eventAction ref="ignore" />
+            <eventAction ref="dangerousEat" />
+        </eventActions>
+    </event>
+
+    <event id="heig">
+        <description>Un bâtiment orange avec un mur devant</description>
+        <eventActions>
+            <eventAction ref="easyFlee" />
+        </eventActions>
+    </event>
+
+    <event id="egg">
+        <description>Un oeuf</description>
+        <hallucination>Une grenade</hallucination>
+        <eventActions>
+            <eventAction ref="ignore"/>
+            <eventAction ref="easyFlee"/>
+            <eventAction ref="normalEat" />
+        </eventActions>
+    </event>
+
+    <event id="grenade">
+        <description>Une grenade</description>
+        <eventActions>
+            <eventAction ref="dangerousIgnore" />
+            <eventAction ref="dangerousFlee" />
+        </eventActions>
+    </event>
+
+    <event id="valaisApricot">
+        <description>Des abricots du Valais</description>
+        <eventActions>
+            <eventAction ref="normalEat" />
         </eventActions>
     </event>
 </events>

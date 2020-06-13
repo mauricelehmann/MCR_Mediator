@@ -15,5 +15,4 @@ public class BodyRessources {
     public int getOxygenLevel(){
         return oxygenLevel;
     }
-
 }

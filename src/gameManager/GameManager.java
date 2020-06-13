@@ -29,7 +29,7 @@ public class GameManager {
     public void nextTurn() {
         // FIXME: maybe this is not clean, we probably should not access eyes directly
         brain.eyes.see(eventGenerator.generate());
-        brain.updtateChemicalLevel();
+        brain.updateChemicalLevel();
     }
 
     public void takeAction(Event event) {

@@ -9,18 +9,17 @@ import organ.*;
  * Le Brain est le cerveau principal, il change d'état interne selon ses propres niveaux de ressources
  */
 public class Brain implements BrainState {
-
-    GameManager gameManager;
-    ChemicalRessources brainChemical;
+    private GameManager gameManager;
+    private ChemicalRessources brainChemical;
 
     /**
      * States
      */
-    BrainState exitedBrain;
-    BrainState drunkBrain;
-    BrainState weirdBrain;
-    BrainState normalBrain;
-    BrainState currentBrain;
+    private BrainState exitedBrain;
+    private BrainState drunkBrain;
+    private BrainState weirdBrain;
+    private BrainState normalBrain;
+    private BrainState currentBrain;
 
 
     /**
@@ -29,6 +28,7 @@ public class Brain implements BrainState {
     protected Lungs lungs;
     protected Legs legs;
     public Eyes eyes;
+
     protected Stomach stomach;
 
     public Brain(GameManager gameManager) {
@@ -47,7 +47,7 @@ public class Brain implements BrainState {
         this.eyes = new Eyes(this);
         this.stomach = new Stomach(this);
 
-        brainChemical = new ChemicalRessources(0, 0, 0);
+        brainChemical = new ChemicalRessources(0, 0, 0, 0);
 
     }
 
@@ -66,7 +66,6 @@ public class Brain implements BrainState {
         currentBrain.notifyEvent(event);
     }
 
-
     public void consume(ChemicalRessources substance){
         currentBrain.consume(substance);
         updtateState();
@@ -74,18 +73,18 @@ public class Brain implements BrainState {
 
     private void updtateState(){
         /* EXEMPLE DE CHANGEMENT DE STATE */
-        if(brainChemical.getCaffeinLevel() > 100){
+        if(brainChemical.getCaffeinLevel() > 100) {
             System.out.println("Changement d'état du cerveau : le cerveau est excité");
             currentBrain = exitedBrain;
         }
-        else if(brainChemical.getAlcoolLevel() > 100){
+        else if(brainChemical.getAlcoolLevel() > 100) {
             System.out.println("Changement d'état du cerveau : le cerveau est bourré");
             currentBrain = drunkBrain;
         }
-        else if(brainChemical.getPschoticLevel() > 100){
+        else if(brainChemical.getPschoticLevel() > 100) {
             System.out.println("Changement d'état du cerveau : le cerveau est bizarre...");
             currentBrain = weirdBrain;
-        }else{
+        } else {
             currentBrain = normalBrain;
         }
     }
@@ -94,7 +93,7 @@ public class Brain implements BrainState {
      * Every next turn, we reduce all the chemical ressources
      * and check if we have to change the state
      */
-    public void updtateChemicalLevel(){
+    public void updateChemicalLevel() {
         //Reduce all brains chemicals level
         if(brainChemical.getAlcoolLevel() > 0)
             brainChemical.setAlcoolLevel(brainChemical.getAlcoolLevel() - 1);
@@ -105,4 +104,25 @@ public class Brain implements BrainState {
 
     }
 
+    public void die() {
+        // TODO: signaler au GameManager que le personnage est mort ???
+        System.out.println("Aaaaarrhghghlblb... x_x");
+    }
+
+    public ChemicalRessources getBrainChemical() {
+        return brainChemical;
+    }
+
+    public GameManager getGameManager() {
+        return gameManager;
+    }
+
+    public void stress() {
+        // TODO: currentBrain devrait augmenter rythme cardiaque
+        currentBrain.stress();
+    }
+
+    public void processEyesVision(Event event) {
+        currentBrain.processEyesVision(event);
+    }
 }

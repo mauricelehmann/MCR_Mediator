@@ -10,6 +10,7 @@ public class DieEffect extends Effect {
     @Override
     public void apply(Brain bodyMediator) {
         // TODO: implement this
+        bodyMediator.die();
     }
 
     @Override

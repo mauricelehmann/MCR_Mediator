@@ -4,16 +4,16 @@ import bodyRessources.ChemicalRessources;
 import mediator.Brain;
 
 public class EatEffect extends Effect {
-    private ChemicalRessources _substance;
+    private ChemicalRessources substance;
 
     public EatEffect(double probability, ChemicalRessources substance) {
         super(probability);
-        _substance = substance;
+        this.substance = substance;
     }
 
     @Override
     public void apply(Brain bodyMediator) {
-        bodyMediator.consume(_substance);
+        bodyMediator.consume(substance);
     }
 
     @Override

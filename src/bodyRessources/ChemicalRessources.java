@@ -1,37 +1,47 @@
 package bodyRessources;
 
 public class ChemicalRessources {
-
     private int _caffeinLevel;
-    private int _alcoolLevel;
-    private int _pschoticLevel;
+    private int _alcoholLevel;
+    private int _psychedelicLevel;
+    private int _proteinLevel;
 
-    public ChemicalRessources(int caffeinLevel, int alcoolLevel, int pschoticLevel){
+    public ChemicalRessources(int caffeinLevel, int alcoolLevel, int psychedelicLevel, int proteinLevel){
         _caffeinLevel = caffeinLevel;
-        _alcoolLevel = alcoolLevel;
-        _pschoticLevel = pschoticLevel;
+        _alcoholLevel = alcoolLevel;
+        _psychedelicLevel = psychedelicLevel;
+        _proteinLevel = proteinLevel;
     }
     public int getCaffeinLevel() {
         return _caffeinLevel;
     }
 
     public int getAlcoolLevel() {
-        return _alcoolLevel;
+        return _alcoholLevel;
     }
 
     public int getPschoticLevel() {
-        return _pschoticLevel;
+        return _psychedelicLevel;
     }
 
-    public void setCaffeinLevel(int _caffeinLevel) {
-        this._caffeinLevel = _caffeinLevel;
+    public int getProteinLevel() {
+        return _proteinLevel;
     }
 
-    public void setAlcoolLevel(int _alcoolLevel) {
-        this._alcoolLevel = _alcoolLevel;
+    public void setCaffeinLevel(int caffeinLevel) {
+        _caffeinLevel = caffeinLevel;
     }
 
-    public void setPschoticLevel(int _pschoticLevel) {
-        this._pschoticLevel = _pschoticLevel;
+    public void setAlcoolLevel(int alcoolLevel) {
+        _alcoholLevel = alcoolLevel;
     }
+
+    public void setPschoticLevel(int psychedelicLevel) {
+        _psychedelicLevel = psychedelicLevel;
+    }
+
+    public void setProteinLevel(int proteinLevel) {
+        _proteinLevel = proteinLevel;
+    }
+
 }
