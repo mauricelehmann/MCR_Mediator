@@ -13,14 +13,13 @@ public class Legs extends Organ {
     }
 
     public void run(){
-
         int oxygenLevel = getRessources().getOxygenLevel();
         //check si le niveau d'oxygene est suffisant
         if( oxygenLevel < 20){
             System.out.println("Jambes : Pas assez d'oxygène!");
             getMediator().askOxygen(this, 20);
         }
-        System.out.println("Je cours!");
+        System.out.println("Jambes : Je cours!");
         //demander au mediator réduire le niveau d'oxygène
         getRessources().setOxygenLevel(oxygenLevel - 10);
     }

@@ -4,9 +4,23 @@ import bodyRessources.ChemicalRessources;
 import event.Event;
 import organ.Organ;
 
-import java.util.stream.Stream;
-
 public class DrunkBrainState implements BrainState {
+
+
+    //Transform a basic string into a drunkish string
+    private static class DrunkTalkDecorator {
+        public static String decorate(String phrase){
+            String drunkPhrase = phrase;
+            for (int i = 0; i < phrase.length(); i++) {
+                char c = phrase.charAt(i);
+                if(i % 2 == 0){
+                    drunkPhrase += Character.toUpperCase(c);
+                }
+                drunkPhrase += c;
+            }
+            return drunkPhrase;
+        }
+    }
 
     private Brain _brain;
 
@@ -35,16 +49,17 @@ public class DrunkBrainState implements BrainState {
     public void consume(ChemicalRessources substance) {
         //Different behavior here ...
         if(substance.getAlcoolLevel() > 10){
-            System.out.println("ON sE lA cOlle!!!!");
+            _brain.mouth.say(DrunkTalkDecorator.decorate("On se la colle!"));
             _brain.stomach.digest(substance, _brain.getBrainChemical());
         } else {
-            System.out.println("PaS asSez d'aLcooooL la DeDaaans... hips...");
+            _brain.mouth.say(DrunkTalkDecorator.decorate("Pas assez d'alcool la Dedans... hips..."));
         }
     }
 
     @Override
     public void stress() {
         // TODO: implémenter
+        _brain.mouth.say(DrunkTalkDecorator.decorate("Pas besoin de stresser..."));
     }
 
     @Override

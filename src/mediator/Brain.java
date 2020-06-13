@@ -27,6 +27,7 @@ public class Brain implements BrainState {
      */
     protected Lungs lungs;
     protected Legs legs;
+    protected Mouth mouth;
     public Eyes eyes;
 
     protected Stomach stomach;
@@ -46,6 +47,7 @@ public class Brain implements BrainState {
         this.legs = new Legs(this);
         this.eyes = new Eyes(this);
         this.stomach = new Stomach(this);
+        this.mouth = new Mouth(this);
 
         brainChemical = new ChemicalRessources(0, 0, 0, 0);
 
