@@ -8,6 +8,7 @@ public class Mouth extends Organ {
     }
 
     public void say(String phrase){
+        getMediator().askOxygen(this, 10);
         System.out.println("Bouche : " + phrase);
     }
 

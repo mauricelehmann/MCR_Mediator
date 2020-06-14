@@ -5,6 +5,13 @@ import event.Event;
 import organ.Organ;
 
 public class ExcitedBrainState implements BrainState {
+
+    private static class ExcitedTalkDecorator {
+        public static String decorate(String phrase) {
+            return phrase.toUpperCase();
+        }
+    }
+
     private Brain _brain;
 
     public ExcitedBrainState(Brain brain) {
@@ -19,7 +26,10 @@ public class ExcitedBrainState implements BrainState {
 
     @Override
     public void run() {
-        // TODO: implémenter
+        _brain.mouth.say(ExcitedTalkDecorator.decorate("En avant!"));
+        for (int i = 0; i < 3; i++) {
+            _brain.legs.run();
+        }
     }
 
     @Override
@@ -29,18 +39,25 @@ public class ExcitedBrainState implements BrainState {
     }
 
     @Override
-    public void consume(ChemicalRessources substance) {
-        // TODO: implémenter
+    public void consume(ChemicalRessources substance){
+        _brain.mouth.say(ExcitedTalkDecorator.decorate("Miam miam"));
+        _brain.stomach.digest(substance, _brain.getBrainChemical());
     }
 
     @Override
     public void stress() {
         // TODO: stresser plus quand le brain est excité
+        //TODO : Le perso pourrait mourrir si il devient stressé en étant deja excité ?
     }
 
     @Override
     public void processEyesVision(Event event) {
         String description = event.getDescription().toUpperCase();
         System.out.println("Je vois : " + description + " !!!");
+    }
+
+    @Override
+    public void die() {
+        _brain.mouth.say(ExcitedTalkDecorator.decorate("aaah!!! Je meurs !!!"));
     }
 }

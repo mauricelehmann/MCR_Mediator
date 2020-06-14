@@ -12,4 +12,5 @@ public interface BrainState {
     void consume(ChemicalRessources substance);
     void stress();
     void processEyesVision(Event event);
+    void die();
 }

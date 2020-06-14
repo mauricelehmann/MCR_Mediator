@@ -58,12 +58,16 @@ public class DrunkBrainState implements BrainState {
 
     @Override
     public void stress() {
-        // TODO: implémenter
         _brain.mouth.say(DrunkTalkDecorator.decorate("Pas besoin de stresser..."));
     }
 
     @Override
     public void processEyesVision(Event event) {
-        System.out.println("Je vois : " + event.getDescription());
+        _brain.mouth.say(DrunkTalkDecorator.decorate("Je vois : " + event.getDescription()));
+    }
+
+    @Override
+    public void die() {
+        _brain.mouth.say(DrunkTalkDecorator.decorate("Même pas peur... argggsss..."));
     }
 }

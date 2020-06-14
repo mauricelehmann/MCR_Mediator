@@ -47,10 +47,6 @@ public class ChemicalRessources {
     public String toString(){
         String ret = "";
 
-        if (_proteinLevel != 0) {
-            ret += "Protéine  : " + _proteinLevel;
-        }
-
         if (_caffeinLevel != 0) {
             ret += "Cafféine  : " + _caffeinLevel;
         }
