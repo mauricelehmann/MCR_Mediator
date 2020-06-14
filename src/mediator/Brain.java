@@ -21,12 +21,12 @@ public class Brain implements BrainState {
     private BrainState normalBrain;
     private BrainState currentBrain;
 
-
     /**
      * Organs
      */
     protected Lungs lungs;
     protected Legs legs;
+    protected Mouth mouth;
     public Eyes eyes;
 
     protected Stomach stomach;
@@ -46,6 +46,7 @@ public class Brain implements BrainState {
         this.legs = new Legs(this);
         this.eyes = new Eyes(this);
         this.stomach = new Stomach(this);
+        this.mouth = new Mouth(this);
 
         brainChemical = new ChemicalRessources(0, 0, 0, 0);
 
@@ -106,7 +107,7 @@ public class Brain implements BrainState {
 
     public void die() {
         // TODO: signaler au GameManager que le personnage est mort ???
-        System.out.println("Aaaaarrhghghlblb... x_x");
+        currentBrain.die();
     }
 
     public ChemicalRessources getBrainChemical() {

@@ -44,4 +44,25 @@ public class ChemicalRessources {
         _proteinLevel = proteinLevel;
     }
 
+    public String toString(){
+        String ret = "";
+
+        if (_caffeinLevel != 0) {
+            ret += "Cafféine  : " + _caffeinLevel;
+        }
+
+        if (_psychedelicLevel != 0) {
+            ret += "Psychédélique : " + _psychedelicLevel;
+        }
+
+        if (_alcoholLevel != 0) {
+            ret += "Alcool : " + _alcoholLevel;
+        }
+
+        if (_proteinLevel != 0) {
+            ret += "Protéines : " + _proteinLevel;
+        }
+        return ret;
+    }
+
 }

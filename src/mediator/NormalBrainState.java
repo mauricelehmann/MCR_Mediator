@@ -41,4 +41,9 @@ public class NormalBrainState implements BrainState {
     public void processEyesVision(Event event) {
         System.out.println("Je vois : " + event.getDescription());
     }
+
+    @Override
+    public void die() {
+        _brain.mouth.say("aaarrrrrgggh...");
+    }
 }

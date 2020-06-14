@@ -46,4 +46,9 @@ public class WeirdBrainState implements BrainState {
             System.out.println("Je vois : " + event.getDescription());
         }
     }
+
+    @Override
+    public void die() {
+        //TODO
+    }
 }

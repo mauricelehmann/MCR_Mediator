@@ -1,0 +1,43 @@
+<!ELEMENT events (actions,event+)>
+
+<!ELEMENT actions (action)+>
+
+<!ELEMENT event (description,hallucination?,eventActions)>
+<!ATTLIST event
+        id ID #REQUIRED>
+
+<!ELEMENT action (effects)*>
+<!ATTLIST action
+        id ID #REQUIRED
+        type (flee|eat|flirt|fight|ignore|take) #REQUIRED>
+
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT hallucination (#PCDATA)>
+
+<!ELEMENT eventActions (eventAction)+>
+
+<!ELEMENT effects (dieEffect|eatEffect|runEffect|stressEffect)+>
+
+<!ELEMENT eventAction EMPTY>
+<!ATTLIST eventAction
+        ref IDREF #REQUIRED>
+
+<!ELEMENT dieEffect EMPTY>
+<!ATTLIST dieEffect
+        probability CDATA #IMPLIED>
+
+<!ELEMENT eatEffect EMPTY>
+<!ATTLIST eatEffect
+        probability CDATA #IMPLIED
+        caffein CDATA #IMPLIED
+        alcohol CDATA #IMPLIED
+        psychedelic CDATA #IMPLIED
+        protein CDATA #IMPLIED>
+
+<!ELEMENT runEffect EMPTY>
+<!ATTLIST runEffect
+        probability CDATA #IMPLIED>
+
+<!ELEMENT stressEffect EMPTY>
+<!ATTLIST stressEffect
+        probability CDATA #IMPLIED>
