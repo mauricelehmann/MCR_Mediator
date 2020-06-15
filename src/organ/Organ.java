@@ -2,7 +2,6 @@ package organ;
 
 import bodyRessources.BodyRessources;
 import bodyRessources.ResourceType;
-import mediator.BodyMediator;
 import mediator.Brain;
 
 import java.util.Map;

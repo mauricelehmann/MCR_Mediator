@@ -1,10 +1,9 @@
 package organ;
 
-import mediator.BloodSystem;
+import bodyRessources.ResourceType;
 import mediator.Brain;
 
 public class Lungs extends Organ {
-    private BloodSystem bloodSystem;
     private final int lungCapacity = 10;
 
     public Lungs(Brain mediator){
@@ -12,7 +11,7 @@ public class Lungs extends Organ {
     }
 
     public void breathe(){
-        bloodSystem.addOxygen(lungCapacity);
+        mediator.refillBlood(ResourceType.Oxygen, lungCapacity);
     }
 
 }

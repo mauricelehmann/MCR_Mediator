@@ -8,7 +8,7 @@ public class Legs extends Organ {
         super(mediator);
     }
 
-    public void run() throws InterruptedException {
+    public void run() {
 
         /*
         //check si le niveau d'oxygene est suffisant

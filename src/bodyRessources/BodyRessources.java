@@ -37,5 +37,7 @@ public class BodyRessources {
         {
             share.resources.put(resource.getKey(), resource.getValue()*percentage);
         }
+
+        return share;
     }
 }

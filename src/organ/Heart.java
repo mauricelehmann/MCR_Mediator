@@ -1,6 +1,5 @@
 package organ;
 
-import mediator.BloodSystem;
 import mediator.Brain;
 
 import java.util.Timer;
@@ -10,12 +9,10 @@ public class Heart extends Organ {
     //HeartBeat per minute
     private double beat;
 
-    private BloodSystem bloodSystem;
     Timer paceMaker;
 
-    public Heart(Brain mediator, BloodSystem bloodSystem) {
+    public Heart(Brain mediator) {
         super(mediator);
-        this.bloodSystem = bloodSystem;
     }
 
     public void accelerate(double multiplier) throws Exception {
@@ -30,7 +27,7 @@ public class Heart extends Organ {
             paceMaker.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    bloodSystem.flow();
+                    mediator.bloodFlow();
                 }
             }, 0, (int)(1000/beat));
         }
