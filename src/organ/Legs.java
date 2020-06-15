@@ -8,19 +8,19 @@ public class Legs extends Organ {
         super(mediator);
     }
 
-    public void walk(){
+    public void run() {
 
-    }
-
-    public void run(){
-        int oxygenLevel = getRessources().getOxygenLevel();
+        /*fb-Organ_Management
         //check si le niveau d'oxygene est suffisant
-        if( oxygenLevel < 20){
+        while( getRessources().getOxygenLevel() < 20){
             System.out.println("Jambes : Pas assez d'oxygène!");
-            getMediator().askOxygen(this, 20);
+            getMediator().askOxygen();
+            Thread.sleep(2000);
         }
         System.out.println("Jambes : Je cours!");
         //demander au mediator réduire le niveau d'oxygène
-        getRessources().setOxygenLevel(oxygenLevel - 10);
+        getRessources().setOxygenLevel(getRessources().getOxygenLevel() - 10);
+        */
+        //TODO : Replace obsolete code
     }
 }

@@ -1,16 +1,28 @@
 package mediator;
 
+import bodyRessources.BodyRessources;
 import bodyRessources.ChemicalRessources;
+import bodyRessources.ResourceType;
 import event.Event;
 import gameManager.GameManager;
 import organ.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Le Brain est le cerveau principal, il change d'état interne selon ses propres niveaux de ressources
  */
 public class Brain implements BrainState {
+
     private GameManager gameManager;
+
+    /**
+     * System (Organism) info
+     */
     private ChemicalRessources brainChemical;
+    BodyRessources brainResources;
+    BodyRessources bodyResources;
+    private double biomass;//Sum of organ sizes
 
     /**
      * States
@@ -31,6 +43,8 @@ public class Brain implements BrainState {
 
     protected Stomach stomach;
 
+    List<Organ> organs;
+
     public Brain(GameManager gameManager) {
         this.gameManager = gameManager;
 
@@ -49,7 +63,20 @@ public class Brain implements BrainState {
         this.mouth = new Mouth(this);
 
         brainChemical = new ChemicalRessources(0, 0, 0, 0);
+        bodyResources = new BodyRessources();
+        brainResources = new BodyRessources();
 
+        //TODO : to refactor, it should not be the brain's resposibility to create the organs
+        organs = new ArrayList<>();
+        organs.add(lungs);
+        organs.add(legs);
+        organs.add(eyes);
+
+        biomass = 0;
+        for(Organ organ : organs)
+        {
+            biomass += organ.getSizeFactor();
+        }
     }
 
     @Override
@@ -125,5 +152,18 @@ public class Brain implements BrainState {
 
     public void processEyesVision(Event event) {
         currentBrain.processEyesVision(event);
+    }
+
+    public void bloodFlow() {
+        for (Organ organ: organs)
+        {
+            //Give the organ its fair share of resources
+            organ.refill((bodyResources.splitShare(organ.getSizeFactor()/biomass)));
+        }
+    }
+
+    public void refillBlood(ResourceType resourceType, double amount)
+    {
+        bodyResources.refill(resourceType, amount);
     }
 }
