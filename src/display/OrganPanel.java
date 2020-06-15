@@ -26,26 +26,18 @@ public class OrganPanel {
         frame.setSize(CONTROLLER_SIDE,CONTROLLER_SIDE);
         this.gManager = gManager;
 
-//        JPanel estomac = new JPanel();
-//        estomac.setLayout(new FlowLayout());
-//        estomac.add(new JLabel("Estomac"));
-//        frame.add(estomac);
-//        organPanels.put(Stomach.class.getName(), estomac);
         createOrganPanel("Estomac", Stomach.class.getName());
 
-        JPanel eyes = new JPanel();
-        eyes.setLayout(new FlowLayout());
-        eyes.add(new JLabel("Yeux"));
-        frame.add(eyes);
-        organPanels.put(Eyes.class.getName(), eyes);
+        createOrganPanel("Yeux", Eyes.class.getName());
 
         frame.setVisible(true);
     }
 
     private void createOrganPanel(String label, String organClassName){
         JPanel estomac = new JPanel();
-        estomac.setLayout(new FlowLayout());
+        estomac.setLayout(new GridLayout(2,1));
         estomac.add(new JLabel(label));
+        estomac.add(new JLabel("Status"));
         //TODO
 //        estomac.add(new JLabel())
         frame.add(estomac);
@@ -54,8 +46,18 @@ public class OrganPanel {
 
     public static void updateOrganDisplay(String organClassName, String toDisplay){
         JPanel specificOrganPanel = organPanels.get(organClassName);
-        specificOrganPanel.add(new JLabel(toDisplay));
+        JLabel status = (JLabel) specificOrganPanel.getComponent(1);
+        status.setText(toDisplay);
 
+        frame.setVisible(true);
+        frame.repaint();
+    }
+
+    public static void updateOrganResourcesDisplay(String organClassName, String[] toDisplay){
+        JPanel specificOrganPanel = organPanels.get(organClassName);
+        JLabel oxygen = (JLabel) specificOrganPanel.getComponent(2);
+        oxygen.setText(toDisplay[0]); //TODO
+        
         frame.setVisible(true);
         frame.repaint();
     }
