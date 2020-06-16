@@ -1,6 +1,7 @@
 package organ;
 
-import bodyRessources.ChemicalRessources;
+import bodyRessources.BodyRessources;
+import bodyRessources.ResourceType;
 import mediator.Brain;
 
 public class Stomach extends Organ {
@@ -8,14 +9,14 @@ public class Stomach extends Organ {
         super(mediator);
     }
 
-    public void digest(ChemicalRessources substance, ChemicalRessources brainChemical){
+    public void digest(BodyRessources substance, BodyRessources brainResources) {
 
-        System.out.println("Estomac : je digère une substance composée de : " + brainChemical.toString());
+        System.out.println("Estomac : je digère une substance composée de : " + substance.toString());
 
         //Update chemicals
-        brainChemical.setCaffeinLevel(brainChemical.getCaffeinLevel() + substance.getCaffeinLevel());
-        brainChemical.setPschoticLevel(brainChemical.getPschoticLevel() + substance.getPschoticLevel());
-        brainChemical.setAlcoolLevel(brainChemical.getAlcoolLevel() + substance.getAlcoolLevel());
-        brainChemical.setProteinLevel(brainChemical.getProteinLevel() + substance.getProteinLevel());
+        brainResources.refill(ResourceType.Caffein, substance.getResourceAmount(ResourceType.Caffein));
+        brainResources.refill(ResourceType.Psychedelic, substance.getResourceAmount(ResourceType.Psychedelic));
+        brainResources.refill(ResourceType.Alcohol, substance.getResourceAmount(ResourceType.Alcohol));
+        brainResources.refill(ResourceType.Protein, substance.getResourceAmount(ResourceType.Protein));
     }
 }

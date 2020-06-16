@@ -14,6 +14,6 @@ public class RunEffect extends Effect {
 
     @Override
     public String toString() {
-        return "[Effet]: RunEffect, probability: " + probability;
+        return "[Effet]: RunEffect, probability: " + getProbability();
     }
 }

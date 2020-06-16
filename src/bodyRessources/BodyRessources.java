@@ -10,15 +10,19 @@ public class BodyRessources {
 
     public BodyRessources() {
         resources = new HashMap<>();
-        for(ResourceType type : ResourceType.values())
-        {
-            resources.put(type, 10.0);
+
+        for(ResourceType type : ResourceType.values()) {
+            resources.put(type, 10.0); // FIXME: Peut-être ne pas forcément commencer à 10 pour toutes les ressources ?
         }
     }
 
     public double getResourceAmount(ResourceType type)
     {
         return resources.get(type);
+    }
+
+    public void setResourceAmount(ResourceType type, double amount) {
+        resources.put(type, amount);
     }
 
     public void consume(ResourceType type, Double amount) {
@@ -54,5 +58,16 @@ public class BodyRessources {
         }
 
         return share;
+    }
+
+    @Override
+    public String toString() {
+        String str = "";
+
+        for(Map.Entry<ResourceType, Double> resource : resources.entrySet()) {
+            str += resource.getKey() + ": " + resource.getValue() + "\n";
+        }
+
+        return str;
     }
 }

@@ -63,9 +63,10 @@ public abstract class Organ {
         activityLevel.consumeResources(this.ressources, this.getSizeFactor());
     }
 
-    protected BodyRessources getRessources(){
+    public BodyRessources getRessources(){
         return ressources;
     }
+
     public Brain getMediator(){
         return mediator;
     }

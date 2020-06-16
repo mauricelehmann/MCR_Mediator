@@ -1,5 +1,5 @@
 package bodyRessources;
 
 public enum ResourceType {
-    Oxygen
+    Oxygen, Protein, Caffein, Alcohol, Psychedelic
 }

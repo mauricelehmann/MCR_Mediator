@@ -1,6 +1,7 @@
 package mediator;
 
-import bodyRessources.ChemicalRessources;
+import bodyRessources.BodyRessources;
+import bodyRessources.ResourceType;
 import event.Event;
 import organ.Organ;
 
@@ -9,10 +10,10 @@ public class DrunkBrainState implements BrainState {
 
     //Transform a basic string into a drunkish string
     private static class DrunkTalkDecorator {
-        public static String decorate(String phrase){
-            String drunkPhrase = phrase;
-            for (int i = 0; i < phrase.length(); i++) {
-                char c = phrase.charAt(i);
+        public static String decorate(String sentence){
+            String drunkPhrase = sentence;
+            for (int i = 0; i < sentence.length(); i++) {
+                char c = sentence.charAt(i);
                 if(i % 2 == 0){
                     drunkPhrase += Character.toUpperCase(c);
                 }
@@ -46,11 +47,11 @@ public class DrunkBrainState implements BrainState {
     }
 
     @Override
-    public void consume(ChemicalRessources substance) {
+    public void consume(BodyRessources substance) {
         //Different behavior here ...
-        if(substance.getAlcoolLevel() > 10){
+        if(substance.getResourceAmount(ResourceType.Alcohol) > 10){
             _brain.mouth.say(DrunkTalkDecorator.decorate("On se la colle!"));
-            _brain.stomach.digest(substance, _brain.getBrainChemical());
+            _brain.stomach.digest(substance, _brain.getBrainResources());
         } else {
             _brain.mouth.say(DrunkTalkDecorator.decorate("Pas assez d'alcool la Dedans... hips..."));
         }

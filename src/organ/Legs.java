@@ -23,4 +23,7 @@ public class Legs extends Organ {
         */
         //TODO : Replace obsolete code
     }
+
+    public void walk() {
+    }
 }

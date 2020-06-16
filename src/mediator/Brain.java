@@ -1,7 +1,6 @@
 package mediator;
 
 import bodyRessources.BodyRessources;
-import bodyRessources.ChemicalRessources;
 import bodyRessources.ResourceType;
 import event.Event;
 import gameManager.GameManager;
@@ -19,9 +18,8 @@ public class Brain implements BrainState {
     /**
      * System (Organism) info
      */
-    private ChemicalRessources brainChemical;
-    BodyRessources brainResources;
-    BodyRessources bodyResources;
+    private BodyRessources brainResources;
+    private BodyRessources bodyResources;
     private double biomass;//Sum of organ sizes
 
     /**
@@ -62,7 +60,6 @@ public class Brain implements BrainState {
         this.stomach = new Stomach(this);
         this.mouth = new Mouth(this);
 
-        brainChemical = new ChemicalRessources(0, 0, 0, 0);
         bodyResources = new BodyRessources();
         brainResources = new BodyRessources();
 
@@ -94,22 +91,20 @@ public class Brain implements BrainState {
         currentBrain.notifyEvent(event);
     }
 
-    public void consume(ChemicalRessources substance){
+    public void consume(BodyRessources substance) {
         currentBrain.consume(substance);
-        updtateState();
+        updateState();
     }
 
-    private void updtateState(){
+    private void updateState(){
         /* EXEMPLE DE CHANGEMENT DE STATE */
-        if(brainChemical.getCaffeinLevel() > 100) {
+        if(brainResources.getResourceAmount(ResourceType.Caffein) > 100) {
             System.out.println("Changement d'état du cerveau : le cerveau est excité");
             currentBrain = exitedBrain;
-        }
-        else if(brainChemical.getAlcoolLevel() > 100) {
+        } else if(brainResources.getResourceAmount(ResourceType.Alcohol) > 100) {
             System.out.println("Changement d'état du cerveau : le cerveau est bourré");
             currentBrain = drunkBrain;
-        }
-        else if(brainChemical.getPschoticLevel() > 100) {
+        } else if(brainResources.getResourceAmount(ResourceType.Psychedelic) > 100) {
             System.out.println("Changement d'état du cerveau : le cerveau est bizarre...");
             currentBrain = weirdBrain;
         } else {
@@ -123,13 +118,12 @@ public class Brain implements BrainState {
      */
     public void updateChemicalLevel() {
         //Reduce all brains chemicals level
-        if(brainChemical.getAlcoolLevel() > 0)
-            brainChemical.setAlcoolLevel(brainChemical.getAlcoolLevel() - 1);
-        if(brainChemical.getCaffeinLevel() > 0)
-            brainChemical.setCaffeinLevel(brainChemical.getCaffeinLevel() - 1);
-        if(brainChemical.getPschoticLevel() > 0)
-            brainChemical.setPschoticLevel(brainChemical.getPschoticLevel() - 1);
-
+        if(brainResources.getResourceAmount(ResourceType.Alcohol) > 0)
+            brainResources.setResourceAmount(ResourceType.Alcohol, brainResources.getResourceAmount(ResourceType.Alcohol) - 1);
+        if(brainResources.getResourceAmount(ResourceType.Caffein) > 0)
+            brainResources.setResourceAmount(ResourceType.Caffein, brainResources.getResourceAmount(ResourceType.Caffein) - 1);
+        if(brainResources.getResourceAmount(ResourceType.Psychedelic) > 0)
+            brainResources.setResourceAmount(ResourceType.Psychedelic, brainResources.getResourceAmount(ResourceType.Psychedelic) - 1);
     }
 
     public void die() {
@@ -137,8 +131,8 @@ public class Brain implements BrainState {
         currentBrain.die();
     }
 
-    public ChemicalRessources getBrainChemical() {
-        return brainChemical;
+    public BodyRessources getBrainResources() {
+        return brainResources;
     }
 
     public GameManager getGameManager() {
@@ -158,7 +152,7 @@ public class Brain implements BrainState {
         for (Organ organ: organs)
         {
             //Give the organ its fair share of resources
-            organ.refill((bodyResources.splitShare(organ.getSizeFactor()/biomass)));
+            organ.refill((bodyResources.splitShare(organ.getRessources(), organ.getSizeFactor() / biomass)));
         }
     }
 

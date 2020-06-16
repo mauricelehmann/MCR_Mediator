@@ -3,7 +3,8 @@ package event.parser;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import bodyRessources.ChemicalRessources;
+import bodyRessources.BodyRessources;
+import bodyRessources.ResourceType;
 import event.Event;
 import event.action.*;
 import event.effect.*;
@@ -115,9 +116,6 @@ public class EventsParserHandler extends DefaultHandler {
                         case "ignore":
                             currentAction = new IgnoreAction(name);
                             break;
-                        case "take":
-                            currentAction = new TakeAction(name);
-                            break;
                     }
             }
         }
@@ -187,7 +185,15 @@ public class EventsParserHandler extends DefaultHandler {
             }
         }
 
-        currentEffect = new EatEffect(probability, new ChemicalRessources(caffein, alcohol, psychdedelic, protein));
+        BodyRessources ressources = new BodyRessources();
+        ressources.setResourceAmount(ResourceType.Oxygen, 0); // TODO: changer ça si possible
+        ressources.setResourceAmount(ResourceType.Caffein, caffein);
+        ressources.setResourceAmount(ResourceType.Alcohol, alcohol);
+        ressources.setResourceAmount(ResourceType.Psychedelic, psychdedelic);
+        ressources.setResourceAmount(ResourceType.Protein, protein);
+
+
+        currentEffect = new EatEffect(probability, ressources);
     }
 
     private void parseStressEffectAttributes(Attributes attributes) {
