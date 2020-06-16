@@ -14,8 +14,8 @@ public class Stomach extends Organ {
 
         //Update chemicals
         brainChemical.setCaffeinLevel(brainChemical.getCaffeinLevel() + substance.getCaffeinLevel());
-        brainChemical.setPschoticLevel(brainChemical.getPschoticLevel() + substance.getPschoticLevel());
-        brainChemical.setAlcoolLevel(brainChemical.getAlcoolLevel() + substance.getAlcoolLevel());
+        brainChemical.setPsychedelicLevel(brainChemical.getPsychedelicLevel() + substance.getPsychedelicLevel());
+        brainChemical.setAlcoolLevel(brainChemical.getAlcoholLevel() + substance.getAlcoholLevel());
         brainChemical.setProteinLevel(brainChemical.getProteinLevel() + substance.getProteinLevel());
     }
 }

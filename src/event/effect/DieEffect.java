@@ -9,12 +9,11 @@ public class DieEffect extends Effect {
 
     @Override
     public void apply(Brain bodyMediator) {
-        // TODO: implement this
         bodyMediator.die();
     }
 
     @Override
     public String toString() {
-        return "[Effet]: DieEffect, probability: " + probability;
+        return "[Effet]: DieEffect, probability: " + getProbability();
     }
 }

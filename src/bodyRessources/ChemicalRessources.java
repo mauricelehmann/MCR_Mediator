@@ -6,9 +6,9 @@ public class ChemicalRessources {
     private int _psychedelicLevel;
     private int _proteinLevel;
 
-    public ChemicalRessources(int caffeinLevel, int alcoolLevel, int psychedelicLevel, int proteinLevel){
+    public ChemicalRessources(int caffeinLevel, int alcoholLevel, int psychedelicLevel, int proteinLevel){
         _caffeinLevel = caffeinLevel;
-        _alcoholLevel = alcoolLevel;
+        _alcoholLevel = alcoholLevel;
         _psychedelicLevel = psychedelicLevel;
         _proteinLevel = proteinLevel;
     }
@@ -16,11 +16,11 @@ public class ChemicalRessources {
         return _caffeinLevel;
     }
 
-    public int getAlcoolLevel() {
+    public int getAlcoholLevel() {
         return _alcoholLevel;
     }
 
-    public int getPschoticLevel() {
+    public int getPsychedelicLevel() {
         return _psychedelicLevel;
     }
 
@@ -32,11 +32,11 @@ public class ChemicalRessources {
         _caffeinLevel = caffeinLevel;
     }
 
-    public void setAlcoolLevel(int alcoolLevel) {
-        _alcoholLevel = alcoolLevel;
+    public void setAlcoolLevel(int alcoholLevel) {
+        _alcoholLevel = alcoholLevel;
     }
 
-    public void setPschoticLevel(int psychedelicLevel) {
+    public void setPsychedelicLevel(int psychedelicLevel) {
         _psychedelicLevel = psychedelicLevel;
     }
 

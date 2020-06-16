@@ -15,6 +15,6 @@ public class StressEffect extends Effect {
 
     @Override
     public String toString() {
-        return "[Effet]: StressEffect, probability: " + probability;
+        return "[Effet]: StressEffect, probability: " + getProbability();
     }
 }

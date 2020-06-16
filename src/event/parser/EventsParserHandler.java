@@ -115,9 +115,6 @@ public class EventsParserHandler extends DefaultHandler {
                         case "ignore":
                             currentAction = new IgnoreAction(name);
                             break;
-                        case "take":
-                            currentAction = new TakeAction(name);
-                            break;
                     }
             }
         }

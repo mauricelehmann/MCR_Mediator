@@ -1,7 +1,6 @@
 package event;
 
 import javax.xml.parsers.*;
-
 import event.parser.EventsParserHandler;
 import org.xml.sax.*;
 import java.io.IOException;
@@ -22,7 +21,7 @@ public class EventGenerator {
     public Event generate() {
         Event event = null;
 
-        if(!events.isEmpty() && events != null) {
+        if(!events.isEmpty()) {
             // Choose the next event randomly
             int randomEventPos = random.nextInt(events.size());
             event = events.get(randomEventPos);

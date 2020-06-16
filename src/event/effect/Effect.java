@@ -3,13 +3,13 @@ package event.effect;
 import mediator.Brain;
 
 public abstract class Effect {
-    double probability;
-
-    public abstract void apply(Brain bodyMediator);
+    private double probability;
 
     public Effect(double probability) {
         this.probability = probability;
     }
+
+    public abstract void apply(Brain bodyMediator);
 
     public double getProbability() {
         return probability;

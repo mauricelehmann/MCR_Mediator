@@ -7,8 +7,8 @@ import organ.Organ;
 public class ExcitedBrainState implements BrainState {
 
     private static class ExcitedTalkDecorator {
-        public static String decorate(String phrase) {
-            return phrase.toUpperCase();
+        public static String decorate(String sentence) {
+            return sentence.toUpperCase();
         }
     }
 

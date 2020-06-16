@@ -8,10 +8,6 @@ public class Event {
     public String hallucination;
     public LinkedList<Action> possibleActions = new LinkedList<>();
 
-    public Event() {
-
-    }
-
     public void addAction(Action action) {
         possibleActions.add(action);
     }

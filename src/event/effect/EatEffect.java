@@ -18,6 +18,6 @@ public class EatEffect extends Effect {
 
     @Override
     public String toString() {
-        return "[Effet]: EatEffect, probability: " + probability;
+        return "[Effet]: EatEffect, probability: " + getProbability();
     }
 }
