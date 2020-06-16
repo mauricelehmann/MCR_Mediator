@@ -1,5 +1,6 @@
 package mediator;
-import bodyRessources.ChemicalRessources;
+import bodyRessources.BodyRessources;
+import bodyRessources.ResourceType;
 import event.Event;
 import organ.Organ;
 
@@ -13,7 +14,7 @@ public class NormalBrainState implements BrainState {
     @Override
     public void askOxygen(Organ asker, int value) {
         _brain.lungs.pump(value);
-        asker.addOxygene(value);
+        asker.getRessources().refill(ResourceType.Oxygen, (double)value);
     }
 
     @Override
@@ -27,9 +28,9 @@ public class NormalBrainState implements BrainState {
     }
 
     @Override
-    public void consume(ChemicalRessources substance) {
+    public void consume(BodyRessources substance) {
         System.out.println("Normal brain : J'envoi la substance à l'estomac ");
-        _brain.stomach.digest(substance, _brain.getBrainChemical());
+        _brain.stomach.digest(substance, _brain.getBrainResources());
     }
 
     @Override

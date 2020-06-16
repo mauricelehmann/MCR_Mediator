@@ -1,15 +1,19 @@
 package organ;
+
+import bodyRessources.ResourceType;
 import mediator.Brain;
 
 public class Lungs extends Organ {
+    private final int lungCapacity = 10;
 
     public Lungs(Brain mediator){
         super(mediator);
     }
 
-    public void pump(int amount){
-        //Afficher : "je pompe"
-        System.out.println("Lungs : Je pompe " + amount + " d oxygène");
-        //Notifier au mediator que c'est bon
+    public void breathe(){
+        mediator.refillBlood(ResourceType.Oxygen, lungCapacity);
+    }
+
+    public void pump(int i) {
     }
 }

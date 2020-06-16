@@ -1,6 +1,7 @@
 package mediator;
 
-import bodyRessources.ChemicalRessources;
+import bodyRessources.BodyRessources;
+import bodyRessources.ResourceType;
 import event.Event;
 import organ.Organ;
 
@@ -21,7 +22,7 @@ public class ExcitedBrainState implements BrainState {
     @Override
     public void askOxygen(Organ asker, int value) {
         _brain.lungs.pump(value + 10); //+10 parce qu'il super EXCITEEEE
-        asker.addOxygene(value + 10);
+        asker.getRessources().refill(ResourceType.Oxygen, value + 10.);
     }
 
     @Override
@@ -39,9 +40,9 @@ public class ExcitedBrainState implements BrainState {
     }
 
     @Override
-    public void consume(ChemicalRessources substance){
+    public void consume(BodyRessources substance) {
         _brain.mouth.say(ExcitedTalkDecorator.decorate("Miam miam"));
-        _brain.stomach.digest(substance, _brain.getBrainChemical());
+        _brain.stomach.digest(substance, _brain.getBrainResources());
     }
 
     @Override
