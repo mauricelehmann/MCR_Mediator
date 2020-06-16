@@ -10,11 +10,26 @@ public class BodyRessources {
 
     public BodyRessources() {
         resources = new HashMap<>();
-        resources.put(ResourceType.Oxygen, 10.0);
+        for(ResourceType type : ResourceType.values())
+        {
+            resources.put(type, 10.0);
+        }
+    }
+
+    public double getResourceAmount(ResourceType type)
+    {
+        return resources.get(type);
     }
 
     public void consume(ResourceType type, Double amount) {
-        resources.replace(type, resources.get(type) - amount);//TODO : Trouver une formulation plus élégante ?
+        if(getResourceAmount(type) >= amount)
+        {
+            resources.replace(type, resources.get(type) - amount);//TODO : Trouver une formulation plus élégante ?
+        }
+        else
+        {
+            resources.replace(type, 0.0);
+        }
     }
 
     public void refill(ResourceType type, Double amount) {
@@ -26,14 +41,14 @@ public class BodyRessources {
         resources.replaceAll((ResourceType type, Double oldAmount) -> oldAmount + newResources.resources.get(type));
     }
 
-    public BodyRessources splitShare(double percentage)
+    public BodyRessources splitShare(BodyRessources destinationContainer, double percentage)
     {
         if(percentage > 1 || percentage <0)
         {
             throw new InvalidParameterException("Ratio must be between 0 and 1");
         }
         BodyRessources share = new BodyRessources();
-        for(Map.Entry<ResourceType, Double> resource : resources.entrySet())
+        for(Map.Entry<ResourceType, Double> resource : destinationContainer.resources.entrySet())
         {
             share.resources.put(resource.getKey(), resource.getValue()*percentage);
         }
