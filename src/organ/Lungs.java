@@ -11,9 +11,7 @@ public class Lungs extends Organ {
     }
 
     public void breath(){
+        System.out.println("Poumons : respire...");
         mediator.refillBlood(ResourceType.Oxygen, lungCapacity);
-    }
-
-    public void pump(int i) {
     }
 }

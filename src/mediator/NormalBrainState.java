@@ -12,18 +12,11 @@ public class NormalBrainState implements BrainState {
     }
 
     @Override
-    public void askOxygen(Organ asker, int value) {
-        _brain.lungs.pump(value);
-        asker.getResources().refill(ResourceType.Oxygen, (double)value);
-    }
-
-    @Override
     public void run() {
         _brain.legs.run();
     }
 
     public void notifyEvent(Event event) {
-        // FIXME: maybe pull this up into brain
         _brain.getGameManager().takeAction(event);
     }
 
@@ -35,16 +28,22 @@ public class NormalBrainState implements BrainState {
 
     @Override
     public void stress() {
-        // TODO: implémenter
+        _brain.heart.accelerate(2);
     }
 
     @Override
     public void processEyesVision(Event event) {
-        System.out.println("Je vois : " + event.getDescription());
+        _brain.mouth.say("Je vois : " + event.getDescription());
     }
 
     @Override
     public void die() {
         _brain.mouth.say("aaarrrrrgggh...");
+    }
+
+    @Override
+    public void askOxygen(){
+        _brain.lungs.breath();
+        _brain.heart.accelerate(1);
     }
 }

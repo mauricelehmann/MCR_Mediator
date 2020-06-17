@@ -1,9 +1,7 @@
 package mediator;
 
 import bodyRessources.BodyResources;
-import bodyRessources.ResourceType;
 import event.Event;
-import organ.Organ;
 
 public class ExcitedBrainState implements BrainState {
 
@@ -20,9 +18,10 @@ public class ExcitedBrainState implements BrainState {
     }
 
     @Override
-    public void askOxygen(Organ asker, int value) {
-        _brain.lungs.pump(value + 10); //+10 parce qu'il super EXCITEEEE
-        asker.getResources().refill(ResourceType.Oxygen, value + 10.);
+    public void askOxygen() {
+        for (int i = 0; i < 3; i++) {
+            _brain.lungs.breath();
+        }
     }
 
     @Override
@@ -46,15 +45,14 @@ public class ExcitedBrainState implements BrainState {
     }
 
     @Override
-    public void stress() {
-        // TODO: stresser plus quand le brain est excité
-        //TODO : Le perso pourrait mourrir si il devient stressé en étant deja excité ?
+    public void stress(){
+       _brain.heart.accelerate(10);
     }
 
     @Override
     public void processEyesVision(Event event) {
         String description = event.getDescription().toUpperCase();
-        System.out.println("Je vois : " + description + " !!!");
+        _brain.mouth.say(ExcitedTalkDecorator.decorate("Je vois : " + description + " !!!"));
     }
 
     @Override

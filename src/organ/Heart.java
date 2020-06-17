@@ -13,27 +13,31 @@ public class Heart extends Organ {
 
     public Heart(Brain mediator) {
         super(mediator);
+        pump();
     }
 
-    public void accelerate(double multiplier) throws Exception {
-        beat *= multiplier;
+    public void accelerate(double value) {
+
+        //Cannot have a negative beat value
+        if(beat + value < 0) beat = 0;
+        else beat += value;
+        //If the beat is too high, the player is dead
+        if(beat > 100){
+            mediator.die();
+        }
         pump();//Reschedule heartbeat with new beat frequency
     }
 
-    public void pump() throws Exception {
+    public void pump() {
         if(beat > 0) {
             //We need to reschedule to send pump blood at the new frequency
-            paceMaker.cancel();
+            paceMaker = new Timer();
             paceMaker.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
                     mediator.bloodFlow();
                 }
             }, 0, (int)(1000/beat));
-        }
-        else
-        {
-            throw new Exception("Heart is stopped !");//TODO : Make exception classes and handle them
         }
     }
 }
