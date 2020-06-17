@@ -134,6 +134,7 @@ public class Brain implements BrainState {
     public void die() {
         // TODO: signaler au GameManager que le personnage est mort ???
 //        StatePanel.updateChemicalsDisplay(brainChemical);
+        gameManager.playerDies();
         currentBrain.die();
     }
 
