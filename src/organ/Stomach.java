@@ -13,6 +13,8 @@ public class Stomach extends Organ {
 
         System.out.println("Estomac : je digère une substance composée de : " + substance.toString());
 
+        notifyDisplay("L'estomac digère du stuff");
+
         //Update chemicals
         brainResources.refill(ResourceType.Caffein, substance.getResourceAmount(ResourceType.Caffein));
         brainResources.refill(ResourceType.Psychedelic, substance.getResourceAmount(ResourceType.Psychedelic));

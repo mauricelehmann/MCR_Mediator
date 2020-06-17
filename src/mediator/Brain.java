@@ -1,5 +1,8 @@
 package mediator;
 
+import bodyRessources.ChemicalRessources;
+import display.OrganPanel;
+import display.StatePanel;
 import bodyRessources.BodyRessources;
 import bodyRessources.ResourceType;
 import event.Event;
@@ -110,6 +113,8 @@ public class Brain implements BrainState {
         } else {
             currentBrain = normalBrain;
         }
+
+        StatePanel.updateStateDisplay(getCurrentBrainState());
     }
 
     /**
@@ -131,6 +136,15 @@ public class Brain implements BrainState {
         currentBrain.die();
     }
 
+        StatePanel.updateChemicalsDisplay(brainChemical);
+    }
+
+    public String getCurrentBrainState(){
+        return currentBrain.getClass().getName();
+    }
+
+    public void updateOrganDisplay(Organ organ, String toDisplay){
+        OrganPanel.updateOrganDisplay(organ.getClass().getName(), toDisplay);
     public BodyRessources getBrainResources() {
         return brainResources;
     }

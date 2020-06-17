@@ -74,4 +74,10 @@ public abstract class Organ {
     public void refill(BodyRessources resources){
         ressources.refill(resources);
     }
+
+    public void notifyDisplay(String toDisplay){
+        mediator.updateOrganDisplay(this, toDisplay);
+    }
+
+
 }
