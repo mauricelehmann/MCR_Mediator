@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/display/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/ControlPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/event/EventGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/EventGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/event/EventsParserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/EventsParserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/event/GEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameManager/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameManager/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/StatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/StatePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mediator/BrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/BrainState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mediator/DrunkBrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/DrunkBrainState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mediator/ExcitedBrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/ExcitedBrainState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mediator/NormalBrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/NormalBrainState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mediator/WeirdBrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/WeirdBrainState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organ/Eyes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Eyes.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="swingint" />
+        <entry key="$PROJECT_DIR$" value="swing" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,6 +57,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
@@ -135,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592235129620</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="renamed Gevent">
+      <created>1592389068256</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592389068256</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,14 +161,15 @@
     <MESSAGE value="state panel ugly functional" />
     <MESSAGE value="debut organ panel" />
     <MESSAGE value="organ panel grid actualise status" />
-    <option name="LAST_COMMIT_MESSAGE" value="organ panel grid actualise status" />
+    <MESSAGE value="renamed Gevent" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed Gevent" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gameManager/GameManager.java</url>
-          <line>73</line>
+          <line>74</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

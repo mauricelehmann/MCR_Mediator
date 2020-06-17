@@ -1,6 +1,5 @@
 package mediator;
 
-import bodyRessources.ChemicalRessources;
 import display.OrganPanel;
 import display.StatePanel;
 import bodyRessources.BodyRessources;
@@ -115,6 +114,7 @@ public class Brain implements BrainState {
         }
 
         StatePanel.updateStateDisplay(getCurrentBrainState());
+        StatePanel.updateChemicalsDisplay(brainResources);
     }
 
     /**
@@ -133,18 +133,18 @@ public class Brain implements BrainState {
 
     public void die() {
         // TODO: signaler au GameManager que le personnage est mort ???
+//        StatePanel.updateChemicalsDisplay(brainChemical);
         currentBrain.die();
-    }
-
-        StatePanel.updateChemicalsDisplay(brainChemical);
     }
 
     public String getCurrentBrainState(){
         return currentBrain.getClass().getName();
     }
 
-    public void updateOrganDisplay(Organ organ, String toDisplay){
+    public void updateOrganDisplay(Organ organ, String toDisplay) {
         OrganPanel.updateOrganDisplay(organ.getClass().getName(), toDisplay);
+    }
+
     public BodyRessources getBrainResources() {
         return brainResources;
     }

@@ -1,6 +1,7 @@
 package display;
 
-import bodyRessources.ChemicalRessources;
+import bodyRessources.BodyRessources;
+import bodyRessources.ResourceType;
 import gameManager.GameManager;
 import mediator.NormalBrainState;
 
@@ -37,10 +38,10 @@ public class StatePanel {
         frame.repaint();
     }
 
-    public static void updateChemicalsDisplay(ChemicalRessources chem){
-        alcool.setText("" + chem.getAlcoolLevel());
-        caffeine.setText("" + chem.getCaffeinLevel());
-        psychotic.setText("" + chem.getPschoticLevel());
+    public static void updateChemicalsDisplay(BodyRessources chem){
+        alcool.setText("" + chem.getResourceAmount(ResourceType.Alcohol));
+        caffeine.setText("" + chem.getResourceAmount(ResourceType.Caffein));
+        psychotic.setText("" + chem.getResourceAmount(ResourceType.Psychedelic));
         frame.repaint();
     }
 }
