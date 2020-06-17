@@ -31,13 +31,13 @@
 
         <action id="dangerousIgnore" type="ignore">
             <effects>
-                <dieEffect probability="0.7"/>
+                <dieEffect probability="0.3"/>
             </effects>
         </action>
 
         <action id="dangerousFlee" type="flee">
             <effects>
-                <dieEffect probability="0.3" />
+                <dieEffect probability="0.2" />
                 <runEffect />
                 <stressEffect probability="0.5" />
             </effects>
@@ -61,7 +61,7 @@
 
         <action id="dangerousFightAnimal" type="fight">
             <effects>
-                <dieEffect probability="0.4" />
+                <dieEffect probability="0.25" />
                 <stressEffect probability="0.8" />
                 <eatEffect protein="40" probability="0.9" />
                 <runEffect probability="0.7" />
@@ -70,7 +70,7 @@
 
         <action id="easyFightAnimal" type="fight">
             <effects>
-                <stressEffect probability="0.2" />
+                <stressEffect probability="0.1" />
                 <eatEffect protein="40" />
                 <runEffect probability="0.6" />
             </effects>

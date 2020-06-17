@@ -20,7 +20,7 @@ public class ControlPanel
     private static GameManager gManager = null;
     private static final int CONTROLLER_SIDE = 200;
     private static final JFrame frame = new JFrame("Panneau de contrôle");
-    private static final String ripImageFile = "rip.jpeg";
+    //private static final String ripImageFile = "rip.jpeg";
 
     public ControlPanel(GameManager gManager){
         frame.setLayout(new FlowLayout());
