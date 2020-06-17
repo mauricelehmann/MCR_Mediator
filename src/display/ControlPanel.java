@@ -1,13 +1,18 @@
 package display;
 
 import event.Event;
+import event.EventGenerator;
 import event.action.Action;
 import gameManager.GameManager;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.util.LinkedList;
 
 public class ControlPanel
@@ -15,16 +20,34 @@ public class ControlPanel
     private static GameManager gManager = null;
     private static final int CONTROLLER_SIDE = 200;
     private static final JFrame frame = new JFrame("Panneau de contrôle");
+    private static final String ripImageFile = "rip.jpeg";
 
     public ControlPanel(GameManager gManager){
         frame.setLayout(new FlowLayout());
         frame.setSize(CONTROLLER_SIDE,CONTROLLER_SIDE);
-        this.gManager = gManager;
+        ControlPanel.gManager = gManager;
 
 //        JButton button;
 //        button = new JButton("Test");
 //        frame.add(button);
 
+        frame.setVisible(true);
+    }
+
+    public static void deathScreen() {
+        // URL ripImageURL = EventGenerator.class.getClassLoader().getResource(ripImageFile);
+
+        frame.getContentPane().removeAll();
+
+        /*try {
+            BufferedImage ripImage = ImageIO.read(ripImageURL);
+            frame.getGraphics().drawImage(ripImage, 0, 0, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+        frame.revalidate();
+        frame.repaint();
         frame.setVisible(true);
     }
 
@@ -52,6 +75,4 @@ public class ControlPanel
 
         frame.setVisible(true);
     }
-
-
 }

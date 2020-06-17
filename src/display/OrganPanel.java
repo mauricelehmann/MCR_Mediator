@@ -21,7 +21,7 @@ public class OrganPanel {
 //        private Organ organ;
 //    }
 
-    public OrganPanel(GameManager gManager){
+    public OrganPanel(GameManager gManager) {
         frame.setLayout(new FlowLayout());
         frame.setSize(CONTROLLER_SIDE,CONTROLLER_SIDE);
         this.gManager = gManager;

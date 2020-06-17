@@ -58,5 +58,6 @@ public class GameManager {
     public void playerDies() {
         continueGame = false;
         brain = null;
+        ControlPanel.deathScreen();
     }
 }
