@@ -1,13 +1,10 @@
 package gameManager;
 
 import display.ControlPanel;
-import event.GEvent;
+import event.Event;
 import event.EventGenerator;
 import event.action.Action;
 import mediator.Brain;
-
-import java.util.LinkedList;
-import java.util.Scanner;
 
 public class GameManager {
     private final String EVENTS_FILE = "events.xml";
@@ -34,7 +31,7 @@ public class GameManager {
         brain.updtateChemicalLevel();
     }
 
-    public void takeAction(GEvent event){
+    public void takeAction(Event event){
         ControlPanel.handleEvent(event);
         try{
             while(!actionTaken){

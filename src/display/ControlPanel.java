@@ -1,6 +1,6 @@
 package display;
 
-import event.GEvent;
+import event.Event;
 import event.action.Action;
 import gameManager.GameManager;
 
@@ -28,7 +28,7 @@ public class ControlPanel
         frame.setVisible(true);
     }
 
-    public static void handleEvent(GEvent event){
+    public static void handleEvent(Event event){
         frame.getContentPane().removeAll();
         frame.revalidate();
         frame.repaint();

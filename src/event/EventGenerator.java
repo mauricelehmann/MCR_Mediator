@@ -11,14 +11,14 @@ public class EventGenerator {
     static private final String BASE_PATH = "events/";
     static private Random random = new Random();
 
-    private ArrayList<GEvent> events;
+    private ArrayList<Event> events;
 
     public EventGenerator(String eventsFile) {
         events = parse(eventsFile);
     }
 
-    public GEvent generate() {
-        GEvent event = null;
+    public Event generate() {
+        Event event = null;
 
         if(!events.isEmpty() && events != null) {
             // Choose the next event randomly
@@ -29,8 +29,8 @@ public class EventGenerator {
         return event;
     }
 
-    static private ArrayList<GEvent> parse(String filename) { // FIXME: change this to fileinputstream ?
-        ArrayList<GEvent> events = new ArrayList<>();
+    static private ArrayList<Event> parse(String filename) { // FIXME: change this to fileinputstream ?
+        ArrayList<Event> events = new ArrayList<>();
 
         try {
             SAXParserFactory spf = SAXParserFactory.newInstance();

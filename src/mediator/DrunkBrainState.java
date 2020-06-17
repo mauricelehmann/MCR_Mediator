@@ -1,7 +1,7 @@
 package mediator;
 
 import bodyRessources.ChemicalRessources;
-import event.GEvent;
+import event.Event;
 import organ.Organ;
 
 public class DrunkBrainState implements BrainState {
@@ -24,7 +24,7 @@ public class DrunkBrainState implements BrainState {
     }
 
     @Override
-    public void notifyEvent(GEvent event) {
+    public void notifyEvent(Event event) {
         // FIXME: maybe pull this up into brain
         _brain.gameManager.takeAction(event);
     }
