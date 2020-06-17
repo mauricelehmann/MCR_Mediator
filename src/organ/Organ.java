@@ -1,19 +1,17 @@
 package organ;
 
-import bodyRessources.BodyRessources;
+import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import mediator.Brain;
 
 import java.util.Map;
-
-
 
 abstract class ActivityLevel
 {
     public abstract Map<ResourceType, Double> getConsumptionRates();
     //TODO : figure out balanced consumption values for all activityLevels and resources in subclasses
 
-    public void consumeResources(BodyRessources resources, double sizeFactor) {
+    public void consumeResources(BodyResources resources, double sizeFactor) {
         for(Map.Entry<ResourceType, Double> entry : getConsumptionRates().entrySet())
         {
             resources.consume(entry.getKey(), sizeFactor*entry.getValue());
@@ -45,12 +43,12 @@ public abstract class Organ {
 
     /* Ressources */
     //TODO : Should organs have a resource maximum ?
-    private BodyRessources ressources;
+    private BodyResources resources;
     private ActivityLevel activityLevel;
 
     public Organ(Brain mediator){
         this.mediator = mediator;
-        ressources = new BodyRessources();
+        resources = new BodyResources();
     }
 
     public double getSizeFactor()
@@ -60,19 +58,19 @@ public abstract class Organ {
 
     public void consumeResources()
     {
-        activityLevel.consumeResources(this.ressources, this.getSizeFactor());
+        activityLevel.consumeResources(this.resources, this.getSizeFactor());
     }
 
-    public BodyRessources getRessources(){
-        return ressources;
+    public BodyResources getResources(){
+        return resources;
     }
 
     public Brain getMediator(){
         return mediator;
     }
 
-    public void refill(BodyRessources resources){
-        ressources.refill(resources);
+    public void refill(BodyResources resources){
+        this.resources.refill(resources);
     }
 
     public void notifyDisplay(String toDisplay){

@@ -1,6 +1,6 @@
 package organ;
 
-import bodyRessources.BodyRessources;
+import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import mediator.Brain;
 
@@ -9,7 +9,7 @@ public class Stomach extends Organ {
         super(mediator);
     }
 
-    public void digest(BodyRessources substance, BodyRessources brainResources) {
+    public void digest(BodyResources substance, BodyResources brainResources) {
 
         System.out.println("Estomac : je digère une substance composée de : " + substance.toString());
 

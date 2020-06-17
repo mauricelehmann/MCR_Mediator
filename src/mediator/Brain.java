@@ -2,7 +2,7 @@ package mediator;
 
 import display.OrganPanel;
 import display.StatePanel;
-import bodyRessources.BodyRessources;
+import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import event.Event;
 import gameManager.GameManager;
@@ -20,8 +20,8 @@ public class Brain implements BrainState {
     /**
      * System (Organism) info
      */
-    private BodyRessources brainResources;
-    private BodyRessources bodyResources;
+    private BodyResources brainResources;
+    private BodyResources bodyResources;
     private double biomass;//Sum of organ sizes
 
     /**
@@ -62,8 +62,8 @@ public class Brain implements BrainState {
         this.stomach = new Stomach(this);
         this.mouth = new Mouth(this);
 
-        bodyResources = new BodyRessources();
-        brainResources = new BodyRessources();
+        bodyResources = new BodyResources();
+        brainResources = new BodyResources();
 
         //TODO : to refactor, it should not be the brain's resposibility to create the organs
         organs = new ArrayList<>();
@@ -93,7 +93,7 @@ public class Brain implements BrainState {
         currentBrain.notifyEvent(event);
     }
 
-    public void consume(BodyRessources substance) {
+    public void consume(BodyResources substance) {
         currentBrain.consume(substance);
         updateState();
     }
@@ -145,7 +145,7 @@ public class Brain implements BrainState {
         OrganPanel.updateOrganDisplay(organ.getClass().getName(), toDisplay);
     }
 
-    public BodyRessources getBrainResources() {
+    public BodyResources getBrainResources() {
         return brainResources;
     }
 
@@ -166,7 +166,7 @@ public class Brain implements BrainState {
         for (Organ organ: organs)
         {
             //Give the organ its fair share of resources
-            organ.refill((bodyResources.splitShare(organ.getRessources(), organ.getSizeFactor() / biomass)));
+            organ.refill((bodyResources.splitShare(organ.getResources(), organ.getSizeFactor() / biomass)));
         }
     }
 

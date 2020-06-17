@@ -1,12 +1,12 @@
 package event.effect;
 
-import bodyRessources.BodyRessources;
+import bodyRessources.BodyResources;
 import mediator.Brain;
 
 public class EatEffect extends Effect {
-    private BodyRessources substance;
+    private BodyResources substance;
 
-    public EatEffect(double probability, BodyRessources substance) {
+    public EatEffect(double probability, BodyResources substance) {
         super(probability);
         this.substance = substance;
     }

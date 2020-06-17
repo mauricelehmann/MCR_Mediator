@@ -4,11 +4,11 @@ import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BodyRessources {
+public class BodyResources {
 
     private Map<ResourceType, Double> resources;
 
-    public BodyRessources() {
+    public BodyResources() {
         resources = new HashMap<>();
 
         for(ResourceType type : ResourceType.values()) {
@@ -40,18 +40,18 @@ public class BodyRessources {
         resources.replace(type, resources.get(type) + amount);
     }
 
-    public void refill(BodyRessources newResources)
+    public void refill(BodyResources newResources)
     {
         resources.replaceAll((ResourceType type, Double oldAmount) -> oldAmount + newResources.resources.get(type));
     }
 
-    public BodyRessources splitShare(BodyRessources destinationContainer, double percentage)
+    public BodyResources splitShare(BodyResources destinationContainer, double percentage)
     {
         if(percentage > 1 || percentage <0)
         {
             throw new InvalidParameterException("Ratio must be between 0 and 1");
         }
-        BodyRessources share = new BodyRessources();
+        BodyResources share = new BodyResources();
         for(Map.Entry<ResourceType, Double> resource : destinationContainer.resources.entrySet())
         {
             share.resources.put(resource.getKey(), resource.getValue()*percentage);

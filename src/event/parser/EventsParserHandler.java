@@ -3,7 +3,7 @@ package event.parser;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import bodyRessources.BodyRessources;
+import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import event.Event;
 import event.action.*;
@@ -185,7 +185,7 @@ public class EventsParserHandler extends DefaultHandler {
             }
         }
 
-        BodyRessources ressources = new BodyRessources();
+        BodyResources ressources = new BodyResources();
         ressources.setResourceAmount(ResourceType.Oxygen, 0); // TODO: changer ça si possible
         ressources.setResourceAmount(ResourceType.Caffein, caffein);
         ressources.setResourceAmount(ResourceType.Alcohol, alcohol);

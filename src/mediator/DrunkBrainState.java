@@ -1,6 +1,6 @@
 package mediator;
 
-import bodyRessources.BodyRessources;
+import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import event.Event;
 import organ.Organ;
@@ -47,7 +47,7 @@ public class DrunkBrainState implements BrainState {
     }
 
     @Override
-    public void consume(BodyRessources substance) {
+    public void consume(BodyResources substance) {
         //Different behavior here ...
         if(substance.getResourceAmount(ResourceType.Alcohol) > 10){
             _brain.mouth.say(DrunkTalkDecorator.decorate("On se la colle!"));
