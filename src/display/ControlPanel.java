@@ -40,7 +40,8 @@ public class ControlPanel
         LinkedList<Action> actions = event.getPossibleActions();
         for(int i = 0; i < actions.size(); ++i) {
             System.out.println(i + ") " + actions.get(i));
-            button = new JButton(actions.get(i).getName());
+            button = new JButton(actions.get(i).getIcon());
+            button.setBorder(BorderFactory.createEmptyBorder());
             int finalI = i;
             button.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e) { gManager.applyAction(actions.get(finalI)); }
