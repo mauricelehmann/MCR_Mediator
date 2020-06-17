@@ -84,7 +84,7 @@
 
         <action id="eatPsyMushroom" type="eat">
             <effects>
-                <eatEffect protein="10" psychedelic="100" />
+                <eatEffect protein="10" psychedelic="120" />
             </effects>
         </action>
 

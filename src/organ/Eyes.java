@@ -9,8 +9,7 @@ public class Eyes extends Organ {
     }
 
     public void see(Event event){
-        // System.out.println("Je vois : " + event.description);
-        // TODO: faire qqch de plus ici ??
+        notifyDisplay("Les yeux : nouvel événement en vue");
         mediator.processEyesVision(event);
         mediator.notifyEvent(event);
     }
