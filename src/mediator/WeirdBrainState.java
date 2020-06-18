@@ -23,7 +23,7 @@ public class WeirdBrainState implements BrainState {
      */
     @Override
     public void run() {
-        _brain.heart.accelerate(10);
+        _brain.heart.accelerate(2);
         _brain.legs.run();
     }
 
@@ -51,7 +51,7 @@ public class WeirdBrainState implements BrainState {
      */
     @Override
     public void stress() {
-        _brain.heart.accelerate(-10);
+        _brain.heart.accelerate(0.7);
     }
 
     /**

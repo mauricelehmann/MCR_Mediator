@@ -26,15 +26,12 @@ public class ControlPanel
         frame.setLayout(new FlowLayout());
         frame.setSize(CONTROLLER_SIDE,CONTROLLER_SIDE);
         ControlPanel.gManager = gManager;
-
-//        JButton button;
-//        button = new JButton("Test");
-//        frame.add(button);
-
         frame.setVisible(true);
     }
 
     public static void deathScreen() {
+        //TODO
+
         // URL ripImageURL = EventGenerator.class.getClassLoader().getResource(ripImageFile);
 
         frame.getContentPane().removeAll();
@@ -66,9 +63,7 @@ public class ControlPanel
             button = new JButton(actions.get(i).getIcon());
             button.setBorder(BorderFactory.createEmptyBorder());
             int finalI = i;
-            button.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent e) { gManager.applyAction(actions.get(finalI)); }
-            });
+            button.addActionListener(e -> gManager.applyAction(actions.get(finalI)));
 
             frame.add(button);
         }

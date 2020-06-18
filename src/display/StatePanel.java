@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class StatePanel {
     private static GameManager gManager = null;
-    private static final int CONTROLLER_SIDE = 200;
+    private static final int CONTROLLER_SIDE = 300;
     private static final JFrame frame = new JFrame("Panneau d'état");
     private static JLabel stateValue = new JLabel("Normal");
     private static JLabel alcoholLevel = new JLabel("0");
@@ -19,7 +19,7 @@ public class StatePanel {
 
     public StatePanel(GameManager gManager){
 
-        frame.setSize(300, 200);
+        frame.setSize(CONTROLLER_SIDE, CONTROLLER_SIDE);
         this.gManager = gManager;
 
         //Names of value

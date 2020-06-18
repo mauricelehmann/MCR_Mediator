@@ -22,6 +22,8 @@ public class GameManager {
     private final String EVENTS_FILE = "events.xml";
     private Brain brain;
     private EventGenerator eventGenerator;
+    private Timer eventScheduler = new Timer();
+    private Timer bodyUpdateScheduler = new Timer();
 
     private Event currentEvent;
     private static boolean actionTaken = false;
@@ -42,8 +44,6 @@ public class GameManager {
      * Start the game
      */
     public void startGame() {
-        Timer eventScheduler = new Timer();
-        Timer bodyUpdateScheduler = new Timer();
 
         brain.start();
 
@@ -89,6 +89,8 @@ public class GameManager {
      * Makes the game end
      */
     public void playerDies() {
+        eventScheduler.cancel();
+        eventScheduler.purge();
         brain = null;
         ControlPanel.deathScreen();
     }

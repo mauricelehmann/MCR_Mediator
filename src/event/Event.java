@@ -7,10 +7,9 @@ import java.util.LinkedList;
  * This class represents en event
  */
 public class Event {
-    //Could be interesting for events to have a limited lifetime !
-    public String description;
-    public String hallucination;
-    public LinkedList<Action> possibleActions = new LinkedList<>();
+    private String description;
+    private String hallucination;
+    private LinkedList<Action> possibleActions = new LinkedList<>();
 
     /**
      * Add a response action to an event
@@ -72,8 +71,6 @@ public class Event {
      */
     @Override
     public String toString() {
-        String string = "[Evenement]: " + description;
-
-        return string;
+        return "[Evenement]: " + description;
     }
 }

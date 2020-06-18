@@ -19,9 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
+    <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="light cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/ControlPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/StatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/StatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="swingint" />
+        <entry key="$PROJECT_DIR$" value="swing" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -185,14 +190,7 @@
       <option name="project" value="LOCAL" />
       <updated>1592462297932</updated>
     </task>
-    <task id="LOCAL-00013" summary="light cleanup - attributs Event passés private">
-      <created>1592481113322</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1592481113322</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,8 +222,7 @@
     <MESSAGE value="all organs on display" />
     <MESSAGE value="all organs" />
     <MESSAGE value="light cleanup" />
-    <MESSAGE value="light cleanup - attributs Event passés private" />
-    <option name="LAST_COMMIT_MESSAGE" value="light cleanup - attributs Event passés private" />
+    <option name="LAST_COMMIT_MESSAGE" value="light cleanup" />
   </component>
   <component name="WindowStateProjectService">
     <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" />

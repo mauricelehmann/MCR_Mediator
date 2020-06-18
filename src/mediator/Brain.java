@@ -125,10 +125,6 @@ public class Brain extends Organ implements BrainState {
         eyes.see(event);
     }
 
-    public void calmDown() {
-        //TODO : A implémenter ! Après tout faut quand même que notre personnage puisse se calmer !
-    }
-
     /**
      * Notify event to the brain
      * @param event the event
@@ -143,6 +139,7 @@ public class Brain extends Organ implements BrainState {
      * @param substance the resources
      */
     public void eat(BodyResources substance) {
+        stomach.digest(substance, getBodyResources());
         currentBrain.eat(substance);
         updateState();
     }
@@ -206,7 +203,6 @@ public class Brain extends Organ implements BrainState {
      * @param toDisplay the string to display
      */
     public void updateOrganDisplay(Organ organ, String toDisplay) {
-        //OrganPanel.updateOrganDisplay(organ.getClass().getName(), "<html>"+ toDisplay +"</html>");
         if(organ == null)
         {
             OrganPanel.updateOrganResourcesDisplay("System", this.getBodyResources());
@@ -254,6 +250,14 @@ public class Brain extends Organ implements BrainState {
      */
     public void stress() {
         currentBrain.stress();
+    }
+
+    /**
+     * Slows heartbeat and respiratory rate
+     */
+    public void calmDown() {
+        heart.accelerate(0.9);
+        lungs.accelerate(0.7);
     }
 
     /**
