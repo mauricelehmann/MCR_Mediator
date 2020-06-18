@@ -9,7 +9,7 @@
 <!ELEMENT action (effects)*>
 <!ATTLIST action
         id ID #REQUIRED
-        type (flee|eat|flirt|fight|ignore|take) #REQUIRED>
+        type (flee|eat|fight|ignore|take) #REQUIRED>
 
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT hallucination (#PCDATA)>

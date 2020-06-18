@@ -110,9 +110,6 @@ public class EventsParserHandler extends DefaultHandler {
                         case "flee":
                             currentAction = new FleeAction(name);
                             break;
-                        case "flirt":
-                            currentAction = new FlirtAction(name);
-                            break;
                         case "ignore":
                             currentAction = new IgnoreAction(name);
                             break;

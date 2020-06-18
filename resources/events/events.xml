@@ -59,12 +59,6 @@
             </effects>
         </action>
 
-        <action id="stupidFlirt" type="flirt">
-            <effects>
-                <dieEffect probability="0.8" />
-            </effects>
-        </action>
-
         <action id="dangerousFightAnimal" type="fight">
             <effects>
                 <dieEffect probability="0.4" />
@@ -100,7 +94,6 @@
         <eventActions>
             <eventAction ref="dangerousIgnore" />
             <eventAction ref="dangerousFlee" />
-            <eventAction ref="stupidFlirt" />
             <eventAction ref="dangerousFightAnimal" />
         </eventActions>
     </event>
