@@ -46,11 +46,11 @@ public class OrganPanel {
 
         frame.add(new JLabel(label));
 
-        JLabel oxygeneLevel = new JLabel("0");
+        JLabel oxygeneLevel = new JLabel();
         frame.add(oxygeneLevel);
         OrganPanel.oxygeneLevel.put(organClassName, oxygeneLevel);
 
-        JLabel proteinLevel = new JLabel("0");
+        JLabel proteinLevel = new JLabel();
         frame.add(proteinLevel);
         OrganPanel.proteinLevel.put(organClassName, proteinLevel);
 
@@ -58,9 +58,10 @@ public class OrganPanel {
 
     public  static void updateOrganResourcesDisplay(String organClassName, BodyResources r){
 
-        oxygeneLevel.get(organClassName).setText("" + r.getResourceAmount(ResourceType.Oxygen));
-        proteinLevel.get(organClassName).setText("" + r.getResourceAmount(ResourceType.Protein));
+        oxygeneLevel.get(organClassName).setText(String.format("%.2f", r.getResourceAmount(ResourceType.Oxygen)));
+        proteinLevel.get(organClassName).setText(String.format("%.2f",  r.getResourceAmount(ResourceType.Protein)));
 
+ 
         frame.setVisible(true);
         frame.repaint();
     }

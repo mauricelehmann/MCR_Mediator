@@ -206,7 +206,6 @@ public class Brain extends Organ implements BrainState {
      * @param toDisplay the string to display
      */
     public void updateOrganDisplay(Organ organ, String toDisplay) {
-        //OrganPanel.updateOrganDisplay(organ.getClass().getName(), "<html>"+ toDisplay +"</html>");
         if(organ == null)
         {
             OrganPanel.updateOrganResourcesDisplay("System", this.getBodyResources());
