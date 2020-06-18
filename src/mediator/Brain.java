@@ -93,10 +93,10 @@ public class Brain extends Organ implements BrainState {
         bodyClock.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                for(Organ organ : organs)
-                {
-                    organ.consumeResources();
-                }
+            for(Organ organ : organs)
+            {
+                organ.consumeResources();
+            }
             }
         }, 1000, 1000);
 

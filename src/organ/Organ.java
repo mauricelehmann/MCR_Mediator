@@ -32,12 +32,17 @@ public abstract class Organ {
     }
 
     public void consumeResources() {
-        resources.consume((getSize()/100)*activityFactor);
+        resources.consume(getSize()*activityFactor/1000);
         double oxygenLevel = resources.getResourceAmount(ResourceType.Oxygen);
         if(oxygenLevel < this.getSize()/20)
         {
+            if(oxygenLevel < 0)
+            {
+                mediator.die();
+            }
             mediator.askOxygen(0.2*this.getSize()-oxygenLevel);
         }
+
         //TODO : Add similar behavior for protein ?
     }
 
