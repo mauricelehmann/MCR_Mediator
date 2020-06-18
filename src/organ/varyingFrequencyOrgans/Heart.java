@@ -1,14 +1,10 @@
 package organ.varyingFrequencyOrgans;
 
 import mediator.Brain;
-import organ.Organ;
-import organ.varyingFrequencyOrgans.VaryingFrequencyOrgan;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import static java.lang.Math.max;
-
+/**
+ * Heart manage the bloodflow and the puls frequency
+ */
 public class Heart extends VaryingFrequencyOrgan {
 
     public Heart(Brain mediator) {

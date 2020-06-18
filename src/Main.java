@@ -1,9 +1,4 @@
-import display.ControlPanel;
-import display.OrganPanel;
-import display.StatePanel;
 import gameManager.GameManager;
-
-import java.util.Random;
 
 public class Main {
 
