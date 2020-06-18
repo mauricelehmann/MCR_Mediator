@@ -1,6 +1,8 @@
 package gameManager;
 
 import display.ControlPanel;
+import display.OrganPanel;
+import display.StatePanel;
 import event.Event;
 import event.EventGenerator;
 import event.action.Action;
@@ -15,6 +17,10 @@ public class GameManager {
     public GameManager() {
         brain = new Brain(this);
         eventGenerator = new EventGenerator(EVENTS_FILE);
+
+        new ControlPanel(this);
+        new StatePanel(this);
+        new OrganPanel(this, this.brain.getOrgans());
     }
 
     public void startGame() {

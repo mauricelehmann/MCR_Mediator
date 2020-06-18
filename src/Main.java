@@ -10,9 +10,6 @@ public class Main {
 
     public static void main(String[] args) {
         GameManager gameManager = new GameManager();
-        new ControlPanel(gameManager);
-        new StatePanel(gameManager);
-        new OrganPanel(gameManager);
         gameManager.startGame();
 
     }

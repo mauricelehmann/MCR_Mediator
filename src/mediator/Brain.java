@@ -70,6 +70,8 @@ public class Brain implements BrainState {
         organs.add(lungs);
         organs.add(legs);
         organs.add(eyes);
+        organs.add(mouth);
+        organs.add(stomach);
 
         biomass = 0;
         for(Organ organ : organs)
@@ -147,6 +149,10 @@ public class Brain implements BrainState {
 
     public BodyResources getBrainResources() {
         return brainResources;
+    }
+
+    public List<Organ> getOrgans() {
+        return organs;
     }
 
     public GameManager getGameManager() {

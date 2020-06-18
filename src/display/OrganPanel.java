@@ -8,6 +8,7 @@ import organ.Stomach;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class OrganPanel {
@@ -21,14 +22,18 @@ public class OrganPanel {
 //        private Organ organ;
 //    }
 
-    public OrganPanel(GameManager gManager){
+    public OrganPanel(GameManager gManager, List<Organ> organList){
         frame.setLayout(new FlowLayout());
         frame.setSize(CONTROLLER_SIDE,CONTROLLER_SIDE);
         this.gManager = gManager;
 
-        createOrganPanel("Estomac", Stomach.class.getName());
+        for(Organ o : organList){
+            createOrganPanel(o.getClass().getSimpleName(), o.getClass().getName());
+        }
 
-        createOrganPanel("Yeux", Eyes.class.getName());
+//        createOrganPanel("Estomac", Stomach.class.getName());
+//
+//        createOrganPanel("Yeux", Eyes.class.getName());
 
         frame.setVisible(true);
     }
