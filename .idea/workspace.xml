@@ -21,9 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organ/varyingFrequencyOrgans/Lungs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/varyingFrequencyOrgans/Lungs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Organ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Organ.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,22 +211,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1592438328974" />
-    <state width="699" height="231" key="GridCell.Tab.0.bottom" timestamp="1592478764885">
+    <state width="699" height="231" key="GridCell.Tab.0.bottom" timestamp="1592479376086">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="699" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1592478764885" />
-    <state width="699" height="231" key="GridCell.Tab.0.center" timestamp="1592478764882">
+    <state width="699" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1592479376086" />
+    <state width="699" height="231" key="GridCell.Tab.0.center" timestamp="1592479376085">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="699" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1592478764882" />
-    <state width="699" height="231" key="GridCell.Tab.0.left" timestamp="1592478764882">
+    <state width="699" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1592479376085" />
+    <state width="699" height="231" key="GridCell.Tab.0.left" timestamp="1592479376084">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="699" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1592478764882" />
-    <state width="699" height="231" key="GridCell.Tab.0.right" timestamp="1592478764884">
+    <state width="699" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1592479376084" />
+    <state width="699" height="231" key="GridCell.Tab.0.right" timestamp="1592479376085">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="699" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1592478764884" />
+    <state width="699" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1592479376085" />
     <state width="699" height="286" key="GridCell.Tab.1.bottom" timestamp="1592478441432">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

@@ -41,7 +41,8 @@ public abstract class Organ {
      * Consume resources
      */
     public void consumeResources() {
-        resources.consume(getSize() * activityFactor / 1000);
+        resources.consume(ResourceType.Oxygen, getSize() * activityFactor / 1000);
+        resources.consume(ResourceType.Protein, getSize()*activityFactor / 10000);
         double oxygenLevel = resources.getResourceAmount(ResourceType.Oxygen);
         if (oxygenLevel < this.getSize() / 20) {
             if (oxygenLevel < 0) {

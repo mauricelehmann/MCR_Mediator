@@ -108,8 +108,8 @@ public class BodyResources {
         BodyResources share = new BodyResources();
         for(Map.Entry<ResourceType, Double> resource : destinationContainer.resources.entrySet())
         {
-            this.consume(resource.getKey(), resource.getValue()*portion);
-            share.resources.put(resource.getKey(), resource.getValue()*portion);
+            this.consume(resource.getKey(), this.resources.get(resource.getKey())*portion);
+            share.resources.put(resource.getKey(), this.resources.get(resource.getKey())*portion);
         }
         return share;
     }
