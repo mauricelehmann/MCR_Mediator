@@ -13,6 +13,10 @@ import static java.lang.Math.max;
 public class Lungs extends VaryingFrequencyOrgan {
     private final int lungCapacity = 100;
 
+    /**
+     * Constructor : Builds the lungs with an initial respiratory rate
+     * @param mediator
+     */
     public Lungs(Brain mediator){
         super(mediator);
         frequency = 0.2;

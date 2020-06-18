@@ -19,6 +19,10 @@ public abstract class VaryingFrequencyOrgan extends Organ {
         super(mediator);
     }
 
+    /**
+     * Modify the frequency of the organ's task
+     * @param multiplier frequency multiplier
+     */
     public void accelerate(double multiplier) {
 
         frequency = max(multiplier*frequency, minFrequency);//Cannot go under a certain frequency

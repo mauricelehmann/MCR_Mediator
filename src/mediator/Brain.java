@@ -14,6 +14,7 @@ import java.util.*;
 
 /**
  * Brain is the main brain, it change the internal state based on the resources levels
+ * It serves as the simulated organism's mediator
  */
 public class Brain extends Organ implements BrainState {
 
@@ -49,7 +50,7 @@ public class Brain extends Organ implements BrainState {
     List<Organ> organs;
 
     /**
-     * Constructor
+     * Constructor : Initializes the gameManager, its organs (colleagues) and resources
      * @param gameManager its game manager
      */
     public Brain(GameManager gameManager) {
@@ -89,15 +90,19 @@ public class Brain extends Organ implements BrainState {
         }
     }
 
+    /**
+     * Start the "biological clock" :
+     * organs will now consume resources every second and the heart and lungs start functioning
+     */
     public void start(){
         bodyClock = new Timer();
         bodyClock.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-            for(Organ organ : organs)
-            {
-                organ.consumeResources();
-            }
+                for(Organ organ : organs)
+                {
+                    organ.consumeResources();
+                }
             }
         }, 1000, 1000);
 
@@ -106,7 +111,7 @@ public class Brain extends Organ implements BrainState {
     }
 
     /**
-     * Ask oxygen to the brain
+     * Signals a need for more oxygen
      */
     @Override
     public void askOxygen(double value) {
@@ -121,12 +126,16 @@ public class Brain extends Organ implements BrainState {
         currentBrain.run();
     }
 
+    /**
+     * Look at an event
+     * @param event
+     */
     public void look(Event event) {
         eyes.see(event);
     }
 
     /**
-     * Notify event to the brain
+     * Notify event to the brain (used by sensory organs)
      * @param event the event
      */
     @Override
@@ -135,7 +144,7 @@ public class Brain extends Organ implements BrainState {
     }
 
     /**
-     * Eat given resources
+     * Eat given resources (ingest, really, it works for drinking too)
      * @param substance the resources
      */
     public void eat(BodyResources substance) {
@@ -164,20 +173,6 @@ public class Brain extends Organ implements BrainState {
 
         StatePanel.updateStateDisplay(getCurrentBrainState());
         StatePanel.updateChemicalsDisplay(brainResources);
-    }
-
-    /**
-     * Every next turn, we reduce all the chemical resources
-     * and check if we have to change the state
-     */
-    public void updateChemicalLevel() {
-        //Reduce all brains chemicals level
-        if(brainResources.getResourceAmount(ResourceType.Alcohol) > 0)
-            brainResources.setResourceAmount(ResourceType.Alcohol, brainResources.getResourceAmount(ResourceType.Alcohol) - 1);
-        if(brainResources.getResourceAmount(ResourceType.Caffein) > 0)
-            brainResources.setResourceAmount(ResourceType.Caffein, brainResources.getResourceAmount(ResourceType.Caffein) - 1);
-        if(brainResources.getResourceAmount(ResourceType.Psychedelic) > 0)
-            brainResources.setResourceAmount(ResourceType.Psychedelic, brainResources.getResourceAmount(ResourceType.Psychedelic) - 1);
     }
 
     /**
@@ -269,7 +264,7 @@ public class Brain extends Organ implements BrainState {
     }
 
     /**
-     * Makes the blood flow
+     * Makes the blood flow, distributing resources to organs
      */
     public void bloodFlow() {
         for (Organ organ: organs)

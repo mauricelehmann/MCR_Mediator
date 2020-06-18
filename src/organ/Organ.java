@@ -42,7 +42,7 @@ public abstract class Organ {
      */
     public void consumeResources() {
         resources.consume(ResourceType.Oxygen, getSize() * activityFactor / 50);
-        resources.consume(ResourceType.Protein, getSize()*activityFactor / 1000);
+        resources.consume(ResourceType.Protein, getSize() * activityFactor / 1000);
         double oxygenLevel = resources.getResourceAmount(ResourceType.Oxygen);
         double proteinLevel = resources.getResourceAmount(ResourceType.Protein);
         if (oxygenLevel < this.getSize() / 20) {
@@ -60,7 +60,6 @@ public abstract class Organ {
             brain.die();
         }
         notifyDisplay("");
-        //TODO : Add similar behavior for protein ?
     }
 
     /**

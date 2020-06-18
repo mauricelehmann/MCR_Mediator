@@ -12,7 +12,7 @@ public class BodyResources {
     private Map<ResourceType, Double> resources;
 
     /**
-     * Constructor
+     * Default Constructor : the container will know all resourceTypes but their amount starts at 0
      */
     public BodyResources() {
         resources = new HashMap<>();
@@ -22,6 +22,11 @@ public class BodyResources {
         }
     }
 
+    /**
+     * Constructor : will set all given resourceTypes with the same startAmount
+     * @param resourceTypes the resource types known by the container
+     * @param startAmount the initial amount for known resources
+     */
     public BodyResources(List<ResourceType> resourceTypes, double startAmount) {
         resources = new HashMap<>();
 
@@ -41,9 +46,8 @@ public class BodyResources {
         return resources.get(type);
     }
 
-
     /**
-     * Set the resource amount for a resource type
+     * Set the resource amount for a resource type.If the type is unknown, it will be added
      * @param type the resource type
      * @param amount the amount
      */
@@ -52,28 +56,35 @@ public class BodyResources {
     }
 
     /**
-     * Consume a specified amount of a resource type
+     * Consume (remove) a specified amount of a resource type
      * @param type the type
      * @param amount the amount
      */
     public void consume(ResourceType type, Double amount) {
         if(getResourceAmount(type) >= amount)
         {
-            resources.replace(type, resources.get(type) - amount);//TODO : Trouver une formulation plus élégante ?
+            resources.replace(type, resources.get(type) - amount);
         }
         else
         {
+            //Floors the resource value to 0
             resources.replace(type, 0.0);
         }
     }
 
+    /**
+     * Refill only the given ResourceType by amount. If the type is not known by the container, nothing happens
+     * @param type the ResourceType do be filled
+     * @param amount amount to be added
+     */
     public void fill(ResourceType type, Double amount) {
         resources.replace(type, (resources.containsKey(type) ? resources.get(type) : 0) + amount);
     }
 
 
     /**
-     * Refill all resources with given resources
+     * Refill all known resources with given resources. Any resource type from newResources container that is not
+     * known by the recipient (no correponding key in the map) will be ignored
      * @param newResources the resources to add
      */
     public void refill(BodyResources newResources)
@@ -96,7 +107,9 @@ public class BodyResources {
         BodyResources share = new BodyResources();
         for(Map.Entry<ResourceType, Double> resource : destinationContainer.resources.entrySet())
         {
+            //Remove shared resources from original resource container
             this.consume(resource.getKey(), this.resources.get(resource.getKey())*portion);
+            //Fill the destination container with the same amount
             share.resources.put(resource.getKey(), this.resources.get(resource.getKey())*portion);
         }
         return share;

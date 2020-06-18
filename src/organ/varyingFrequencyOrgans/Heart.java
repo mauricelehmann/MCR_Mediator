@@ -11,6 +11,10 @@ import static java.lang.Math.max;
 
 public class Heart extends VaryingFrequencyOrgan {
 
+    /**
+     * Constructor : build a heart with a starting Frequency
+     * @param mediator the heart's mediator
+     */
     public Heart(Brain mediator) {
         super(mediator);
         frequency = 1.2; //1 beat per second is slow, but still normal !
