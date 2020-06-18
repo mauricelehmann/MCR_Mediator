@@ -19,10 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
+    <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="light cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organ/Organ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Organ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/ControlPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/StatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/StatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +61,18 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -185,12 +201,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ControlPanel displays event buttons" />
@@ -204,49 +221,30 @@
     <MESSAGE value="fuck this" />
     <MESSAGE value="all organs on display" />
     <MESSAGE value="all organs" />
-    <option name="LAST_COMMIT_MESSAGE" value="all organs" />
+    <MESSAGE value="light cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="light cleanup" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592438328974">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1592438328974" />
-    <state width="699" height="231" key="GridCell.Tab.0.bottom" timestamp="1592479376086">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="699" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1592479376086" />
-    <state width="699" height="231" key="GridCell.Tab.0.center" timestamp="1592479376085">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="699" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1592479376085" />
-    <state width="699" height="231" key="GridCell.Tab.0.left" timestamp="1592479376084">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="699" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1592479376084" />
-    <state width="699" height="231" key="GridCell.Tab.0.right" timestamp="1592479376085">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="699" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1592479376085" />
-    <state width="699" height="286" key="GridCell.Tab.1.bottom" timestamp="1592478441432">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="699" height="286" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1592478441432" />
-    <state width="699" height="286" key="GridCell.Tab.1.center" timestamp="1592478441431">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="699" height="286" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1592478441431" />
-    <state width="699" height="286" key="GridCell.Tab.1.left" timestamp="1592478441431">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="699" height="286" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1592478441431" />
-    <state width="699" height="286" key="GridCell.Tab.1.right" timestamp="1592478441432">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="699" height="286" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1592478441432" />
-    <state x="455" y="234" key="refactoring.ChangeSignatureDialog" timestamp="1592443565275">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="455" y="234" key="refactoring.ChangeSignatureDialog/0.23.1440.877@0.23.1440.877" timestamp="1592443565275" />
+    <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" />
+    <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" />
+    <state width="699" height="231" key="GridCell.Tab.0.bottom" />
+    <state width="699" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" />
+    <state width="699" height="231" key="GridCell.Tab.0.center" />
+    <state width="699" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" />
+    <state width="699" height="231" key="GridCell.Tab.0.left" />
+    <state width="699" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" />
+    <state width="699" height="231" key="GridCell.Tab.0.right" />
+    <state width="699" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" />
+    <state width="699" height="286" key="GridCell.Tab.1.bottom" />
+    <state width="699" height="286" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" />
+    <state width="699" height="286" key="GridCell.Tab.1.center" />
+    <state width="699" height="286" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" />
+    <state width="699" height="286" key="GridCell.Tab.1.left" />
+    <state width="699" height="286" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" />
+    <state width="699" height="286" key="GridCell.Tab.1.right" />
+    <state width="699" height="286" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" />
+    <state x="455" y="234" key="refactoring.ChangeSignatureDialog" />
+    <state x="455" y="234" key="refactoring.ChangeSignatureDialog/0.23.1440.877@0.23.1440.877" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

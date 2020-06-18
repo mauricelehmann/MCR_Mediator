@@ -42,10 +42,6 @@ public class BodyResources {
     }
 
 
-    public void consume(double amount) {
-        resources.replaceAll((ResourceType type, Double oldAmount) -> oldAmount - amount);
-    }
-
     /**
      * Set the resource amount for a resource type
      * @param type the resource type
@@ -75,14 +71,6 @@ public class BodyResources {
         resources.replace(type, (resources.containsKey(type) ? resources.get(type) : 0) + amount);
     }
 
-    /**
-     * Refill a specified amount of a resource type
-     * @param type the type
-     * @param amount the amount
-     */
-    public void refill(ResourceType type, Double amount) {
-        resources.replace(type, resources.get(type) + amount);
-    }
 
     /**
      * Refill all resources with given resources
@@ -120,12 +108,12 @@ public class BodyResources {
      */
     @Override
     public String toString() {
-        String str = "";
+        StringBuilder str = new StringBuilder();
 
         for(Map.Entry<ResourceType, Double> resource : resources.entrySet()) {
-            str += resource.getKey() + ": " + resource.getValue() + "\n";
+            str.append(resource.getKey()).append(": ").append(resource.getValue()).append("\n");
         }
 
-        return str;
+        return str.toString();
     }
 }
