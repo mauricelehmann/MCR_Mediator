@@ -36,7 +36,9 @@ public class OrganPanel {
             createOrganPanel(o.getClass().getSimpleName(), o.getClass().getName());
         }
 
-        frame.setLayout(new GridLayout(organList.size() + 1, 3));
+        createOrganPanel("System", "System");
+
+        frame.setLayout(new GridLayout(organList.size() + 2, 3));
         frame.setVisible(true);
     }
 

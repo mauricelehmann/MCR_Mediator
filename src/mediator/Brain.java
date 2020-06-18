@@ -10,10 +10,7 @@ import organ.*;
 import organ.varyingFrequencyOrgans.Heart;
 import organ.varyingFrequencyOrgans.Lungs;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 /**
  * Brain is the main brain, it change the internal state based on the resources levels
@@ -74,7 +71,7 @@ public class Brain extends Organ implements BrainState {
         this.mouth = new Mouth(this);
         this.heart = new Heart(this);
 
-        bodyResources = new BodyResources();
+        bodyResources = new BodyResources(Arrays.asList(ResourceType.Oxygen, ResourceType.Protein), 1000);
         brainResources = new BodyResources();
 
         organs = new ArrayList<>();
@@ -210,7 +207,14 @@ public class Brain extends Organ implements BrainState {
      */
     public void updateOrganDisplay(Organ organ, String toDisplay) {
         //OrganPanel.updateOrganDisplay(organ.getClass().getName(), "<html>"+ toDisplay +"</html>");
-        OrganPanel.updateOrganResourcesDisplay(organ.getClass().getName(), organ.getResources());
+        if(organ == null)
+        {
+            OrganPanel.updateOrganResourcesDisplay("System", this.getBodyResources());
+        }
+        else
+        {
+            OrganPanel.updateOrganResourcesDisplay(organ.getClass().getName(), organ.getResources());
+        }
     }
 
     /**
@@ -219,6 +223,14 @@ public class Brain extends Organ implements BrainState {
      */
     public BodyResources getBrainResources() {
         return brainResources;
+    }
+
+    /**
+     * Get the Organism's resources
+     * @return the resources
+     */
+    public BodyResources getBodyResources() {
+        return bodyResources;
     }
 
     /**
@@ -260,6 +272,7 @@ public class Brain extends Organ implements BrainState {
         {
             //Give the organ its fair share of resources
             organ.refill((bodyResources.splitShare(organ.getResources(), organ.getSize() / (biomass*10))));
+            notifyDisplay("");
         }
     }
 
@@ -271,5 +284,10 @@ public class Brain extends Organ implements BrainState {
     public void refillBlood(ResourceType resourceType, double amount)
     {
         bodyResources.fill(resourceType, amount);
+    }
+
+    @Override
+    public void notifyDisplay(String toDisplay) {
+        updateOrganDisplay(null, "");
     }
 }

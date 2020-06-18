@@ -11,7 +11,7 @@ import java.util.TimerTask;
 import static java.lang.Math.max;
 
 public class Lungs extends VaryingFrequencyOrgan {
-    private final int lungCapacity = 10;
+    private final int lungCapacity = 100;
 
     public Lungs(Brain mediator){
         super(mediator);
