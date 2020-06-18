@@ -11,6 +11,7 @@ public class Eyes extends Organ {
     public void see(Event event){
         // System.out.println("Je vois : " + event.description);
         // TODO: faire qqch de plus ici ??
+        mediator.updateOrganDisplay(this, "Je vois : " + event.getDescription());
         mediator.processEyesVision(event);
         mediator.notifyEvent(event);
     }
