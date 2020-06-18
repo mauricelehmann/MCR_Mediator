@@ -19,15 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="light cleanup">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/display/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/ControlPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/display/StatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/StatePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
-    </list>
+    <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
