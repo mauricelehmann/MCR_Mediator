@@ -2,13 +2,25 @@ package organ;
 
 import mediator.Brain;
 
+/**
+ * This class represents the mouth
+ */
 public class Mouth extends Organ {
-    public Mouth(Brain mediator) {
-        super(mediator);
+
+    /**
+     * Constructor
+     * @param brain
+     */
+    public Mouth(Brain brain) {
+        super(brain);
     }
 
+    /**
+     * Make the mouth say a sentence
+     * @param sentence the sentence
+     */
     public void say(String sentence){
-        getMediator().askOxygen();
+        getBrain().askOxygen();
         System.out.println("Bouche : " + sentence);
         notifyDisplay("Je dis : " + sentence);
     }

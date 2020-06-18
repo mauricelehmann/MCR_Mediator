@@ -12,23 +12,41 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * This class handles the parsing of an events config file
+ */
 public class EventsParserHandler extends DefaultHandler {
     private Event currentEvent = null;
     private Action currentAction = null;
     private Effect currentEffect = null;
-
     private String elementValue;
     private ArrayList<Event> events = new ArrayList<>();
     private HashMap<String, Action> actions = new HashMap();
 
+    /**
+     * Handle the start of the document parsing
+     * @throws SAXException
+     */
     public void startDocument() throws SAXException {
         System.out.println("Loading events...");
     }
 
+    /**
+     * Handle the end of the document parsing
+     * @throws SAXException
+     */
     public void endDocument() throws SAXException {
         System.out.println("events loaded.");
     }
 
+    /**
+     * Handle the start of an XML element
+     * @param uri the element uri
+     * @param localName the element local name
+     * @param qName the element qName
+     * @param attributes attributes of the element
+     * @throws SAXException
+     */
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException  {
         switch (qName) {
             case "event":
@@ -56,6 +74,13 @@ public class EventsParserHandler extends DefaultHandler {
         }
     }
 
+    /**
+     * Handle the end of an element
+     * @param uri the element uri
+     * @param localName the element local name
+     * @param qName the element qName
+     * @throws SAXException
+     */
     public void endElement(String uri, String localName, String qName) throws SAXException {
         switch (qName) {
             case "event":
@@ -79,14 +104,29 @@ public class EventsParserHandler extends DefaultHandler {
         }
     }
 
+    /**
+     * Fetch characters into the current element value
+     * @param ch characters
+     * @param start the start of the string
+     * @param length the length of the string
+     * @throws SAXException
+     */
     public void characters(char[] ch, int start, int length) throws SAXException {
         elementValue = new String(ch, start, length);
     }
 
+    /**
+     * Get the parsed events
+     * @return the events
+     */
     public ArrayList<Event> getEvents() {
         return events;
     }
 
+    /**
+     * Parse attributes of an action element
+     * @param attributes the attributes
+     */
     private void parseActionAttributes(Attributes attributes) {
         if(attributes == null) {
             return;
@@ -118,6 +158,10 @@ public class EventsParserHandler extends DefaultHandler {
         }
     }
 
+    /**
+     * Parse attributes of an event's action element
+     * @param attributes the attributes
+     */
     private void parseEventActionAttributes(Attributes attributes) {
         if(attributes == null) {
             return;
@@ -133,6 +177,10 @@ public class EventsParserHandler extends DefaultHandler {
         }
     }
 
+    /**
+     * Parse attributes of the die effect element
+     * @param attributes the attributes
+     */
     private void parseDieEffectAttributes(Attributes attributes) {
         if(attributes == null) {
             return;
@@ -151,6 +199,10 @@ public class EventsParserHandler extends DefaultHandler {
         currentEffect = new DieEffect(probability);
     }
 
+    /**
+     * Parse attributes of the eat effect element
+     * @param attributes the attributes
+     */
     private void parseEatEffectAttributes(Attributes attributes) {
         if(attributes == null) {
             return;
@@ -193,6 +245,10 @@ public class EventsParserHandler extends DefaultHandler {
         currentEffect = new EatEffect(probability, ressources);
     }
 
+    /**
+     * Parse attributes of the stress effect element
+     * @param attributes the attributes
+     */
     private void parseStressEffectAttributes(Attributes attributes) {
         if(attributes == null) {
             return;
@@ -211,6 +267,10 @@ public class EventsParserHandler extends DefaultHandler {
         currentEffect = new StressEffect(probability);
     }
 
+    /**
+     * Parse attributes of the run effect element
+     * @param attributes the attributes
+     */
     private void parseRunEffectAttributes(Attributes attributes) {
         if(attributes == null) {
             return;

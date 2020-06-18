@@ -8,9 +8,9 @@ public class StressEffect extends Effect {
     }
 
     @Override
-    public void apply(Brain bodyMediator) {
+    public void apply(Brain brain) {
         // TODO: implement this
-        bodyMediator.stress();
+        brain.stress();
     }
 
     @Override

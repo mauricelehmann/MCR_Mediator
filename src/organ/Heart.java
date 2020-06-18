@@ -5,17 +5,28 @@ import mediator.Brain;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Thic class represents the heart
+ */
 public class Heart extends Organ {
     //HeartBeat per minute
     private double beat;
 
     Timer paceMaker;
 
-    public Heart(Brain mediator) {
-        super(mediator);
+    /**
+     * Constructor
+     * @param brain
+     */
+    public Heart(Brain brain) {
+        super(brain);
         pump();
     }
 
+    /**
+     * Makes the heart accelerate
+     * @param value the acceleration value
+     */
     public void accelerate(double value) {
 
         //Cannot have a negative beat value
@@ -24,11 +35,14 @@ public class Heart extends Organ {
         //If the beat is too high, the player is dead
         if(beat > 100){
             notifyDisplay("Je fais une crise cardiaque!");  //TODO kler écrasé par pompe
-            mediator.die();
+            brain.die();
         }
         pump();//Reschedule heartbeat with new beat frequency
     }
 
+    /**
+     * Makes the heart pump blood
+     */
     public void pump() {
         if(beat > 0) {
             notifyDisplay("Je pompe du sang");
@@ -37,7 +51,7 @@ public class Heart extends Organ {
             paceMaker.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    mediator.bloodFlow();
+                    brain.bloodFlow();
                 }
             }, 0, (int)(1000/beat));
         }

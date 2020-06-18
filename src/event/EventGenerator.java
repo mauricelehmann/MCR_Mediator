@@ -8,16 +8,28 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This class represents an event generator
+ * that will generates/gives events loaded
+ * from a file
+ */
 public class EventGenerator {
     static private final String BASE_PATH = "events/";
     static private Random random = new Random(); // TODO: maybe moves this into GameManager
-
     private ArrayList<Event> events;
 
+    /**
+     * Constructor
+     * @param eventsFile the events config file
+     */
     public EventGenerator(String eventsFile) {
         events = parse(eventsFile);
     }
 
+    /**
+     * Gets an event from the loaded of events
+     * @return the event
+     */
     public Event generate() {
         Event event = null;
 
@@ -30,7 +42,12 @@ public class EventGenerator {
         return event;
     }
 
-    static private ArrayList<Event> parse(String filename) { // FIXME: change this to fileinputstream ?
+    /**
+     * Load events from a file
+     * @param filename the file name
+     * @return a list of events
+     */
+    static private ArrayList<Event> parse(String filename) {
         ArrayList<Event> events = new ArrayList<>();
 
         try {

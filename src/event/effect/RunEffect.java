@@ -8,8 +8,8 @@ public class RunEffect extends Effect {
     }
 
     @Override
-    public void apply(Brain bodyMediator) {
-        bodyMediator.run();
+    public void apply(Brain brain) {
+        brain.run();
     }
 
     @Override
