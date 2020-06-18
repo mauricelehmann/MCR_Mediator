@@ -244,6 +244,17 @@ public class EventsParserHandler extends DefaultHandler {
         currentEffect = new EatEffect(probability, ressources);
     }
 
+    private double getProbability(Attributes attributes){
+        double probability = 1.;
+        for(int att = 0;  att < attributes.getLength(); ++att) {
+            if(attributes.getQName(att).equals("probability")) {
+                probability = Double.parseDouble(attributes.getValue(att));
+                break;
+            }
+        }
+        return probability;
+    }
+
     /**
      * Parse attributes of the stress effect element
      * @param attributes the attributes
@@ -253,17 +264,7 @@ public class EventsParserHandler extends DefaultHandler {
             return;
         }
 
-        double probability = 1.;
-
-        for(int att = 0;  att < attributes.getLength(); ++att) {
-            switch (attributes.getQName(att)) {
-                case "probability":
-                    probability = Double.parseDouble(attributes.getValue(att));
-                    break;
-            }
-        }
-
-        currentEffect = new StressEffect(probability);
+        currentEffect = new StressEffect(getProbability(attributes));
     }
 
     /**
@@ -275,16 +276,6 @@ public class EventsParserHandler extends DefaultHandler {
             return;
         }
 
-        double probability = 1.;
-
-        for(int att = 0;  att < attributes.getLength(); ++att) {
-            switch (attributes.getQName(att)) {
-                case "probability":
-                    probability = Double.parseDouble(attributes.getValue(att));
-                    break;
-            }
-        }
-
-        currentEffect = new RunEffect(probability);
+        currentEffect = new RunEffect(getProbability(attributes));
     }
 }

@@ -3,7 +3,6 @@ package display;
 import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import gameManager.GameManager;
-import mediator.NormalBrainState;
 
 import javax.swing.*;
 import java.awt.*;

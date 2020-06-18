@@ -3,10 +3,8 @@ package organ;
 import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import mediator.Brain;
-
 import java.util.Arrays;
-import java.util.Timer;
-import java.util.Map;
+
 
 /**
  * This class is an abstraction of an organ

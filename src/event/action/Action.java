@@ -3,10 +3,7 @@ package event.action;
 import event.effect.Effect;
 import mediator.Brain;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Random;

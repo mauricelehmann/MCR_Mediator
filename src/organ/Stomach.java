@@ -1,7 +1,6 @@
 package organ;
 
 import bodyRessources.BodyResources;
-import bodyRessources.ResourceType;
 import mediator.Brain;
 
 /**

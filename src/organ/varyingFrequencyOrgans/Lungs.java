@@ -2,14 +2,10 @@ package organ.varyingFrequencyOrgans;
 
 import bodyRessources.ResourceType;
 import mediator.Brain;
-import organ.Organ;
-import organ.varyingFrequencyOrgans.VaryingFrequencyOrgan;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import static java.lang.Math.max;
-
+/**
+ * Lungs mangage the refill of oxygen in the system
+ */
 public class Lungs extends VaryingFrequencyOrgan {
     private final int lungCapacity = 100;
 

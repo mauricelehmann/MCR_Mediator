@@ -7,7 +7,6 @@ import organ.Organ;
 
 import javax.swing.*;
 import java.awt.*;
-import java.time.format.ResolverStyle;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +19,6 @@ public class OrganPanel {
 
     private static Map<String, JLabel> oxygeneLevel = new HashMap<>();
     private static Map<String, JLabel> proteinLevel = new HashMap<>();
-
 
     public OrganPanel(GameManager gManager, List<Organ> organList){
 

@@ -2,12 +2,13 @@ package organ.varyingFrequencyOrgans;
 
 import mediator.Brain;
 import organ.Organ;
-
 import java.util.Timer;
 import java.util.TimerTask;
-
 import static java.lang.Math.max;
 
+/**
+ * VaryingFrequencyOrgan define the organs that use a "pulse" behavior
+ */
 public abstract class VaryingFrequencyOrgan extends Organ {
 
     protected double minFrequency;

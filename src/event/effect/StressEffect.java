@@ -9,7 +9,6 @@ public class StressEffect extends Effect {
 
     @Override
     public void apply(Brain brain) {
-        // TODO: implement this
         brain.stress();
     }
 
