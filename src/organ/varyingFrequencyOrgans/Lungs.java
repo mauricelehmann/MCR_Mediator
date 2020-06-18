@@ -17,7 +17,7 @@ public class Lungs extends VaryingFrequencyOrgan {
         super(mediator);
         frequency = 0.2;
         minFrequency = 0.1;
-        task = new TimerTask() {
+        task = new Runnable() {
             @Override
             public void run() {
                 mediator.refillBlood(ResourceType.Oxygen, lungCapacity);

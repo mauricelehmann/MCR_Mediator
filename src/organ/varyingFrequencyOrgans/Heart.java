@@ -15,7 +15,7 @@ public class Heart extends VaryingFrequencyOrgan {
         super(mediator);
         frequency = 1.2; //1 beat per second is slow, but still normal !
         minFrequency = 1.0;
-        task = new TimerTask() {
+        task = new Runnable() {
             @Override
             public void run() {
                 mediator.bloodFlow();

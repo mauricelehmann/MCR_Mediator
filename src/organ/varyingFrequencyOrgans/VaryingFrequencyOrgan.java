@@ -13,7 +13,7 @@ public abstract class VaryingFrequencyOrgan extends Organ {
     protected double minFrequency;
     protected double frequency;
     protected Timer paceMaker;
-    protected TimerTask task;
+    protected Runnable task;
 
     public VaryingFrequencyOrgan(Brain mediator) {
         super(mediator);
@@ -35,7 +35,12 @@ public abstract class VaryingFrequencyOrgan extends Organ {
             activityFactor = frequency*2;
             Timer newPaceMaker = new Timer();
             //We need to reschedule to send pump blood at the new frequency
-            newPaceMaker.scheduleAtFixedRate(task, 0, (int)(1000/frequency));
+            newPaceMaker.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    task.run();
+                }
+            }, 0, (int) (1000 / frequency));
             paceMaker = newPaceMaker;
         }
     }

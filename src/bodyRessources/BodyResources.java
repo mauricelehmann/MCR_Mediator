@@ -31,9 +31,9 @@ public class BodyResources {
         return resources.get(type);
     }
 
-    public void consume(double percentage)
+    public void consume(double amount)
     {
-        resources.replaceAll((ResourceType type, Double oldAmount) -> oldAmount * (1-percentage));
+        resources.replaceAll((ResourceType type, Double oldAmount) -> oldAmount - amount);
     }
 
     public void consume(ResourceType type, Double amount) {
@@ -56,17 +56,17 @@ public class BodyResources {
         resources.replaceAll((ResourceType type, Double oldAmount) -> oldAmount + newResources.resources.get(type));
     }
 
-    public BodyResources splitShare(BodyResources destinationContainer, double percentage)
+    public BodyResources splitShare(BodyResources destinationContainer, double portion)
     {
-        if(percentage > 1 || percentage <0)
+        if(portion > 1 || portion <0)
         {
             throw new InvalidParameterException("Ratio must be between 0 and 1");
         }
         BodyResources share = new BodyResources();
         for(Map.Entry<ResourceType, Double> resource : destinationContainer.resources.entrySet())
         {
-            this.consume(percentage);
-            share.resources.put(resource.getKey(), resource.getValue()*percentage);
+            this.consume(resource.getKey(), resource.getValue()*portion);
+            share.resources.put(resource.getKey(), resource.getValue()*portion);
         }
         return share;
     }

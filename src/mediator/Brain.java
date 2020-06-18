@@ -186,7 +186,7 @@ public class Brain extends Organ implements BrainState {
         for (Organ organ: organs)
         {
             //Give the organ its fair share of resources
-            organ.refill((bodyResources.splitShare(organ.getResources(), organ.getSize() / biomass)));
+            organ.refill((bodyResources.splitShare(organ.getResources(), organ.getSize() / (biomass*10))));
         }
     }
 
