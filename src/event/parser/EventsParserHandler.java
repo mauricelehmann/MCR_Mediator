@@ -25,7 +25,7 @@ public class EventsParserHandler extends DefaultHandler {
 
     /**
      * Handle the start of the document parsing
-     * @throws SAXException
+     * @throws SAXException exception
      */
     public void startDocument() throws SAXException {
         System.out.println("Loading events...");
@@ -55,7 +55,6 @@ public class EventsParserHandler extends DefaultHandler {
             case "action":
                 parseActionAttributes(attributes);
                 break;
-            //FIXME: maybe there is too much code duplication between each effect parsing
             case "dieEffect":
                 parseDieEffectAttributes(attributes);
                 break;
@@ -168,11 +167,10 @@ public class EventsParserHandler extends DefaultHandler {
         }
 
         for(int att = 0; att < attributes.getLength(); ++att) {
-            switch (attributes.getQName(att)) {
-                case "ref":
-                    String actionName = attributes.getValue(att);
-                    currentEvent.addAction(actions.get(actionName));
-                    break;
+            if ("ref".equals(attributes.getQName(att))) {
+                String actionName = attributes.getValue(att);
+                currentEvent.addAction(actions.get(actionName));
+                break;
             }
         }
     }
@@ -185,18 +183,7 @@ public class EventsParserHandler extends DefaultHandler {
         if(attributes == null) {
             return;
         }
-
-        double probability = 1.;
-
-        for(int att = 0;  att < attributes.getLength(); ++att) {
-            switch (attributes.getQName(att)) {
-                case "probability":
-                    probability = Double.parseDouble(attributes.getValue(att));
-                    break;
-            }
-        }
-
-        currentEffect = new DieEffect(probability);
+        currentEffect = new DieEffect(getProbability(attributes));
     }
 
     /**

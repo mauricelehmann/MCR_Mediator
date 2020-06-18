@@ -12,20 +12,20 @@ import java.util.Random;
  * This class represents a possible action with effects
  */
 public abstract class Action {
-    static private Random random = new Random(); // TODO: maybe moves this into GameManager
-    private ImageIcon icon;
-    private String name;
-    private LinkedList<Effect> effects = new LinkedList<>();
+    static private final Random random = new Random();
+    private final ImageIcon icon;
+    private final String name;
+    private final LinkedList<Effect> effects = new LinkedList<>();
 
     /**
      * Constructor
      * @param name the name
      * @param iconFilename the name of the icon file
      */
-    public Action(String name, String iconFilename) {
+     Action(String name, String iconFilename) {
         this.name = name;
         icon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource(iconFilename)));
-    }
+     }
 
     /**
      * Get the action icon
@@ -69,8 +69,6 @@ public abstract class Action {
      */
     @Override
     public String toString() {
-        String string = "[Action]: " + name;
-
-        return string;
+        return "[Action]: " + name;
     }
 }

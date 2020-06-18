@@ -1,7 +1,6 @@
 package mediator;
 
 import bodyRessources.BodyResources;
-import bodyRessources.ResourceType;
 import event.Event;
 
 /**
@@ -33,7 +32,7 @@ public class WeirdBrainState implements BrainState {
      */
     @Override
     public void notifyEvent(Event event) {
-        _brain.getGameManager().takeAction(event);
+        //some additional behavior here...
     }
 
     /**
@@ -42,7 +41,6 @@ public class WeirdBrainState implements BrainState {
      */
     @Override
     public void eat(BodyResources substance) {
-        // TODO: implémenter
         _brain.stomach.digest(substance, _brain.getBrainResources());
     }
 

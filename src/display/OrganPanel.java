@@ -24,7 +24,7 @@ public class OrganPanel {
 
         frame.setSize(CONTROLLER_SIDE,CONTROLLER_SIDE);
 
-        this.gManager = gManager;
+        OrganPanel.gManager = gManager;
 
         frame.add(new JLabel("Organes"));
         frame.add(new JLabel("Niveau oxygène"));

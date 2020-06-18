@@ -26,7 +26,6 @@ public class Brain extends Organ implements BrainState {
      */
     private BodyResources bodyResources;
     private double biomass;//Sum of organ sizes
-    private Timer bodyClock;
 
     /**
      * States
@@ -40,14 +39,14 @@ public class Brain extends Organ implements BrainState {
     /**
      * Organs
      */
-    protected Heart heart;
-    protected Lungs lungs;
-    protected Legs legs;
-    protected Mouth mouth;
-    protected Eyes eyes;
-    protected Stomach stomach;
+    Heart heart;
+    Lungs lungs;
+    Legs legs;
+    Mouth mouth;
+    Eyes eyes;
+    Stomach stomach;
 
-    List<Organ> organs;
+    private List<Organ> organs;
 
     /**
      * Constructor : Initializes the gameManager, its organs (colleagues) and resources
@@ -95,7 +94,7 @@ public class Brain extends Organ implements BrainState {
      * organs will now consume resources every second and the heart and lungs start functioning
      */
     public void start(){
-        bodyClock = new Timer();
+        Timer bodyClock = new Timer();
         bodyClock.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -128,7 +127,7 @@ public class Brain extends Organ implements BrainState {
 
     /**
      * Look at an event
-     * @param event
+     * @param event event
      */
     public void look(Event event) {
         eyes.see(event);
@@ -140,6 +139,7 @@ public class Brain extends Organ implements BrainState {
      */
     @Override
     public void notifyEvent(Event event) {
+        gameManager.takeAction(event);
         currentBrain.notifyEvent(event);
     }
 
@@ -180,8 +180,8 @@ public class Brain extends Organ implements BrainState {
      * brain handle the death
      */
     public void die() {
-        gameManager.playerDies();
         currentBrain.die();
+        gameManager.playerDies();
     }
 
     /**

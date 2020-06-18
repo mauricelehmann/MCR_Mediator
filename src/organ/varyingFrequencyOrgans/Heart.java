@@ -20,7 +20,7 @@ public class Heart extends VaryingFrequencyOrgan {
             public void run() {
                 mediator.bloodFlow();
                 if(frequency > 100){
-                    notifyDisplay("Je fais une crise cardiaque!");  //TODO kler écrasé par pompe
+                    notifyDisplay("Je fais une crise cardiaque!");
                     brain.die();
                 }
             }

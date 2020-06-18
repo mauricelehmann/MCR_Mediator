@@ -19,16 +19,16 @@ public class DrunkBrainState implements BrainState {
          * @param sentence the sentence
          * @return the drunk sentence
          */
-        public static String decorate(String sentence){
-            String drunkPhrase = sentence;
+        static String decorate(String sentence){
+            StringBuilder drunkPhrase = new StringBuilder("");
             for (int i = 0; i < sentence.length(); i++) {
                 char c = sentence.charAt(i);
                 if(i % 2 == 0){
-                    drunkPhrase += Character.toUpperCase(c);
+                    drunkPhrase.append(Character.toUpperCase(c));
                 }
-                drunkPhrase += c;
+                drunkPhrase.append(c);
             }
-            return drunkPhrase;
+            return drunkPhrase.toString();
         }
     }
 
@@ -47,7 +47,8 @@ public class DrunkBrainState implements BrainState {
      */
     @Override
     public void askOxygen(double value) {
-        // TODO: implémenter
+        _brain.lungs.accelerate(5+value/10);
+        _brain.heart.accelerate(5+value/20);
     }
 
     /**
@@ -64,8 +65,7 @@ public class DrunkBrainState implements BrainState {
      */
     @Override
     public void notifyEvent(Event event) {
-        // FIXME: maybe pull this up into brain
-        _brain.getGameManager().takeAction(event);
+        //some behavior here...
     }
 
     /**

@@ -9,7 +9,7 @@ import java.util.Map;
  * Represents the resources used by the body and its organs
  */
 public class BodyResources {
-    private Map<ResourceType, Double> resources;
+    private final Map<ResourceType, Double> resources;
 
     /**
      * Default Constructor : the container will know all resourceTypes but their amount starts at 0

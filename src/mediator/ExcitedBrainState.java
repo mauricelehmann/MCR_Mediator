@@ -18,7 +18,7 @@ public class ExcitedBrainState implements BrainState {
          * @param sentence the sentence to transform
          * @return the new string
          */
-        public static String decorate(String sentence) {
+        static String decorate(String sentence) {
             return sentence.toUpperCase();
         }
     }
@@ -58,8 +58,7 @@ public class ExcitedBrainState implements BrainState {
      */
     @Override
     public void notifyEvent(Event event) {
-        // FIXME: maybe pull this up into brain
-        _brain.getGameManager().takeAction(event);
+        //some additional behavior here...
     }
 
     /**

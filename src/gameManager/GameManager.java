@@ -7,11 +7,8 @@ import event.Event;
 import event.EventGenerator;
 import event.action.Action;
 import mediator.Brain;
-
-
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.TooManyListenersException;
 
 /**
  * Represents a game manager.
@@ -19,11 +16,9 @@ import java.util.TooManyListenersException;
  * manager the game and its interaction with the player
  */
 public class GameManager {
-    private final String EVENTS_FILE = "events.xml";
     private Brain brain;
     private EventGenerator eventGenerator;
     private Timer eventScheduler = new Timer();
-    private Timer bodyUpdateScheduler = new Timer();
     private Timer relaxer = new Timer();
 
     private Event currentEvent;
@@ -32,9 +27,9 @@ public class GameManager {
     /**
      * Constructor
      */
-    public GameManager() {
+    public GameManager(String eventfilename) {
         brain = new Brain(this);
-        eventGenerator = new EventGenerator(EVENTS_FILE);
+        eventGenerator = new EventGenerator(eventfilename);
 
         new ControlPanel(this);
         new StatePanel(this);

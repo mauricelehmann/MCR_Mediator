@@ -35,7 +35,7 @@ public class NormalBrainState implements BrainState {
      * @param event the event
      */
     public void notifyEvent(Event event) {
-        _brain.getGameManager().takeAction(event);
+        //some additional behavior here...
     }
 
     /**

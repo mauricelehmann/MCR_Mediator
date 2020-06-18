@@ -19,7 +19,7 @@ public class StatePanel {
     public StatePanel(GameManager gManager){
 
         frame.setSize(CONTROLLER_SIDE, CONTROLLER_SIDE);
-        this.gManager = gManager;
+        StatePanel.gManager = gManager;
 
         //Names of value
         frame.add(new JLabel("Etat du cerveau :"));

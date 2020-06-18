@@ -14,8 +14,6 @@ public abstract class Organ {
     private static final double TIME_INCREMENT = 1000;//1 sec
 
     protected Brain brain;
-
-    //TODO : Should organs have a resource maximum ?
     private BodyResources resources;
 
     protected double activityFactor;
