@@ -12,12 +12,6 @@ public class Heart extends Organ {
     //HeartBeat per minute
     private double beat;
 
-    Timer paceMaker;
-
-    /**
-     * Constructor
-     * @param brain
-     */
     public Heart(Brain brain) {
         super(brain);
         pump();
@@ -37,7 +31,7 @@ public class Heart extends Organ {
             notifyDisplay("Je fais une crise cardiaque!");  //TODO kler écrasé par pompe
             brain.die();
         }
-        pump();//Reschedule heartbeat with new beat frequency
+        pump();
     }
 
     /**
@@ -46,14 +40,8 @@ public class Heart extends Organ {
     public void pump() {
         if(beat > 0) {
             notifyDisplay("Je pompe du sang");
-            //We need to reschedule to send pump blood at the new frequency
-            paceMaker = new Timer();
-            paceMaker.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    brain.bloodFlow();
-                }
-            }, 0, (int)(1000/beat));
+
+            brain.bloodFlow();
         }
     }
 }

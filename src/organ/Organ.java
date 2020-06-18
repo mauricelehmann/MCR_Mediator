@@ -6,6 +6,7 @@ import mediator.Brain;
 
 import java.util.Map;
 
+
 /**
  * This class is an abstraction of an organ
  */
@@ -16,7 +17,6 @@ public abstract class Organ {
 
     protected Brain brain;
 
-    /* Ressources */
     //TODO : Should organs have a resource maximum ?
     private BodyResources resources;
 
@@ -43,8 +43,8 @@ public abstract class Organ {
      */
     public void consumeResources()
     {
-        // FIXME: :(
-        //activityLevel.consumeResources(this.resources, this.getSizeFactor());
+        resources.consume(ResourceType.Oxygen, 10.0);
+        resources.consume(ResourceType.Protein, 10.0);
     }
 
     /**
