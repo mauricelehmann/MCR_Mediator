@@ -1,53 +1,87 @@
 package mediator;
 
 import bodyRessources.BodyResources;
+import bodyRessources.ResourceType;
 import event.Event;
 
+/**
+ * Class representing a weird brain
+ */
 public class WeirdBrainState implements BrainState {
     private Brain _brain;
 
+    /**
+     * Constructor
+     * @param brain the brain
+     */
     public WeirdBrainState(Brain brain) {
         _brain = brain;
     }
 
-
-    @Override
-    public void askOxygen(double value) {
-        // TODO: implémenter
-    }
-
+    /**
+     * Ask the body to run
+     */
     @Override
     public void run() {
-        // TODO: implémenter
+        _brain.heart.accelerate(10);
+        _brain.legs.run();
     }
 
+    /**
+     * Notify event to the brain
+     * @param event the event
+     */
     @Override
     public void notifyEvent(Event event) {
-        // FIXME: maybe pull this up into brain
         _brain.getGameManager().takeAction(event);
     }
 
+    /**
+     * Consume a substance
+     * @param substance the substance
+     */
     @Override
     public void eat(BodyResources substance) {
         // TODO: implémenter
+        _brain.stomach.digest(substance, _brain.getBrainResources());
     }
 
+    /**
+     * Make the body stress
+     */
     @Override
     public void stress() {
-        // TODO: implémenter
+        _brain.heart.accelerate(-10);
     }
 
+    /**
+     * Process eyes vision
+     * @param event the event seen
+     */
     @Override
     public void processEyesVision(Event event) {
         if(event.getHallucination() != null && !event.getHallucination().isEmpty()) {
-            System.out.println("Je vois : " + event.getHallucination());
+            _brain.mouth.say("Je vois : " + event.getHallucination());
         } else {
-            System.out.println("Je vois : " + event.getDescription());
+            _brain.mouth.say("Je vois : " + event.getDescription());
         }
     }
 
+    /**
+     * Ask oxygen to the body
+     */
+    @Override
+    public void askOxygen(double value) {
+        _brain.lungs.accelerate(value/2);
+        _brain.heart.accelerate(value/2);
+    }
+
+    /**
+     * Handle and signal its death
+     */
     @Override
     public void die() {
-        //TODO
+         this.processEyesVision(new Event("un halo de lumière..."));
+        _brain.mouth.say("J'arrive mes amis!");
     }
 }

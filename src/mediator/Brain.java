@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Le Brain est le cerveau principal, il change d'état interne selon ses propres niveaux de ressources
+ * Brain is the main brain, it change the internal state based on the resources levels
  */
 public class Brain extends Organ implements BrainState {
 
@@ -51,6 +51,10 @@ public class Brain extends Organ implements BrainState {
 
     List<Organ> organs;
 
+    /**
+     * Constructor
+     * @param gameManager its game manager
+     */
     public Brain(GameManager gameManager) {
         super(null);
         this.gameManager = gameManager;
@@ -104,11 +108,17 @@ public class Brain extends Organ implements BrainState {
         lungs.reSchedule();
     }
 
+    /**
+     * Ask oxygen to the brain
+     */
     @Override
     public void askOxygen(double value) {
         currentBrain.askOxygen(value);
     }
 
+    /**
+     * Ask the body to run
+     */
     @Override
     public void run() {
         currentBrain.run();
@@ -122,18 +132,29 @@ public class Brain extends Organ implements BrainState {
         //TODO : A implémenter ! Après tout faut quand même que notre personnage puisse se calmer !
     }
 
+    /**
+     * Notify event to the brain
+     * @param event the event
+     */
     @Override
     public void notifyEvent(Event event) {
         currentBrain.notifyEvent(event);
     }
 
+    /**
+     * Eat given resources
+     * @param substance the resources
+     */
     public void eat(BodyResources substance) {
         currentBrain.eat(substance);
         updateState();
     }
 
+    /**
+     * Update the brain state based on its resources level
+     */
     private void updateState(){
-        /* EXEMPLE DE CHANGEMENT DE STATE */
+        /* CHANGEMENT DE STATE */
         if(brainResources.getResourceAmount(ResourceType.Caffein) > 100) {
             System.out.println("Changement d'état du cerveau : le cerveau est excité");
             currentBrain = exitedBrain;
@@ -151,37 +172,89 @@ public class Brain extends Organ implements BrainState {
         StatePanel.updateChemicalsDisplay(brainResources);
     }
 
+    /**
+     * Every next turn, we reduce all the chemical resources
+     * and check if we have to change the state
+     */
+    public void updateChemicalLevel() {
+        //Reduce all brains chemicals level
+        if(brainResources.getResourceAmount(ResourceType.Alcohol) > 0)
+            brainResources.setResourceAmount(ResourceType.Alcohol, brainResources.getResourceAmount(ResourceType.Alcohol) - 1);
+        if(brainResources.getResourceAmount(ResourceType.Caffein) > 0)
+            brainResources.setResourceAmount(ResourceType.Caffein, brainResources.getResourceAmount(ResourceType.Caffein) - 1);
+        if(brainResources.getResourceAmount(ResourceType.Psychedelic) > 0)
+            brainResources.setResourceAmount(ResourceType.Psychedelic, brainResources.getResourceAmount(ResourceType.Psychedelic) - 1);
+    }
+
+    /**
+     * Signal its death to the gameManager and let the current
+     * brain handle the death
+     */
     public void die() {
-        // TODO: signaler au GameManager que le personnage est mort ???
-//        StatePanel.updateChemicalsDisplay(brainChemical);
+        gameManager.playerDies();
         currentBrain.die();
     }
 
+    /**
+     * Get the current brain state
+     * @return the current brain state
+     */
     public String getCurrentBrainState(){
-        return currentBrain.getClass().getName();
+        return currentBrain.getClass().getSimpleName();
     }
 
+    /**
+     * Update the organ display
+     * @param organ the organ
+     * @param toDisplay the string to display
+     */
     public void updateOrganDisplay(Organ organ, String toDisplay) {
-        OrganPanel.updateOrganDisplay(organ.getClass().getName(), toDisplay);
+        //OrganPanel.updateOrganDisplay(organ.getClass().getName(), "<html>"+ toDisplay +"</html>");
+        OrganPanel.updateOrganResourcesDisplay(organ.getClass().getName(), organ.getResources());
     }
 
+    /**
+     * Get the brain resources
+     * @return the resources
+     */
     public BodyResources getBrainResources() {
         return brainResources;
     }
 
+    /**
+     * Get the managed organs
+     * @return the organs
+     */
+    public List<Organ> getOrgans() {
+        return organs;
+    }
+
+    /**
+     * Get the game manager
+     * @return the game manager
+     */
     public GameManager getGameManager() {
         return gameManager;
     }
 
+    /**
+     * Request the current brain to stress
+     */
     public void stress() {
-        // TODO: currentBrain devrait augmenter rythme cardiaque
         currentBrain.stress();
     }
 
+    /**
+     * Process eyes vision
+     * @param event the event seen
+     */
     public void processEyesVision(Event event) {
         currentBrain.processEyesVision(event);
     }
 
+    /**
+     * Makes the blood flow
+     */
     public void bloodFlow() {
         for (Organ organ: organs)
         {
@@ -190,6 +263,11 @@ public class Brain extends Organ implements BrainState {
         }
     }
 
+    /**
+     * Refill the blood system of a resource type
+     * @param resourceType the resource type
+     * @param amount the amount
+     */
     public void refillBlood(ResourceType resourceType, double amount)
     {
         bodyResources.fill(resourceType, amount);

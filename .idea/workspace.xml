@@ -24,6 +24,8 @@
       <change afterPath="$PROJECT_DIR$/src/organ/varyingFrequencyOrgans/VaryingFrequencyOrgan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/StatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/StatePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/event/effect/EatEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/effect/EatEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/event/parser/EventsParserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/parser/EventsParserHandler.java" afterDir="false" />
@@ -64,7 +66,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1dCz5l5aM5e3SZewFMAqkrLRiMm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -81,6 +88,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
@@ -158,7 +166,35 @@
       <option name="project" value="LOCAL" />
       <updated>1592389068256</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fuck this">
+      <created>1592458104451</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592458104451</updated>
+    </task>
+    <task id="LOCAL-00010" summary="all organs on display">
+      <created>1592458615934</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1592458615934</updated>
+    </task>
+    <task id="LOCAL-00011" summary="all organs on display">
+      <created>1592460699774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1592460699774</updated>
+    </task>
+    <task id="LOCAL-00012" summary="all organs">
+      <created>1592462297932</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1592462297932</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,32 +221,62 @@
     <MESSAGE value="debut organ panel" />
     <MESSAGE value="organ panel grid actualise status" />
     <MESSAGE value="renamed Gevent" />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed Gevent" />
+    <MESSAGE value="fuck this" />
+    <MESSAGE value="all organs on display" />
+    <MESSAGE value="all organs" />
+    <option name="LAST_COMMIT_MESSAGE" value="all organs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592438328974">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1592438328974" />
-    <state width="699" height="231" key="GridCell.Tab.0.bottom" timestamp="1592444908563">
+    <state width="699" height="231" key="GridCell.Tab.0.bottom" timestamp="1592476410057">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="699" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1592444908563" />
-    <state width="699" height="231" key="GridCell.Tab.0.center" timestamp="1592444908561">
+    <state width="699" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1592476410057" />
+    <state width="699" height="231" key="GridCell.Tab.0.center" timestamp="1592476410056">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="699" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1592444908561" />
-    <state width="699" height="231" key="GridCell.Tab.0.left" timestamp="1592444908560">
+    <state width="699" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1592476410056" />
+    <state width="699" height="231" key="GridCell.Tab.0.left" timestamp="1592476410055">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="699" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1592444908560" />
-    <state width="699" height="231" key="GridCell.Tab.0.right" timestamp="1592444908562">
+    <state width="699" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1592476410055" />
+    <state width="699" height="231" key="GridCell.Tab.0.right" timestamp="1592476410057">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="699" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1592444908562" />
+    <state width="699" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1592476410057" />
+    <state width="699" height="286" key="GridCell.Tab.1.bottom" timestamp="1592476364172">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="699" height="286" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1592476364172" />
+    <state width="699" height="286" key="GridCell.Tab.1.center" timestamp="1592476364171">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="699" height="286" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1592476364171" />
+    <state width="699" height="286" key="GridCell.Tab.1.left" timestamp="1592476364171">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="699" height="286" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1592476364171" />
+    <state width="699" height="286" key="GridCell.Tab.1.right" timestamp="1592476364172">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="699" height="286" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1592476364172" />
     <state x="455" y="234" key="refactoring.ChangeSignatureDialog" timestamp="1592443565275">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="455" y="234" key="refactoring.ChangeSignatureDialog/0.23.1440.877@0.23.1440.877" timestamp="1592443565275" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/mediator/Brain.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

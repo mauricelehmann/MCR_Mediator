@@ -3,16 +3,27 @@ package organ;
 import event.Event;
 import mediator.Brain;
 
+/**
+ * This class represents the eyes
+ */
 public class Eyes extends Organ {
-    public Eyes(Brain mediator) {
-        super(mediator);
+
+    /**
+     * Constructor
+     * @param brain the brain
+     */
+    public Eyes(Brain brain) {
+        super(brain);
     }
 
+    /**
+     * Makes the eyes see an event
+     * @param event the event to see
+     */
     public void see(Event event){
-        // System.out.println("Je vois : " + event.description);
-        // TODO: faire qqch de plus ici ??
-        mediator.processEyesVision(event);
-        mediator.notifyEvent(event);
+        notifyDisplay("Je vois : " + event.getDescription());
+        brain.processEyesVision(event);
+        brain.notifyEvent(event);
     }
 
     @Override
