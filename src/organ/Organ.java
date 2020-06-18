@@ -42,7 +42,6 @@ public abstract class Organ {
             }
             mediator.askOxygen(0.2*this.getSize()-oxygenLevel);
         }
-
         //TODO : Add similar behavior for protein ?
     }
 
