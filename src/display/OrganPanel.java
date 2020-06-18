@@ -3,86 +3,64 @@ package display;
 import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import gameManager.GameManager;
-import organ.Eyes;
 import organ.Organ;
-import organ.Stomach;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.format.ResolverStyle;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class OrganPanel {
+
     private static GameManager gManager = null;
     private static final int CONTROLLER_SIDE = 500;
     private static final JFrame frame = new JFrame("Panneau d'organe");
 
-    private static Map<String, JPanel> organPanels = new HashMap<>();
+    private static Map<String, JLabel> oxygeneLevel = new HashMap<>();
+    private static Map<String, JLabel> proteinLevel = new HashMap<>();
 
-//    class testOrganPanel extends JPanel{
-//        private Organ organ;
-//    }
 
     public OrganPanel(GameManager gManager, List<Organ> organList){
-        frame.setLayout(new GridLayout(1, organList.size()));
+
         frame.setSize(CONTROLLER_SIDE,CONTROLLER_SIDE);
+
         this.gManager = gManager;
+
+        frame.add(new JLabel("Organes"));
+        frame.add(new JLabel("Niveau oxygène"));
+        frame.add(new JLabel("Niveau proteine"));
 
         for(Organ o : organList){
             createOrganPanel(o.getClass().getSimpleName(), o.getClass().getName());
         }
 
-//        createOrganPanel("Estomac", Stomach.class.getName());
-//
-//        createOrganPanel("Yeux", Eyes.class.getName());
-
+        frame.setLayout(new GridLayout(organList.size() + 1, 3));
         frame.setVisible(true);
     }
 
     private void createOrganPanel(String label, String organClassName){
-        JPanel estomac = new JPanel();
-        estomac.setLayout(new GridLayout(ResourceType.values().length + 3,1));
-        estomac.add(new JLabel(label));
-        estomac.add(new JLabel("Status"));
-        for(ResourceType r : ResourceType.values()){
-            estomac.add(new JLabel(r.name()));
-        }
-        //TODO
-//        estomac.add(new JLabel())
-        frame.add(estomac);
-        organPanels.put(organClassName, estomac);
-    }
 
-    public static void updateOrganDisplay(String organClassName, String toDisplay){
-        JPanel specificOrganPanel = organPanels.get(organClassName);
-        JLabel status = (JLabel) specificOrganPanel.getComponent(1);
-        status.setText(toDisplay);
+        frame.add(new JLabel(label));
 
-        frame.setVisible(true);
-        frame.repaint();
-    }
+        JLabel oxygeneLevel = new JLabel("0");
+        frame.add(oxygeneLevel);
+        OrganPanel.oxygeneLevel.put(organClassName, oxygeneLevel);
 
-    public static void updateOrganResourcesDisplayOld(String organClassName, String[] toDisplay){
-        JPanel specificOrganPanel = organPanels.get(organClassName);
-        JLabel oxygen = (JLabel) specificOrganPanel.getComponent(2);
-        oxygen.setText(toDisplay[0]); //TODO
-        
-        frame.setVisible(true);
-        frame.repaint();
+        JLabel proteinLevel = new JLabel("0");
+        frame.add(proteinLevel);
+        OrganPanel.proteinLevel.put(organClassName, proteinLevel);
+
     }
 
     public  static void updateOrganResourcesDisplay(String organClassName, BodyResources r){
-        JPanel specificOrganPanel = organPanels.get(organClassName);
-        JLabel resource;
-        String output;
-        for(int i = 0; i < ResourceType.values().length; ++i){
-            resource = (JLabel) specificOrganPanel.getComponent(2+i);
-            output = String.format("%.2f", r.getResourceAmount(ResourceType.values()[i]));
-            resource.setText(output);
-        }
+
+        oxygeneLevel.get(organClassName).setText("" + r.getResourceAmount(ResourceType.Oxygen));
+        proteinLevel.get(organClassName).setText("" + r.getResourceAmount(ResourceType.Protein));
 
         frame.setVisible(true);
         frame.repaint();
     }
+
 }

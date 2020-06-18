@@ -149,7 +149,7 @@ public class Brain implements BrainState {
     }
 
     public void updateOrganDisplay(Organ organ, String toDisplay) {
-        OrganPanel.updateOrganDisplay(organ.getClass().getName(), "<html>"+ toDisplay +"</html>");
+        //OrganPanel.updateOrganDisplay(organ.getClass().getName(), "<html>"+ toDisplay +"</html>");
         OrganPanel.updateOrganResourcesDisplay(organ.getClass().getName(), organ.getResources());
     }
 
@@ -178,6 +178,7 @@ public class Brain implements BrainState {
         {
             //Give the organ its fair share of resources
             organ.refill((bodyResources.splitShare(organ.getResources(), organ.getSizeFactor() / biomass)));
+            organ.consumeResources();
         }
     }
 

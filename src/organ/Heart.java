@@ -9,8 +9,6 @@ public class Heart extends Organ {
     //HeartBeat per minute
     private double beat;
 
-    Timer paceMaker;
-
     public Heart(Brain mediator) {
         super(mediator);
         pump();
@@ -26,20 +24,13 @@ public class Heart extends Organ {
             notifyDisplay("Je fais une crise cardiaque!");  //TODO kler écrasé par pompe
             mediator.die();
         }
-        pump();//Reschedule heartbeat with new beat frequency
+        pump();
     }
 
     public void pump() {
         if(beat > 0) {
             notifyDisplay("Je pompe du sang");
-            //We need to reschedule to send pump blood at the new frequency
-            paceMaker = new Timer();
-            paceMaker.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    mediator.bloodFlow();
-                }
-            }, 0, (int)(1000/beat));
+            mediator.bloodFlow();
         }
     }
 }
