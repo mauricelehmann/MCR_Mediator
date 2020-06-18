@@ -13,7 +13,7 @@ public class EatEffect extends Effect {
 
     @Override
     public void apply(Brain bodyMediator) {
-        bodyMediator.consume(substance);
+        bodyMediator.eat(substance);
     }
 
     @Override

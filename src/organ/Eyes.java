@@ -15,4 +15,8 @@ public class Eyes extends Organ {
         mediator.notifyEvent(event);
     }
 
+    @Override
+    public double getSize() {
+        return 5;
+    }
 }

@@ -186,11 +186,10 @@ public class EventsParserHandler extends DefaultHandler {
         }
 
         BodyResources ressources = new BodyResources();
-        ressources.setResourceAmount(ResourceType.Oxygen, 0); // TODO: changer ça si possible
-        ressources.setResourceAmount(ResourceType.Caffein, caffein);
-        ressources.setResourceAmount(ResourceType.Alcohol, alcohol);
-        ressources.setResourceAmount(ResourceType.Psychedelic, psychdedelic);
-        ressources.setResourceAmount(ResourceType.Protein, protein);
+        ressources.fill(ResourceType.Caffein, (double)caffein);
+        ressources.fill(ResourceType.Alcohol, (double)alcohol);
+        ressources.fill(ResourceType.Psychedelic, (double)psychdedelic);
+        ressources.fill(ResourceType.Protein, (double)protein);
 
 
         currentEffect = new EatEffect(probability, ressources);

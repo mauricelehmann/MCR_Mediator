@@ -1,42 +1,32 @@
-package organ;
+package organ.varyingFrequencyOrgans;
 
 import bodyRessources.ResourceType;
 import mediator.Brain;
+import organ.Organ;
+import organ.varyingFrequencyOrgans.VaryingFrequencyOrgan;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static java.lang.Math.max;
 
-public class Lungs extends Organ {
+public class Lungs extends VaryingFrequencyOrgan {
     private final int lungCapacity = 10;
-    private double breathFrequency;
-
-    Timer breathPaceMaker;
 
     public Lungs(Brain mediator){
         super(mediator);
-        breathFrequency = 0.2;
-        breathPaceMaker = new Timer();
-        breathe();
+        frequency = 0.2;
+        minFrequency = 0.1;
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                mediator.refillBlood(ResourceType.Oxygen, lungCapacity);
+            }
+        };
     }
 
-    public void accelerate(double multiplier) {
-        breathFrequency = max(multiplier*breathFrequency, 1);
-        breathe();
-    }
-
-    public void breathe() {
-        if(breathFrequency > 0) {
-            activityFactor = breathFrequency*4;
-            //We need to reschedule to send pump blood at the new frequency
-            breathPaceMaker.cancel();
-            breathPaceMaker.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    mediator.refillBlood(ResourceType.Oxygen, lungCapacity);
-                }
-            }, 0, (int)(1000/breathFrequency));
-        }
+    @Override
+    public double getSize() {
+        return 100;
     }
 }

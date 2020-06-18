@@ -6,24 +6,19 @@ import mediator.Brain;
 public class Legs extends Organ {
     public Legs(Brain mediator) {
         super(mediator);
+        activityFactor = 0.1;
     }
 
     public void run() {
-
-        /*fb-Organ_Management
-        //check si le niveau d'oxygene est suffisant
-        while( getRessources().getOxygenLevel() < 20){
-            System.out.println("Jambes : Pas assez d'oxygène!");
-            getMediator().askOxygen();
-            Thread.sleep(2000);
-        }
-        System.out.println("Jambes : Je cours!");
-        //demander au mediator réduire le niveau d'oxygène
-        getRessources().setOxygenLevel(getRessources().getOxygenLevel() - 10);
-        */
-        //TODO : Replace obsolete code
+        activityFactor = 6;
     }
 
     public void walk() {
+        activityFactor = 2;
+    }
+
+    @Override
+    public double getSize() {
+        return 250;
     }
 }

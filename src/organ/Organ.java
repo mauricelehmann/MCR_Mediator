@@ -4,61 +4,41 @@ import bodyRessources.BodyResources;
 import bodyRessources.ResourceType;
 import mediator.Brain;
 
-import java.util.Map;
-
-abstract class ActivityLevel
-{
-    public abstract Map<ResourceType, Double> getConsumptionRates();
-    //TODO : figure out balanced consumption values for all activityLevels and resources in subclasses
-
-    public void consumeResources(BodyResources resources, double sizeFactor) {
-        for(Map.Entry<ResourceType, Double> entry : getConsumptionRates().entrySet())
-        {
-            resources.consume(entry.getKey(), sizeFactor*entry.getValue());
-        }
-    }
-}
-
-class LowActivity extends ActivityLevel {
-    @Override
-    public Map<ResourceType, Double> getConsumptionRates() {
-        return null;
-    }
-}
-
-class MediumActivity extends ActivityLevel {
-    @Override
-    public Map<ResourceType, Double> getConsumptionRates() {
-        return null;
-    }
-}
+import java.util.Arrays;
+import java.util.Timer;
 
 public abstract class Organ {
-
-    private static final double TIME_INCREMENT = 1000;//1 sec
     //TODO : Move this somewhere else ?
     // Create scheduler (per organ or a global one so that organs are synchronized ?) do we need a "Body" class ?
+    private static final double TIME_INCREMENT = 1000;//1 sec
 
     protected Brain mediator;
 
     /* Ressources */
     //TODO : Should organs have a resource maximum ?
     private BodyResources resources;
-    private ActivityLevel activityLevel;
+
+    protected double activityFactor;
 
     public Organ(Brain mediator){
         this.mediator = mediator;
-        resources = new BodyResources();
+        resources = new BodyResources(Arrays.asList(ResourceType.Oxygen, ResourceType.Protein), getSize()/2);
+        activityFactor = 1;
     }
 
-    public double getSizeFactor()
+    public double getSize()
     {
-        return 1;
+        return 100;
     }
 
-    public void consumeResources()
-    {
-        activityLevel.consumeResources(this.resources, this.getSizeFactor());
+    public void consumeResources() {
+        resources.consume(getSize()*activityFactor);
+        double oxygenLevel = resources.getResourceAmount(ResourceType.Oxygen);
+        if(oxygenLevel < this.getSize()/20)
+        {
+            mediator.askOxygen(20*this.getSize()-oxygenLevel);
+        }
+        //TODO : Add similar behavior for protein ?
     }
 
     public BodyResources getResources(){
@@ -76,6 +56,5 @@ public abstract class Organ {
     public void notifyDisplay(String toDisplay){
         mediator.updateOrganDisplay(this, toDisplay);
     }
-
 
 }

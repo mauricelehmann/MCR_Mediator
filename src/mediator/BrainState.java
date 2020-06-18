@@ -2,14 +2,13 @@ package mediator;
 
 import bodyRessources.BodyResources;
 import event.Event;
-import organ.Organ;
 
 public interface BrainState {
 
-    void askOxygen(Organ asker, int value);
+    void askOxygen(double value);
     void run();
     void notifyEvent(Event event);
-    void consume(BodyResources substance);
+    void eat(BodyResources substance);
     void stress();
     void processEyesVision(Event event);
     void die();

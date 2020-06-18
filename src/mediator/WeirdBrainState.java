@@ -2,7 +2,6 @@ package mediator;
 
 import bodyRessources.BodyResources;
 import event.Event;
-import organ.Organ;
 
 public class WeirdBrainState implements BrainState {
     private Brain _brain;
@@ -13,7 +12,7 @@ public class WeirdBrainState implements BrainState {
 
 
     @Override
-    public void askOxygen(Organ asker, int value) {
+    public void askOxygen(double value) {
         // TODO: implémenter
     }
 
@@ -29,7 +28,7 @@ public class WeirdBrainState implements BrainState {
     }
 
     @Override
-    public void consume(BodyResources substance) {
+    public void eat(BodyResources substance) {
         // TODO: implémenter
     }
 

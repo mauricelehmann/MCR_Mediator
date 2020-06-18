@@ -9,16 +9,18 @@ public class Stomach extends Organ {
         super(mediator);
     }
 
-    public void digest(BodyResources substance, BodyResources brainResources) {
+    public void digest(BodyResources substance, BodyResources systemResources) {
 
         System.out.println("Estomac : je digère une substance composée de : " + substance.toString());
 
         notifyDisplay("L'estomac digère du stuff");
 
         //Update chemicals
-        brainResources.refill(ResourceType.Caffein, substance.getResourceAmount(ResourceType.Caffein));
-        brainResources.refill(ResourceType.Psychedelic, substance.getResourceAmount(ResourceType.Psychedelic));
-        brainResources.refill(ResourceType.Alcohol, substance.getResourceAmount(ResourceType.Alcohol));
-        brainResources.refill(ResourceType.Protein, substance.getResourceAmount(ResourceType.Protein));
+        systemResources.refill(substance);
+    }
+
+    @Override
+    public double getSize() {
+        return 150;
     }
 }

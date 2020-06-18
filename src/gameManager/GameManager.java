@@ -6,10 +6,15 @@ import event.EventGenerator;
 import event.action.Action;
 import mediator.Brain;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.TooManyListenersException;
+
 public class GameManager {
     private final String EVENTS_FILE = "events.xml";
     private Brain brain;
     private EventGenerator eventGenerator;
+    private Event currentEvent;
     private static boolean actionTaken = false;
 
     public GameManager() {
@@ -18,17 +23,19 @@ public class GameManager {
     }
 
     public void startGame() {
-        Boolean continueGame = true;
+        Timer eventScheduler = new Timer();
+        Timer bodyUpdateScheduler = new Timer();
 
-        while(continueGame) {
-            nextTurn();
-        }
-    }
+        brain.start();
 
-    public void nextTurn() {
-        // FIXME: maybe this is not clean, we probably should not access eyes directly
-        brain.eyes.see(eventGenerator.generate());
-        brain.updateChemicalLevel();
+        eventScheduler.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                currentEvent = eventGenerator.generate();
+                brain.look(currentEvent);
+            }
+        }, 5000, 5000);
+
     }
 
     public void takeAction(Event event){

@@ -7,22 +7,28 @@ import bodyRessources.ResourceType;
 import event.Event;
 import gameManager.GameManager;
 import organ.*;
+import organ.varyingFrequencyOrgans.Heart;
+import organ.varyingFrequencyOrgans.Lungs;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Le Brain est le cerveau principal, il change d'état interne selon ses propres niveaux de ressources
  */
-public class Brain implements BrainState {
+public class Brain extends Organ implements BrainState {
 
     private GameManager gameManager;
+    private BodyResources brainResources;
 
     /**
      * System (Organism) info
      */
-    private BodyResources brainResources;
     private BodyResources bodyResources;
     private double biomass;//Sum of organ sizes
+    private Timer bodyClock;
 
     /**
      * States
@@ -36,16 +42,17 @@ public class Brain implements BrainState {
     /**
      * Organs
      */
+    protected Heart heart;
     protected Lungs lungs;
     protected Legs legs;
     protected Mouth mouth;
-    public Eyes eyes;
-
+    protected Eyes eyes;
     protected Stomach stomach;
 
     List<Organ> organs;
 
     public Brain(GameManager gameManager) {
+        super(null);
         this.gameManager = gameManager;
 
         /* States */
@@ -61,26 +68,45 @@ public class Brain implements BrainState {
         this.eyes = new Eyes(this);
         this.stomach = new Stomach(this);
         this.mouth = new Mouth(this);
+        this.heart = new Heart(this);
 
         bodyResources = new BodyResources();
         brainResources = new BodyResources();
 
-        //TODO : to refactor, it should not be the brain's resposibility to create the organs
         organs = new ArrayList<>();
         organs.add(lungs);
         organs.add(legs);
         organs.add(eyes);
+        organs.add(heart);
+        organs.add(stomach);
+        organs.add(mouth);
 
         biomass = 0;
         for(Organ organ : organs)
         {
-            biomass += organ.getSizeFactor();
+            biomass += organ.getSize();
         }
     }
 
+    public void start(){
+        bodyClock = new Timer();
+        bodyClock.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                for(Organ organ : organs)
+                {
+                    organ.consumeResources();
+                }
+            }
+        }, 1000, 1000);
+
+        heart.reSchedule();
+        lungs.reSchedule();
+    }
+
     @Override
-    public void askOxygen(Organ asker, int value) {
-        currentBrain.askOxygen(asker, value);
+    public void askOxygen(double value) {
+        currentBrain.askOxygen(value);
     }
 
     @Override
@@ -88,13 +114,21 @@ public class Brain implements BrainState {
         currentBrain.run();
     }
 
+    public void look(Event event) {
+        eyes.see(event);
+    }
+
+    public void calmDown() {
+        //TODO : A implémenter ! Après tout faut quand même que notre personnage puisse se calmer !
+    }
+
     @Override
     public void notifyEvent(Event event) {
         currentBrain.notifyEvent(event);
     }
 
-    public void consume(BodyResources substance) {
-        currentBrain.consume(substance);
+    public void eat(BodyResources substance) {
+        currentBrain.eat(substance);
         updateState();
     }
 
@@ -115,20 +149,6 @@ public class Brain implements BrainState {
 
         StatePanel.updateStateDisplay(getCurrentBrainState());
         StatePanel.updateChemicalsDisplay(brainResources);
-    }
-
-    /**
-     * Every next turn, we reduce all the chemical ressources
-     * and check if we have to change the state
-     */
-    public void updateChemicalLevel() {
-        //Reduce all brains chemicals level
-        if(brainResources.getResourceAmount(ResourceType.Alcohol) > 0)
-            brainResources.setResourceAmount(ResourceType.Alcohol, brainResources.getResourceAmount(ResourceType.Alcohol) - 1);
-        if(brainResources.getResourceAmount(ResourceType.Caffein) > 0)
-            brainResources.setResourceAmount(ResourceType.Caffein, brainResources.getResourceAmount(ResourceType.Caffein) - 1);
-        if(brainResources.getResourceAmount(ResourceType.Psychedelic) > 0)
-            brainResources.setResourceAmount(ResourceType.Psychedelic, brainResources.getResourceAmount(ResourceType.Psychedelic) - 1);
     }
 
     public void die() {
@@ -166,12 +186,12 @@ public class Brain implements BrainState {
         for (Organ organ: organs)
         {
             //Give the organ its fair share of resources
-            organ.refill((bodyResources.splitShare(organ.getResources(), organ.getSizeFactor() / biomass)));
+            organ.refill((bodyResources.splitShare(organ.getResources(), organ.getSize() / biomass)));
         }
     }
 
     public void refillBlood(ResourceType resourceType, double amount)
     {
-        bodyResources.refill(resourceType, amount);
+        bodyResources.fill(resourceType, amount);
     }
 }

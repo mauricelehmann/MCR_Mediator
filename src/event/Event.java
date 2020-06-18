@@ -4,6 +4,7 @@ import event.action.Action;
 import java.util.LinkedList;
 
 public class Event {
+    //Could be interesting for events to have a limited lifetime !
     public String description;
     public String hallucination;
     public LinkedList<Action> possibleActions = new LinkedList<>();

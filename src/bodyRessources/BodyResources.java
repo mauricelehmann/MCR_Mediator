@@ -2,6 +2,7 @@ package bodyRessources;
 
 import java.security.InvalidParameterException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BodyResources {
@@ -12,7 +13,16 @@ public class BodyResources {
         resources = new HashMap<>();
 
         for(ResourceType type : ResourceType.values()) {
-            resources.put(type, 10.0); // FIXME: Peut-être ne pas forcément commencer à 10 pour toutes les ressources ?
+            resources.put(type, 0.0);
+        }
+    }
+
+    public BodyResources(List<ResourceType> resourceTypes, double startAmount) {
+        resources = new HashMap<>();
+
+        for(ResourceType type : resourceTypes)
+        {
+            resources.put(type, startAmount);
         }
     }
 
@@ -21,8 +31,9 @@ public class BodyResources {
         return resources.get(type);
     }
 
-    public void setResourceAmount(ResourceType type, double amount) {
-        resources.put(type, amount);
+    public void consume(double percentage)
+    {
+        resources.replaceAll((ResourceType type, Double oldAmount) -> oldAmount * (1-percentage));
     }
 
     public void consume(ResourceType type, Double amount) {
@@ -36,8 +47,8 @@ public class BodyResources {
         }
     }
 
-    public void refill(ResourceType type, Double amount) {
-        resources.replace(type, resources.get(type) + amount);
+    public void fill(ResourceType type, Double amount) {
+        resources.replace(type, (resources.containsKey(type) ? resources.get(type) : 0) + amount);
     }
 
     public void refill(BodyResources newResources)
@@ -54,9 +65,9 @@ public class BodyResources {
         BodyResources share = new BodyResources();
         for(Map.Entry<ResourceType, Double> resource : destinationContainer.resources.entrySet())
         {
+            this.consume(percentage);
             share.resources.put(resource.getKey(), resource.getValue()*percentage);
         }
-
         return share;
     }
 
