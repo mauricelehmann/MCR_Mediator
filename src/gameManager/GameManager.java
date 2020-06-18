@@ -24,6 +24,7 @@ public class GameManager {
     private EventGenerator eventGenerator;
     private Timer eventScheduler = new Timer();
     private Timer bodyUpdateScheduler = new Timer();
+    private Timer relaxer = new Timer();
 
     private Event currentEvent;
     private static boolean actionTaken = false;
@@ -54,6 +55,13 @@ public class GameManager {
                 brain.look(currentEvent);
             }
         }, 5000, 5000);
+
+        relaxer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                brain.calmDown();
+            }
+        }, 10000, 10000);
     }
 
     /**
@@ -93,5 +101,6 @@ public class GameManager {
         eventScheduler.purge();
         brain = null;
         ControlPanel.deathScreen();
+        System.exit(0);
     }
 }

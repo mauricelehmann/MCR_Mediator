@@ -71,7 +71,7 @@ public class Brain extends Organ implements BrainState {
         this.mouth = new Mouth(this);
         this.heart = new Heart(this);
 
-        bodyResources = new BodyResources(Arrays.asList(ResourceType.Oxygen, ResourceType.Protein), 1000);
+        bodyResources = new BodyResources(Arrays.asList(ResourceType.Oxygen, ResourceType.Protein), 50);
         brainResources = new BodyResources();
 
         organs = new ArrayList<>();

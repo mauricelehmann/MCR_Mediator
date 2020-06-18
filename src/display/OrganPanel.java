@@ -58,7 +58,7 @@ public class OrganPanel {
 
     public  static void updateOrganResourcesDisplay(String organClassName, BodyResources r){
 
-        oxygeneLevel.get(organClassName).setText(String.format("%2f", r.getResourceAmount(ResourceType.Oxygen)));
+        oxygeneLevel.get(organClassName).setText(String.format("%.2f", r.getResourceAmount(ResourceType.Oxygen)));
         proteinLevel.get(organClassName).setText(String.format("%.2f", r.getResourceAmount(ResourceType.Protein)));
 
         frame.setVisible(true);

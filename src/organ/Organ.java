@@ -24,7 +24,7 @@ public abstract class Organ {
 
     public Organ(Brain mediator){
         this.brain = mediator;
-        resources = new BodyResources(Arrays.asList(ResourceType.Oxygen, ResourceType.Protein), getSize()/2);
+        resources = new BodyResources(Arrays.asList(ResourceType.Oxygen, ResourceType.Protein), getSize()/5);
         activityFactor = 1;
     }
 
@@ -42,13 +42,22 @@ public abstract class Organ {
      */
     public void consumeResources() {
         resources.consume(ResourceType.Oxygen, getSize() * activityFactor / 50);
-        resources.consume(ResourceType.Protein, getSize()*activityFactor / 200);
+        resources.consume(ResourceType.Protein, getSize()*activityFactor / 1000);
         double oxygenLevel = resources.getResourceAmount(ResourceType.Oxygen);
+        double proteinLevel = resources.getResourceAmount(ResourceType.Protein);
         if (oxygenLevel < this.getSize() / 20) {
             if (oxygenLevel < 0) {
                 brain.die();
             }
             brain.askOxygen(0.2 * this.getSize() - oxygenLevel);
+        }
+        if(oxygenLevel <= 0)
+        {
+            brain.die();
+        }
+        if(proteinLevel <= 0)
+        {
+            brain.die();
         }
         notifyDisplay("");
         //TODO : Add similar behavior for protein ?
