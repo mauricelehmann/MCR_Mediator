@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/organ/Eyes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Eyes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Heart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Heart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Legs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Legs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Lungs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Lungs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Mouth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Mouth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Stomach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Stomach.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,13 +28,14 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="swingint" />
+        <entry key="$PROJECT_DIR$" value="swing" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1dCz5l5aM5e3SZewFMAqkrLRiMm" />
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -148,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592458615934</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="all organs on display">
+      <created>1592460699774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1592460699774</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,7 +200,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gameManager/GameManager.java</url>
-          <line>80</line>
+          <line>67</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

@@ -23,6 +23,7 @@ public class Heart extends Organ {
         else beat += value;
         //If the beat is too high, the player is dead
         if(beat > 100){
+            notifyDisplay("Je fais une crise cardiaque!");
             mediator.die();
         }
         pump();//Reschedule heartbeat with new beat frequency
@@ -30,6 +31,7 @@ public class Heart extends Organ {
 
     public void pump() {
         if(beat > 0) {
+            notifyDisplay("Je pompe du sang");
             //We need to reschedule to send pump blood at the new frequency
             paceMaker = new Timer();
             paceMaker.scheduleAtFixedRate(new TimerTask() {

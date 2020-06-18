@@ -10,9 +10,11 @@ public class Legs extends Organ {
 
     public void run() {
         System.out.println("Jambes : en course");
+       notifyDisplay("En course!");
     }
 
     public void walk() {
         System.out.println("Jambes : en marche");
+        notifyDisplay("En marche");
     }
 }

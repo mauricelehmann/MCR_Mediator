@@ -74,6 +74,7 @@ public class Brain implements BrainState {
         organs.add(eyes);
         organs.add(mouth);
         organs.add(stomach);
+        organs.add(heart);
 
         biomass = 0;
         for(Organ organ : organs)
@@ -148,7 +149,7 @@ public class Brain implements BrainState {
     }
 
     public void updateOrganDisplay(Organ organ, String toDisplay) {
-        OrganPanel.updateOrganDisplay(organ.getClass().getName(), toDisplay);
+        OrganPanel.updateOrganDisplay(organ.getClass().getName(), "<html>"+ toDisplay +"</html>");
         OrganPanel.updateOrganResourcesDisplay(organ.getClass().getName(), organ.getResources());
     }
 
