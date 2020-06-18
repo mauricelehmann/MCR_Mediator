@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameManager/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameManager/GameManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -144,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592458104451</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="all organs on display">
+      <created>1592458615934</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1592458615934</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +178,8 @@
     <MESSAGE value="organ panel grid actualise status" />
     <MESSAGE value="renamed Gevent" />
     <MESSAGE value="fuck this" />
-    <option name="LAST_COMMIT_MESSAGE" value="fuck this" />
+    <MESSAGE value="all organs on display" />
+    <option name="LAST_COMMIT_MESSAGE" value="all organs on display" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -145,6 +145,7 @@ public class Brain implements BrainState {
 
     public void updateOrganDisplay(Organ organ, String toDisplay) {
         OrganPanel.updateOrganDisplay(organ.getClass().getName(), toDisplay);
+        OrganPanel.updateOrganResourcesDisplay(organ.getClass().getName(), organ.getResources());
     }
 
     public BodyResources getBrainResources() {
