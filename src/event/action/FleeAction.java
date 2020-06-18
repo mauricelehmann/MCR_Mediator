@@ -1,7 +1,15 @@
 package event.action;
 
+/**
+ * This class represents a flee action
+ */
 public class FleeAction extends Action {
-    public FleeAction() {
-        super("flee");
+
+    /**
+     * Constructor
+     * @param name the name of this action
+     */
+    public FleeAction(String name) {
+        super(name, "flee.png");
     }
 }

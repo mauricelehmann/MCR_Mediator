@@ -1,29 +1,81 @@
 package organ;
 
-import bodyRessources.BodyRessources;
-import mediator.BodyMediator;
+import bodyRessources.BodyResources;
+import bodyRessources.ResourceType;
+import mediator.Brain;
 
+import java.util.Map;
+
+
+/**
+ * This class is an abstraction of an organ
+ */
 public abstract class Organ {
+    private static final double TIME_INCREMENT = 1000;//1 sec
+    //TODO : Move this somewhere else ?
+    // Create scheduler (per organ or a global one so that organs are synchronized ?) do we need a "Body" class ?
 
-    private BodyMediator mediator;
-    /* Ressources */
-    private BodyRessources ressources;
+    protected Brain brain;
 
-    public Organ(BodyMediator mediator){
-        this.mediator = mediator;
-        ressources = new BodyRessources(10);
+    //TODO : Should organs have a resource maximum ?
+    private BodyResources resources;
+
+    /**
+     * Constructor
+     * @param brain the brain
+     */
+    public Organ(Brain brain){
+        this.brain = brain;
+        resources = new BodyResources();
     }
 
-    protected BodyRessources getRessources(){
-        return ressources;
-    }
-    public BodyMediator getMediator(){
-        return mediator;
-    }
-
-    public void addOxygene(int value){
-        ressources.setOxygenLevel(ressources.getOxygenLevel() + value);
+    /**
+     * The size factor
+     * @return the size factor
+     */
+    public double getSizeFactor()
+    {
+        return 1;
     }
 
+    /**
+     * Consume resources
+     */
+    public void consumeResources()
+    {
+        resources.consume(ResourceType.Oxygen, 10.0);
+        resources.consume(ResourceType.Protein, 10.0);
+    }
 
+    /**
+     * Get resources of this organ
+     * @return the resources
+     */
+    public BodyResources getResources(){
+        return resources;
+    }
+
+    /**
+     * Get its brain
+     * @return the brain
+     */
+    public Brain getBrain(){
+        return brain;
+    }
+
+    /**
+     * Refill this organ resources of a given resources
+     * @param resources the resources
+     */
+    public void refill(BodyResources resources){
+        this.resources.refill(resources);
+    }
+
+    /**
+     * Notify the display of an update
+     * @param toDisplay the string to display
+     */
+    public void notifyDisplay(String toDisplay) {
+        brain.updateOrganDisplay(this, toDisplay);
+    }
 }

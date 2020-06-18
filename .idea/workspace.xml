@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/display/StatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/StatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Heart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Heart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Organ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Organ.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="swing" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1dCz5l5aM5e3SZewFMAqkrLRiMm" />
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="MCR_Mediator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="" />
+      <created>1591943681268</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591943681268</updated>
+      <workItem from="1591943682944" duration="11910000" />
+      <workItem from="1592230519517" duration="4131000" />
+      <workItem from="1592234675788" duration="665000" />
+    </task>
+    <task id="LOCAL-00001" summary="ControlPanel displays event buttons">
+      <created>1591945769939</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591945769939</updated>
+    </task>
+    <task id="LOCAL-00002" summary="event buttons do something but ugly">
+      <created>1591947623710</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591947623710</updated>
+    </task>
+    <task id="LOCAL-00003" summary="control panel ugly but functional">
+      <created>1591947925988</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1591947925988</updated>
+    </task>
+    <task id="LOCAL-00004" summary="begin state panel">
+      <created>1591949399198</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591949399198</updated>
+    </task>
+    <task id="LOCAL-00005" summary="state panel ugly functional">
+      <created>1591950237191</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1591950237191</updated>
+    </task>
+    <task id="LOCAL-00006" summary="debut organ panel">
+      <created>1591955672731</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1591955672731</updated>
+    </task>
+    <task id="LOCAL-00007" summary="organ panel grid actualise status">
+      <created>1592235129620</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592235129620</updated>
+    </task>
+    <task id="LOCAL-00008" summary="renamed Gevent">
+      <created>1592389068256</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592389068256</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fuck this">
+      <created>1592458104451</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592458104451</updated>
+    </task>
+    <task id="LOCAL-00010" summary="all organs on display">
+      <created>1592458615934</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1592458615934</updated>
+    </task>
+    <task id="LOCAL-00011" summary="all organs on display">
+      <created>1592460699774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1592460699774</updated>
+    </task>
+    <task id="LOCAL-00012" summary="all organs">
+      <created>1592462297932</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1592462297932</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ControlPanel displays event buttons" />
+    <MESSAGE value="event buttons do something but ugly" />
+    <MESSAGE value="control panel ugly but functional" />
+    <MESSAGE value="begin state panel" />
+    <MESSAGE value="state panel ugly functional" />
+    <MESSAGE value="debut organ panel" />
+    <MESSAGE value="organ panel grid actualise status" />
+    <MESSAGE value="renamed Gevent" />
+    <MESSAGE value="fuck this" />
+    <MESSAGE value="all organs on display" />
+    <MESSAGE value="all organs" />
+    <option name="LAST_COMMIT_MESSAGE" value="all organs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gameManager/GameManager.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

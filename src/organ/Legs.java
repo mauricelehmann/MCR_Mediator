@@ -1,23 +1,33 @@
 package organ;
 
-import mediator.BodyMediator;
+import mediator.Brain;
 
-
+/**
+ * This class represents the legs
+ */
 public class Legs extends Organ {
-    public Legs(BodyMediator mediator) {
-        super(mediator);
+
+    /**
+     * Constructor
+     * @param brain
+     */
+    public Legs(Brain brain) {
+        super(brain);
     }
 
-    public void run(){
+    /**
+     * Make the legs run
+     */
+    public void run() {
+        System.out.println("Jambes : en course");
+       notifyDisplay("En course!");
+    }
 
-        int oxygenLevel = getRessources().getOxygenLevel();
-        //check si le niveau d'oxygene est suffisant
-        if( oxygenLevel < 20){
-            System.out.println("Jambes : Pas assez d'oxygène!");
-            getMediator().askOxygen(this, 20);
-        }
-        System.out.println("Je cours!");
-        //demander au mediator réduire le niveau d'oxygène
-        getRessources().setOxygenLevel(oxygenLevel - 10);
+    /**
+     * Make the legs walk
+     */
+    public void walk() {
+        System.out.println("Jambes : en marche");
+        notifyDisplay("En marche");
     }
 }
