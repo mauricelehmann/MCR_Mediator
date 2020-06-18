@@ -77,9 +77,11 @@ public class OrganPanel {
     public  static void updateOrganResourcesDisplay(String organClassName, BodyResources r){
         JPanel specificOrganPanel = organPanels.get(organClassName);
         JLabel resource;
+        String output;
         for(int i = 0; i < ResourceType.values().length; ++i){
             resource = (JLabel) specificOrganPanel.getComponent(2+i);
-            resource.setText(""+r.getResourceAmount(ResourceType.values()[i]));
+            output = String.format("%.2f", r.getResourceAmount(ResourceType.values()[i]));
+            resource.setText(output);
         }
 
         frame.setVisible(true);
