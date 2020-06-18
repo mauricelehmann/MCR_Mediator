@@ -40,6 +40,7 @@ public class Brain implements BrainState {
     protected Legs legs;
     protected Mouth mouth;
     public Eyes eyes;
+    public Heart heart;
 
     protected Stomach stomach;
 
@@ -61,6 +62,7 @@ public class Brain implements BrainState {
         this.eyes = new Eyes(this);
         this.stomach = new Stomach(this);
         this.mouth = new Mouth(this);
+        this.heart = new Heart(this);
 
         bodyResources = new BodyResources();
         brainResources = new BodyResources();
@@ -81,8 +83,8 @@ public class Brain implements BrainState {
     }
 
     @Override
-    public void askOxygen(Organ asker, int value) {
-        currentBrain.askOxygen(asker, value);
+    public void askOxygen(){
+        currentBrain.askOxygen();
     }
 
     @Override
@@ -101,7 +103,8 @@ public class Brain implements BrainState {
     }
 
     private void updateState(){
-        /* EXEMPLE DE CHANGEMENT DE STATE */
+
+        /* CHANGEMENT DE STATE */
         if(brainResources.getResourceAmount(ResourceType.Caffein) > 100) {
             System.out.println("Changement d'état du cerveau : le cerveau est excité");
             currentBrain = exitedBrain;
@@ -136,6 +139,7 @@ public class Brain implements BrainState {
     public void die() {
         // TODO: signaler au GameManager que le personnage est mort ???
 //        StatePanel.updateChemicalsDisplay(brainChemical);
+        gameManager.playerDies();
         currentBrain.die();
     }
 
@@ -161,7 +165,6 @@ public class Brain implements BrainState {
     }
 
     public void stress() {
-        // TODO: currentBrain devrait augmenter rythme cardiaque
         currentBrain.stress();
     }
 

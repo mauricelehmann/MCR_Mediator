@@ -12,6 +12,7 @@ public class GameManager {
     private final String EVENTS_FILE = "events.xml";
     private Brain brain;
     private EventGenerator eventGenerator;
+    private boolean continueGame = true;
     private static boolean actionTaken = false;
 
     public GameManager() {
@@ -24,8 +25,6 @@ public class GameManager {
     }
 
     public void startGame() {
-        Boolean continueGame = true;
-
         while(continueGame) {
             nextTurn();
         }
@@ -33,8 +32,13 @@ public class GameManager {
 
     public void nextTurn() {
         // FIXME: maybe this is not clean, we probably should not access eyes directly
-        brain.eyes.see(eventGenerator.generate());
-        brain.updateChemicalLevel();
+        if(brain != null) {
+            brain.eyes.see(eventGenerator.generate());
+        }
+
+        if(brain != null) {
+            brain.updateChemicalLevel();
+        }
     }
 
     public void takeAction(Event event){
@@ -48,35 +52,18 @@ public class GameManager {
         }
 
         actionTaken = false;
-
-//        // Choose action response to event
-//        System.out.println("Que faire ?");
-//
-//        LinkedList<Action> actions = event.getPossibleActions();
-//        for(int i = 0; i < actions.size(); ++i) {
-//            System.out.println(i + ") " + actions.get(i));
-//        }
-//
-//        Boolean valid = false;
-//        int actionPos = 0;
-//
-//        while(!valid) {
-//            Scanner scanner = new Scanner(System.in);
-//            actionPos = scanner.nextInt();
-//
-//            if(actionPos < 0 || actionPos >= actions.size()) {
-//                System.out.println("Cette action n'est pas valide.");
-//            } else {
-//                valid = true;
-//            }
-//        }
-//
-//        actions.get(actionPos).applyEffects(brain);
-
     }
 
-    public void applyAction(Action action){
-        action.applyEffects(brain);
-        actionTaken = true;
+    public void applyAction(Action action) {
+        if(brain != null) {
+            action.applyEffects(brain);
+            actionTaken = true;
+        }
+    }
+
+    public void playerDies() {
+        continueGame = false;
+        brain = null;
+        ControlPanel.deathScreen();
     }
 }

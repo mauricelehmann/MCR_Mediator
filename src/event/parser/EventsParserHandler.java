@@ -32,7 +32,7 @@ public class EventsParserHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException  {
         switch (qName) {
             case "event":
-                currentEvent = new Event();
+                currentEvent = new Event("");
                 break;
             case "action":
                 parseActionAttributes(attributes);

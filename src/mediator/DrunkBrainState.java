@@ -7,7 +7,6 @@ import organ.Organ;
 
 public class DrunkBrainState implements BrainState {
 
-
     //Transform a basic string into a drunkish string
     private static class DrunkTalkDecorator {
         public static String decorate(String sentence){
@@ -23,6 +22,8 @@ public class DrunkBrainState implements BrainState {
         }
     }
 
+
+
     private Brain _brain;
 
     public DrunkBrainState(Brain brain) {
@@ -31,8 +32,8 @@ public class DrunkBrainState implements BrainState {
 
 
     @Override
-    public void askOxygen(Organ asker, int value) {
-        // TODO: implémenter
+    public void askOxygen() {
+
     }
 
     @Override

@@ -6,11 +6,11 @@ import organ.Organ;
 
 public interface BrainState {
 
-    void askOxygen(Organ asker, int value);
-    void run();
+    void askOxygen() ;
+    void run() ;
     void notifyEvent(Event event);
     void consume(BodyResources substance);
-    void stress();
+    void stress() ;
     void processEyesVision(Event event);
     void die();
 }

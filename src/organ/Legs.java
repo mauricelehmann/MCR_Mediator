@@ -9,21 +9,10 @@ public class Legs extends Organ {
     }
 
     public void run() {
-
-        /*fb-Organ_Management
-        //check si le niveau d'oxygene est suffisant
-        while( getRessources().getOxygenLevel() < 20){
-            System.out.println("Jambes : Pas assez d'oxygène!");
-            getMediator().askOxygen();
-            Thread.sleep(2000);
-        }
-        System.out.println("Jambes : Je cours!");
-        //demander au mediator réduire le niveau d'oxygène
-        getRessources().setOxygenLevel(getRessources().getOxygenLevel() - 10);
-        */
-        //TODO : Replace obsolete code
+        System.out.println("Jambes : en course");
     }
 
     public void walk() {
+        System.out.println("Jambes : en marche");
     }
 }

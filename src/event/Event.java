@@ -30,6 +30,10 @@ public class Event {
         return hallucination;
     }
 
+    public Event(String description){
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         String string = "[Evenement]: " + description;
