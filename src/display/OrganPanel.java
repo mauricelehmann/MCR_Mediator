@@ -59,8 +59,6 @@ public class OrganPanel {
         JLabel status = (JLabel) specificOrganPanel.getComponent(1);
         status.setText(toDisplay);
 
-
-
         frame.setVisible(true);
         frame.repaint();
     }

@@ -12,36 +12,43 @@ public class StatePanel {
     private static GameManager gManager = null;
     private static final int CONTROLLER_SIDE = 200;
     private static final JFrame frame = new JFrame("Panneau d'état");
-    private static JLabel state = new JLabel(NormalBrainState.class.getName());
-    private static JLabel alcohol = new JLabel("Alcool init");
-    private static JLabel caffeine = new JLabel("Cafféine init ");
-    private static JLabel psychedelic = new JLabel("Psychotic init");
+    private static JLabel stateValue = new JLabel("Normal");
+    private static JLabel alcoholLevel = new JLabel("0");
+    private static JLabel caffeineLevel = new JLabel("0");
+    private static JLabel psychedelicLevel = new JLabel("0");
 
     public StatePanel(GameManager gManager){
-        frame.setLayout(new FlowLayout());
-        frame.setSize(CONTROLLER_SIDE,CONTROLLER_SIDE);
-        this.gManager = gManager;
-        frame.add(state);
-        frame.add(new JLabel("Alcool").add(alcohol));    //TODO
-        frame.add(caffeine);
-        frame.add(psychedelic);
 
-//        JButton button;
-//        button = new JButton("Test");
-//        frame.add(button);
+        frame.setSize(300, 200);
+        this.gManager = gManager;
+
+        //Names of value
+        frame.add(new JLabel("Etat du cerveau :"));
+        frame.add(stateValue);
+
+        frame.add(new JLabel("Niveau d'alcool :"));
+        frame.add(alcoholLevel);
+
+        frame.add(new JLabel("Niveau de caféine :"));
+        frame.add(caffeineLevel);
+
+        frame.add(new JLabel("Niveau de psychedélic :"));
+        frame.add(psychedelicLevel);
+
+        frame.setLayout(new GridLayout(4, 2));
 
         frame.setVisible(true);
     }
 
     public static void updateStateDisplay(String newState){
-        state.setText(newState);
+        stateValue.setText(newState);
         frame.repaint();
     }
 
     public static void updateChemicalsDisplay(BodyResources chem){
-        alcohol.setText("" + chem.getResourceAmount(ResourceType.Alcohol));
-        caffeine.setText("" + chem.getResourceAmount(ResourceType.Caffein));
-        psychedelic.setText("" + chem.getResourceAmount(ResourceType.Psychedelic));
+        alcoholLevel.setText("" + chem.getResourceAmount(ResourceType.Alcohol));
+        caffeineLevel.setText("" + chem.getResourceAmount(ResourceType.Caffein));
+        psychedelicLevel.setText("" + chem.getResourceAmount(ResourceType.Psychedelic));
         frame.repaint();
     }
 }
