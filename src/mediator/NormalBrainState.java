@@ -53,7 +53,7 @@ public class NormalBrainState implements BrainState {
      */
     @Override
     public void stress() {
-        _brain.heart.accelerate(2);
+        _brain.heart.accelerate(1.2);
     }
 
     /**

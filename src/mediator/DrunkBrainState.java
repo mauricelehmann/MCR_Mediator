@@ -77,7 +77,6 @@ public class DrunkBrainState implements BrainState {
         //Different behavior here ...
         if(substance.getResourceAmount(ResourceType.Alcohol) > 10){
             _brain.mouth.say(DrunkTalkDecorator.decorate("On se la colle!"));
-            _brain.stomach.digest(substance, _brain.getBrainResources());
         } else {
             _brain.mouth.say(DrunkTalkDecorator.decorate("Pas assez d'alcool la Dedans... hips..."));
         }

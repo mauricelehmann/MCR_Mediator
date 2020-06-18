@@ -38,7 +38,7 @@ public class ExcitedBrainState implements BrainState {
      */
     @Override
     public void askOxygen(double value) {
-        _brain.lungs.accelerate(1+value*2); //*2 parce qu'il super EXCITEEEE
+        _brain.lungs.accelerate(1+value/5); //*2 parce qu'il super EXCITEEEE
     }
 
     /**
@@ -77,7 +77,7 @@ public class ExcitedBrainState implements BrainState {
      */
     @Override
     public void stress(){
-       _brain.heart.accelerate(10);
+       _brain.heart.accelerate(1.5);
     }
 
     /**
