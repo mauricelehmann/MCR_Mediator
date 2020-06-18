@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/display/OrganPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/OrganPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organ/Eyes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Eyes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/organ/Heart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Heart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organ/Legs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Legs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organ/Lungs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Lungs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organ/Mouth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Mouth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organ/Stomach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Stomach.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592460699774</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="all organs">
+      <created>1592462297932</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1592462297932</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +194,8 @@
     <MESSAGE value="renamed Gevent" />
     <MESSAGE value="fuck this" />
     <MESSAGE value="all organs on display" />
-    <option name="LAST_COMMIT_MESSAGE" value="all organs on display" />
+    <MESSAGE value="all organs" />
+    <option name="LAST_COMMIT_MESSAGE" value="all organs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

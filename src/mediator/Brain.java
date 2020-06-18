@@ -145,7 +145,7 @@ public class Brain implements BrainState {
     }
 
     public String getCurrentBrainState(){
-        return currentBrain.getClass().getName();
+        return currentBrain.getClass().getSimpleName();
     }
 
     public void updateOrganDisplay(Organ organ, String toDisplay) {

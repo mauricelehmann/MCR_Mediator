@@ -23,7 +23,7 @@ public class Heart extends Organ {
         else beat += value;
         //If the beat is too high, the player is dead
         if(beat > 100){
-            notifyDisplay("Je fais une crise cardiaque!");
+            notifyDisplay("Je fais une crise cardiaque!");  //TODO kler écrasé par pompe
             mediator.die();
         }
         pump();//Reschedule heartbeat with new beat frequency
