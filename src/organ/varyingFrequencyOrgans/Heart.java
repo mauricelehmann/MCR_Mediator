@@ -5,6 +5,8 @@ import mediator.Brain;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static java.lang.Math.max;
+
 public class Heart extends Organ {
     //HeartBeat per minute
     private double beat;
@@ -13,17 +15,18 @@ public class Heart extends Organ {
 
     public Heart(Brain mediator) {
         super(mediator);
+        beat = 1.2; //1 beat per second is slow, but still normal !
     }
 
     public void accelerate(double multiplier) throws Exception {
-        beat *= multiplier;
+        beat = max(multiplier*beat, 1);//Cannot go under a certain frequency
         pump();//Reschedule heartbeat with new beat frequency
     }
 
-    public void pump() throws Exception {
+    public void pump() {
         if(beat > 0) {
+            activityFactor = beat*2;
             //We need to reschedule to send pump blood at the new frequency
-            paceMaker.cancel();
             paceMaker.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
@@ -31,9 +34,10 @@ public class Heart extends Organ {
                 }
             }, 0, (int)(1000/beat));
         }
-        else
-        {
-            throw new Exception("Heart is stopped !");//TODO : Make exception classes and handle them
-        }
+    }
+
+    @Override
+    public double getSize() {
+        return 50;
     }
 }

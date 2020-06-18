@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3ed9aeb1-59ee-4434-9fe6-2cffe73c061f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/organ/varyingFrequencyOrgans/Lungs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/organ/varyingFrequencyOrgans/VaryingFrequencyOrgan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/display/StatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/display/StatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bodyRessources/BodyResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/event/effect/EatEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/effect/EatEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/event/parser/EventsParserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/event/parser/EventsParserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameManager/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameManager/GameManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mediator/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/Brain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/BrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/BrainState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/DrunkBrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/DrunkBrainState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/ExcitedBrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/ExcitedBrainState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/NormalBrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/NormalBrainState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mediator/WeirdBrainState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mediator/WeirdBrainState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Eyes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Eyes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Heart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/varyingFrequencyOrgans/Heart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Legs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Legs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Lungs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Mouth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Mouth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Organ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Organ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organ/Stomach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organ/Stomach.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +50,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -34,18 +70,6 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -145,13 +169,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ControlPanel displays event buttons" />
@@ -164,15 +187,30 @@
     <MESSAGE value="renamed Gevent" />
     <option name="LAST_COMMIT_MESSAGE" value="renamed Gevent" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gameManager/GameManager.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="WindowStateProjectService">
+    <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592438328974">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="225" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1592438328974" />
+    <state width="699" height="231" key="GridCell.Tab.0.bottom" timestamp="1592444908563">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="699" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1592444908563" />
+    <state width="699" height="231" key="GridCell.Tab.0.center" timestamp="1592444908561">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="699" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1592444908561" />
+    <state width="699" height="231" key="GridCell.Tab.0.left" timestamp="1592444908560">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="699" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1592444908560" />
+    <state width="699" height="231" key="GridCell.Tab.0.right" timestamp="1592444908562">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="699" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1592444908562" />
+    <state x="455" y="234" key="refactoring.ChangeSignatureDialog" timestamp="1592443565275">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="455" y="234" key="refactoring.ChangeSignatureDialog/0.23.1440.877@0.23.1440.877" timestamp="1592443565275" />
   </component>
 </project>
